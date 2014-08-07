@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :answs
+
   root 'surveys#index'
   resources :surveys
 
