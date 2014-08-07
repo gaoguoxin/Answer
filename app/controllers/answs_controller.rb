@@ -54,16 +54,6 @@ class AnswsController < ApplicationController
       end
     end
 
-    # @answ = Answ.new(answ_params)
-    # respond_to do |format|
-    #   if @answ.save
-    #     format.html { redirect_to @answ, notice: 'Answ was successfully created.' }
-    #     format.json { render :show, status: :created, location: @answ }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @answ.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /answs/1

@@ -80,7 +80,7 @@ class Answ
   field :tel,            :type => String  # 您的电话
   field :email,          :type => String  # 您的邮箱
   field :uid,            :type => String  # 回答问题的用户id
-  field :status,         :type => Integer # 标示是否回答完毕
+  field :status,         :type => Integer,:default => 1 # 标示是否回答完毕
 
 
   field :know_way_other,         :type => String
