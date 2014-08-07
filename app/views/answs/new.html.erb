@@ -1,5 +1,30 @@
-<h1>New answ</h1>
-
 <%= render 'form' %>
+<script type="text/javascript">
+$(function(){
 
-<%= link_to 'Back', answs_path %>
+	send_post_ajax = function(){
+		$.ajax({
+    	  data: $('form').serialize(),
+    	  url: $('form').attr('action'),
+    	  method: "POST",
+    	  success: function(ret){
+			console.log('post success')
+    	  },
+    	  error: function(){
+    	  	console.log('post failed')
+    	  } 			
+		})
+ 	
+	}
+
+	$('.new_answ input[type="text"]').keyup(function(){
+		send_post_ajax()
+		return false
+	})
+
+	$('.new_answ input[type="radio"],input[type="checkbox"],select').change(function(){
+		send_post_ajax()
+		return false
+	})	
+})	
+</script>

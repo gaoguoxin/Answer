@@ -364,27 +364,6 @@ body{
 		background: #F3F0FC;
 		color: #9F8BE4;
 	}
-	// &.purple {
-	// 	> em { background-image: image-url("filler/purple-face.png"); }
-	// }
-	// &.waiting {
-	// 	> em { background-image: image-url("filler/waiting-face.png"); }
-	// }
-	// &.red, &.time {
-	// 	background: #FDECEF;
-	// 	color: #ED2152;
-	// }
-	// &.red {
-	// 	> em { background-image: image-url("filler/red-face.png"); }
-	// }
-	// &.time {
-	// 	> em { background-image: image-url("filler/time-face.png"); }
-	// }
-	// &.green {
-	// 	background: #EEF7E2;
-	// 	color: #82BD3F;
-	// 	> em { background-image: image-url("filler/green-face.png"); }
-	// }
 }
 
 
@@ -439,6 +418,9 @@ body{
 				display:inline-block;
 			}
 		}
+	}
+	&.empty{
+		background:red;
 	}
 }
 

@@ -1,6 +1,35 @@
-<h1>Editing answ</h1>
 
 <%= render 'form' %>
+<script type="text/javascript">
+$(function(){
 
-<%= link_to 'Show', @answ %> |
-<%= link_to 'Back', answs_path %>
+	send_upd_ajax = function(){
+		$.ajax(
+			{
+    		  data: $('form').serialize(),
+    		  url: $('form').attr('action'),
+    		  method: "PUT",
+    		  success: function(ret){
+				console.log('upd success')
+    		  },
+    		  error: function(){
+    		  	console.log('upd faailed')
+    		  } 			
+			}
+		)
+
+ 	
+	}
+
+	$('.edit_answ input[type="text"]').keyup(function(){
+		send_upd_ajax()
+		return false
+	})
+
+	$('.edit_answ input[type="radio"],input[type="checkbox"],select').change(function(){
+		send_upd_ajax()
+		return false
+	})	
+})	
+</script>
+
