@@ -84,6 +84,6 @@ class AnswsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answ_params
-      params[:answ]
+      params.permit(:answ)
     end
 end
