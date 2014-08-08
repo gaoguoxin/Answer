@@ -1,3 +1,4 @@
+
 class AnswsController < ApplicationController
   before_action :set_answ, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,7 @@ class AnswsController < ApplicationController
   # GET /answs/1
   # GET /answs/1.json
   def show
+    @answ = Answ.where(uid:cookies[:ukey]).first  if @answ.uid != cookies[:ukey]
   end
 
   # GET /answs/new
@@ -17,16 +19,19 @@ class AnswsController < ApplicationController
     if cookies[:ukey].present? 
       @answ = Answ.where(uid:cookies[:ukey]).first
       if @answ .present?
-        redirect_to edit_answ_path(@answ ) and return 
+        if @answ.status == Answ::FINISH
+          redirect_to answ_path(@answ)
+        else
+          redirect_to edit_answ_path(@answ )
+        end
       end
+    else
+      cookies[:ukey] = {
+        :value => Time.now.to_i,
+        :expires => 12.months.from_now,
+        :domain => :all
+      }       
     end
-
-    cookies[:ukey] = {
-      :value => Time.now.to_i,
-      :expires => 12.months.from_now,
-      :domain => :all
-    } 
-
     @answ = Answ.new       
   end
 
@@ -66,24 +71,38 @@ class AnswsController < ApplicationController
     end
   end
 
-  # # DELETE /answs/1
-  # # DELETE /answs/1.json
-  # def destroy
-  #   @answ.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to answs_url, notice: 'Answ was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def review
+    answ = nil
+    if cookies[:ukey].present?
+      answ = Answ.where(uid:cookies[:ukey]).first
+    end
+    render json: answ, success: false
+  end
+
+  def report
+
+  end
+
+  def down
+    @answs = Answ.all
+    res = @answs.to_csv
+    send_data(res.encode("GBK"),:type => 'text/csv;header=present', :filename => "data.csv")
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answ
-      @answ = Answ.find(params[:id])
+      begin
+        @answ = Answ.find(params[:id])
+      rescue
+        render_404
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answ_params
-      params.permit(:answ)
+      params.require(:answ).permit!
     end
 end

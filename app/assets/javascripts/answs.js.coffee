@@ -75,18 +75,57 @@ $ ->
   		  	$('.fancy-wra button.cancel').bind('click',->
   		  		$.fancybox.close()
   		  	)
+
   		  	$('.fancy-wra button.sub-btn').bind('click',->
   		  		$('<input id="answ_company" name="answ[status]" type="hidden" value="2">').appendTo($('form'))
-  		  		$('form').submit()
+  		  		finish()
   		  	)
 
   		  afterClose:-> 
   		  	$('#alert_notice').hide()
   		})	
 
+	finish = ->
+		if $('form').attr('action') == '/answs'
+			meth = 'POST'
+		else
+			meth = 'PUT'
+		console.log(meth)
+		$.ajax {
+			type: meth
+			url: $('form').attr('action')
+			data: $('form').serialize()
+			success: ->
+			 	window.location.href = '/'
+			error: ->
+				console.log('upd faailed')	
+		}
+
 	$('#next_btn').click((e)->
 		e.preventDefault()
 		#check_required()
 		alert_notice()
 	)
+
+	$('button.review').click(->
+		$.ajax {
+			type: "GET"
+			url: '/review'
+			data: {}
+			success: (ret)->
+			 	if ret
+			 		window.open("/answs/#{ret._id['$oid']}",'_blank')
+		}		
+	)
+
+	$('button.print').click(->
+		window.print()
+		return false
+	)
+
+	$('button.report').click(->
+		window.location.href = '/down'
+	)
+
+
 

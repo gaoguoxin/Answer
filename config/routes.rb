@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   root 'answs#new'
+  get '/review' => 'answs#review'
+  get '/report' => 'answs#report'
+  get '/down' => 'answs#down'
   resources :answs
 
   # The priority is based upon order of creation: first created -> highest priority.

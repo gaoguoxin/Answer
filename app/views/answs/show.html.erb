@@ -1,4 +1,1676 @@
-<p id="notice"><%= notice %></p>
+<div id="sf">
+  <div id="sf_banner">
+    <div id="pv_bar">
+      <button style="display: inline-block;" class='print'>打印</button>
+    </div>
+  </div>
+  <div class="sf_banner_span is_preview">&nbsp;</div>
 
-<%= link_to 'Edit', edit_answ_path(@answ) %> |
-<%= link_to 'Back', answs_path %>
+  <div id="f_body">
+  	<div>
+    	<div id="sf_main" class="sf_main_padding">
+      	<div class="header"></div>
+      	<div class="s-title">关于开展“国办发8号文件”贯彻落实情况 调查评估</div>
+      	<div id="questions_con">
+      	  <div class="q-filler q-paragraph">
+      	    <div class="q-title">
+      	      <span class="q-title-content"><span style="font-weight: bold;">一、基本信息</span></span>
+      	    </div>
+      	    <div class="q-content"></div>
+      	  </div>
+      	  <div class="q-filler q-textblank">
+      	    <span class="q-idx" style="display: none;">01</span>
+      	    <div class="q-title">
+      	      <span class="q-title-content">1.企业名称：</span>
+      	      <span class="q-error"></span>
+      	    </div>
+      	    <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.company%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+      	    </div>
+      	  </div>
+      	  <div class="q-filler q-choice">
+      	    <span class="q-idx" style="display: none;">02</span>
+      	    <div class="q-title">
+      	      <span class="q-title-content">2.您企业所在的地区是：</span>
+      	      <span class="q-error"></span>
+      	    </div>
+
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.address %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> 
+      	  </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">03</span>
+            <div class="q-title">
+              <span class="q-title-content">3.企业所属技术领域：</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.tech_domain%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">04</span>
+            <div class="q-title">
+              <span class="q-title-content">4.企业类型：</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.company_type%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> 
+          </div>          
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">05</span>
+            <div class="q-title">
+              <span class="q-title-content">5.企业规模：</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.company_size%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">06</span>
+            <div class="q-title">
+              <span class="q-title-content">6.贵企业在收到此问卷之前对国办发8号文件的了解程度：</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.known_level%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <% if @answ.known_way.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">6.1通过哪些途径知晓：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <%@answ.known_way.each do |way|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if way == '其他'%>
+                              <p><%= way %>:<%= @answ.known_way_other%></p>
+                            <% else %>
+                              <p><%= way %></p>
+                            <% end %>
+                            
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">08</span>
+            <div class="q-title">
+              <span class="q-title-content">7.贵企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何？</ span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.sense %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content">
+                <span style="font-weight: bold;">国办发8号文件相关政策措施落实情况：<br>（一）进一步完善引导企业加大技术创新投入的机制</span>
+              </span>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">1.企业是否制定了中长期技术创新发展规划：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.plan? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">2.企业是否设立了专门的技术创新管理部门：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.innovate? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">3.近三年研发投入是否逐年增加：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.devotion? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-numberblank">
+            <span class="q-idx" style="display: none;">12</span>
+            <div class="q-title">
+              <span class="q-title-content">3.1 2013年本企业研发投入占销售收入的大致比例</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.percent %>%</p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">3.2 研发投入强度是否能够满足企业技术创新需求：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.satisfy? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">4.企业是否曾牵头承担中央或地方财政资助的科技计划项目：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.lead? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">5.企业是否支持科研项目经费后补助政策：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.support? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <% if @answ.suggest.present? %>
+            <div class="q-filler q-textblank">
+              <div class="q-title">
+                <span class="q-title-content">5.1 您的企业支持该政策，对于政策实施有什么建议：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <p><%= @answ.suggest %></p>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+          <% if @answ.reason.present? %>
+            <div class="q-filler q-textblank">
+              <div class="q-title">
+                <span class="q-title-content">5.2您的企业不支持该政策，原因是：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <p><%= @answ.reason %></p>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">6.中央或地方科技计划项目的征集或指南编制时是否征求企业有关专家意见：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.seek? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+  
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">7.相关部门考核本企业技术创新的经营业绩时，是否将研发投入视同利润纳入考核：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.appraise? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content"> 7.1对建立健全国有企业技术创新的经营业绩考核制度的建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.appra_suggest %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+  
+  
+  
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">8.贵企业在技术创新方面获得国有资本经营预算资金的支持情况：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%=@answ.cash_support%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（二）支持企业建立研发机构</span></span>
+            </div>
+          </div>
+
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">9.贵企业是否建立了研发机构：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.have_innovate? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <% if @answ.innovate_type.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">贵企业拥有以下哪些国家级或省级的研发机构：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <% @answ.innovate_type.each do |t|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if t == '其他' %>
+                              <p><%= t %>:<%= @answ.innovate_type_other %></p>
+                            <% else %>
+                              <p><%= t %></p>
+                            <% end %> 
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+    
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术<br>    中心，是否享受了进口科技开发用品税收优惠政策：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.prefer_policy%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+  
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.policy_problem%></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>            
+            </div>
+          </div>
+  
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（三）支持企业推进重大科技成果产业化</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">10.贵企业在科技成果推广应用和产业化方面，获得国家或本地区相关政策支持情况：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.support_action %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">11.贵企业更希望获得政府部门哪些方面的支持：</span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                  <% if @answ.support_facet.present?%>
+                    <% @answ.support_facet.each do |s| %>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <% if s == '其他' %>
+                            <p><%= s %>:<%= @answ.support_facet_other %></p>
+                          <% else %>
+                            <p><%= s %></p>
+                          <% end %> 
+                        </label>
+                      </td>   
+                    <% end %>
+               
+                  <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（四）以企业为主导发展产业技术创新战略联盟</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">28</span>
+            <div class="q-title">
+              <span class="q-title-content">12.贵企业是否牵头或参与本领域相关产业技术创新战略联盟：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.innovate_union? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <% if @answ.union_support.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">12.1 所在联盟更希望获得政府部门哪些方面的支持：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <p><%= @answ.union_support %></p>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">12.2 贵企业认为政府部门倡导的以企业为主导发展产业技术创新联盟，其运行中存在的问题及建议:<br></span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.gov_union_prob %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（五）依托转制院所和行业领军企业构建产业共性技术研发基地</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">13.贵企业是否为相关产业共性技术研发基地的依托单位：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.rely_company? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">13.1 在加强共性技术研发和成果推广扩散方面，得到了政府部门的哪些支持：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.what_support %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>            
+            </div>
+          </div>
+          
+          
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">13.2 在产业共性技术研发基地建设、运行和技术扩散服务方面，存在的主要问题及建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.innovate_prob %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>              
+            </div>
+          </div>
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（六）强化科研院所和高等学校对企业技术创新的源头支持</span></span>
+            </div>
+          </div>
+
+
+          <% if @answ.cooperate_type.present?%>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <%@answ.cooperate_type.each do |t|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if t == '其他'%>
+                              <p><%= t %>:<%= @answ.cooperate_type_other%></p>
+                            <% else %>
+                              <p><%= t %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">14.1 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                          <p><%= @answ.cooperate_prob %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（七）完善面向企业的技术创新服务平台</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">15.贵企业是否享受过技术创新服务平台或科技中介服务机构提供的服务：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.service_support? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+          <% if @answ.no_supp_reason.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <%@answ.no_supp_reason.each do |t|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if t == '其他'%>
+                              <p><%= t %>:<%= @answ.no_supp_reason_other%></p>
+                            <% else %>
+                              <p><%= t %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+          <% if @answ.service_content.present?%>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">16.面向企业技术创新需求，建议平台加强的服务内容为：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <%@answ.service_content.each do |t|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if t == '其他'%>
+                              <p><%= t %>:<%= @answ.service_content_other%></p>
+                            <% else %>
+                              <p><%= t %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（八）加强企业创新人才队伍建设</span></span>
+            </div>
+          </div>
+
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">17.贵企业是否曾引进海外高层次人才：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.adv_person? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+          <% if @answ.adv_p_support.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <p><%= @answ.adv_p_support? ? '是' : '否' %></p>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+          <% if @answ.no_adv_reason.present?%>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是： </span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <% if @answ.no_adv_reason == '其他'%>
+                            <p><%= @answ.no_adv_reason %>:<%= @answ.no_adv_reason_other%></p>
+                          <% else %>
+                            <p><%= @answ.no_adv_reason %></p>
+                          <% end %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>  
+              </div>
+            </div>
+          <% end %>
+
+
+
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">18.贵企业为吸引和凝聚创新人才，是否实施了股权或分红激励措施：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <% if @answ.adv_reward?%>
+                          <p>是</p>
+                        <% else %>
+                          <p>否(原因:<%= @answ.no_rew_reason %>)</p>
+                        <% end %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">18.1 实施股权或分红激励的主要原因是：</span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.reward_reason%>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（九）推动科技资源开放共享</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">19.本企业是否曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.use_school? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <% if @answ.no_use_school.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">19.1 本企业不曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源的主要原因是：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <% if @answ.no_use_school == '其他' %>
+                            <p>其他(原因:<%= @answ.no_use_school_other%>)</p>
+                          <% else %>
+                            <p><%= @answ.no_use_school %></p>
+                          <% end %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">20.本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是否曾使用过：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.sent_out? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <% if @answ.no_sent_out_res.present? %>
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是不曾使用过的主要原因是：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <% if @answ.no_sent_out_res == '其他' %>
+                          <p>其他(原因:<%= @answ.no_sent_out_res_other%>)</p>
+                        <% else %>
+                          <p><%= @answ.no_sent_out_res %></p>
+                        <% end %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <% end %>
+          
+          
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">20.2 目前公共科技资源开放共享方面存在的问题及建议： </span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.pub_tech_prob %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（十）提升企业技术创新开放合作水平</span></span>
+            </div>
+          </div>
+
+
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">21.企业是否开展国际创新合作：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.innovate_world? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <% if @answ.world_type.present? %>
+            <div class="q-filler q-choice">
+              <span class="q-idx" style="display: none;">50</span>
+              <div class="q-title">
+                <span class="q-title-content">21.1 企业开展国际创新合作采取了如下哪些形式：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <%@answ.world_type.each do |t|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if t == '其他'%>
+                              <p><%= t %>:<%= @answ.world_type_other%></p>
+                            <% else %>
+                              <p><%= t %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">21.2 企业在开展国际创新合作中，存在的问题和建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.world_problem%>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（十一）完善支持企业技术创新的财税金融等政策</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">22.贵企业是否享受了企业研发费用加计扣除政策：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <p><%= @answ.deduct_prolicy? ? '是' : '否' %></p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <% if @answ.deduct_usage.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">22.1 该政策对促进贵企业加大研发投入的作用和影响：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.deduct_usage%>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @answ.no_deduct_rea.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">22.2 贵企业没有享受了企业研发费用加计扣除政策的原因是：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <% @answ.no_deduct_rea.each do |way|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if way == '其他'%>
+                              <p><%= way %>:<%= @answ.no_deduct_rea_other%></p>
+                            <% else %>
+                              <p><%= way %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content"> 22.3 您对进一步落实和完善企业研发费用加计扣除政策有何建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.deduct_suggest%>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>            
+            </div>
+          </div>
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">23.贵企业是否享受了企业研发仪器设备加速折旧政策：</span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.depreciation? ? '是' : '否' %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
+
+
+          <% if @answ.deprecia_usage.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">23.1 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.deprecia_usage %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                <table>
+              </div>
+            </div>
+          <% end %>
+
+
+
+          <% if @answ.no_deprecia.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <% if @answ.no_deprecia == '其他' %>
+                            <p>其他(原因:<%= @answ.no_deprecia_other%>)</p>
+                          <% else %>
+                            <p><%= @answ.no_deprecia %></p>
+                          <% end %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">23.3 您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.deprec_suggest%>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">24.贵企业是否为高新技术企业：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.adv_company? ? '是' : '否' %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
+
+
+          <% if @answ.adv_policy.present? %>
+            <div class="q-filler q-choice">
+              <span class="q-idx" style="display: none;">61</span>
+              <div class="q-title">
+                <span class="q-title-content">24.1 贵企业是否享受了高新技术企业税收优惠（按15%的企业所得税率）政策：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.adv_policy? ? '是' : '否' %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table> 
+              </div>
+            </div>
+          <% end %>
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">24.2 您对高新技术企业认定工作，以及对改进和完善高企认定管理办法有何建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.adv_suggest %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
+
+          <div class="q-filler q-paragraph">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">（十二）总体评价和建议</span></span>
+            </div>
+          </div>
+
+          <div class="q-filler q-choice">
+            <div class="q-title">
+              <span class="q-title-content">25.贵企业对国办发8号文件目前贯彻落实情况的总体评价：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.state_rate %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">26.您认为当前国有企业开展技术创新活动面临的主要问题和挑战：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.innovate_chan %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>             
+            </div>
+          </div>
+
+
+
+
+          <div class="q-filler q-textblank">
+            <div class="q-title">
+              <span class="q-title-content">27.贯彻落实国办发8号文件存在的主要问题及有关建议：</span>
+            </div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <span>&nbsp;</span>
+                        <%= @answ.eight_suggest %>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>   
+            </div>
+          </div>
+
+
+          <% if @answ.uname.present? %>
+            <div class="q-filler q-textblank">
+              <div class="q-title">
+                <span class="q-title-content">您的姓名：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.uname %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>   
+            </div>
+          <% end %>
+          <% if @answ.u_company.present? %>
+            <div class="q-filler q-textblank">
+              <div class="q-title">
+                <span class="q-title-content">您所在的单位名称：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.u_company %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>   
+              </div>
+            </div>
+          <% end %>
+
+          <% if @answ.position.present? %>
+            <div class="q-filler q-textblank">
+              <div class="q-title">
+                <span class="q-title-content">您的职务：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.position %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>   
+              </div>
+            </div>
+          <% end %>
+
+          <% if @answ.tel.present? %>
+            <div class="q-filler q-phoneblank">
+              <div class="q-title">
+                <span class="q-title-content">您的联系电话：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= @answ.tel %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>  
+              </div>
+            </div>
+          <% end %>
+
+          <% if @answ.email.present? %>
+            <div class="q-filler q-emailblank bottom">
+              <div class="q-title">
+                <span class="q-title-content">您的常用的电子信箱：</span>
+              </div>
+              <div class="q-content">
+              <%= @answ.email %>
+              </div>
+            </div>
+          <% end %>
+				</div>
+    	</div>
+    </div>
+  </div>
+</div>
+
+
+
