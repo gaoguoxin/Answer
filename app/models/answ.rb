@@ -1,4 +1,7 @@
+# encoding: utf-8
+require 'spreadsheet'
 require 'csv'
+
 class Answ
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -9,77 +12,74 @@ class Answ
 
 
 
-  field :company,    	 :type => String  #公司名称
-  field :address,    	 :type => String  #地址
-  field :tech_domain,	 :type => String  #技术领域
-  field :company_type,	 :type => String  #公司类型
-  field :company_size,   :type => String  #公司规模
-  field :known_level,    :type => String  #知晓程度
-  field :known_way,      :type => Array  #知晓途径
-  field :known_way_other,:type => String  #知晓途径
-  field :sense,          :type => String  #文件意义
-  field :plan,           :type => Boolean #是否定制了长期发展创新计划
-  field :innovate,       :type => Boolean #是否设立了技术创新管理部门
+  field :company,    	   :type => String  # 企业名称
+  field :address,    	   :type => String  # 您企业所在的地区是
+  field :tech_domain,	   :type => String  # 企业所属技术领域
+  field :company_type,	 :type => String  # 企业类型
+  field :company_size,   :type => String  # 企业规模
+  field :known_level,    :type => String  # 贵企业在收到此问卷之前对国办发8号文件的了解程度
+  field :known_way,      :type => Array   # 通过哪些途径知晓
+  field :sense,          :type => String  # 贵企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何
+  field :plan,           :type => String  # 企业是否制定了中长期技术创新发展规划
+  field :innovate,       :type => String  # 企业是否设立了专门的技术创新管理部门
 
-  field :devotion,       :type => String  #研发投入
-  field :percent,        :type => Integer #2013年 研发投入占销售收入比例
-  field :satisfy,        :type => Boolean # 研发投入是否满足企业创新年需求
-  field :lead,           :type => Boolean # 企业是否曾牵头财政资助的科技项目
-  field :support,        :type => Boolean # 企业是否支持科研项目经费后补政策
-  field :suggest,        :type => String  #对政策实施的建议
-  field :reason,         :type => String #企业不支持该政策原因
-  field :seek,           :type => Boolean # 是否征求了企业有关专家的意见
-  field :appraise,       :type => Boolean # 是否将雁塔投入视同利润纳入考核
-  field :appra_suggest,  :type => String  # 对国有企业技术长信业绩好客制度的建议
+  field :devotion,       :type => String  # 近三年研发投入是否逐年增加
+  field :percent,        :type => Integer # 2013年本企业研发投入占销售收入的大致比例 
+  field :satisfy,        :type => String  # 研发投入强度是否能够满足企业技术创新需求
+  field :lead,           :type => String  # 企业是否曾牵头承担中央或地方财政资助的科技计划项目
+  field :support,        :type => String  # 企业是否支持科研项目经费后补助政策
+  field :suggest,        :type => String  # 您的企业支持该政策，对于政策实施有什么建议
+  field :reason,         :type => String  # 您的企业不支持该政策，原因是
+  field :seek,           :type => String  # 中央或地方科技计划项目的征集或指南编制时是否征求企业有关专家意见
+  field :appraise,       :type => String  # 相关部门考核本企业技术创新的经营业绩时，是否将研发投入视同利润纳入考核
+  field :appra_suggest,  :type => String  # 对建立健全国有企业技术创新的经营业绩考核制度的建议
 
-  field :cash_support,   :type => String  # 企业在获得国有资本资金的支持状况
-  field :have_innovate,  :type => Boolean # 企业是否建立了研发机构
-  field :innovate_type,  :type => Array  # 企业拥有哪些国家级或省级研发机构
-  field :prefer_policy,  :type => String  # 企业是否享受了税收优惠政策
-  field :policy_problem, :type => String  # 享受税收政策的时候存在的问题
-  field :support_action, :type => String  # 企业获得相关政策的支持情况
-  field :support_facet,  :type => Array  # 企业希望获得政府部门哪些方面的支持
-  field :innovate_union, :type => Boolean # 企业是否参与技术创新联盟
-  field :union_support,  :type => String  # 联盟希望获得哪些方面的支持
-  field :gov_union_prob, :type => String  # 政府倡导技术创新联盟运行中的问题及建议
+  field :cash_support,   :type => String  # 贵企业在技术创新方面获得国有资本经营预算资金的支持情况
+  field :have_innovate,  :type => String  # 贵企业是否建立了研发机构
+  field :innovate_type,  :type => Array   # 贵企业拥有以下哪些国家级或省级的研发机构
+  field :prefer_policy,  :type => String  # 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术
+  field :policy_problem, :type => String  # 在申请和享受该项税收优惠政策过程中，存在的主要问题及建议
+  field :support_action, :type => String  # 贵企业在科技成果推广应用和产业化方面，获得国家或本地区相关政策支持情况
+  field :support_facet,  :type => Array   # 贵企业更希望获得政府部门哪些方面的支持
+  field :innovate_union, :type => String  # 贵企业是否牵头或参与本领域相关产业技术创新战略联盟
+  field :union_support,  :type => String  # 所在联盟更希望获得政府部门哪些方面的支持
+  field :gov_union_prob, :type => String  # 贵企业认为政府部门倡导的以企业为主导发展产业技术创新联盟，其运行中存在的问题及建议
 
 
-  field :rely_company,   :type => Boolean # 企业是否依托单位
-  field :what_support,   :type => String  # 得到了蒸功夫部门的哪些支持
+  field :rely_company,   :type => String  # 贵企业是否为相关产业共性技术研发基地的依托单位
+  field :what_support,   :type => String  # 在加强共性技术研发和成果推广扩散方面，得到了政府部门的哪些支持
   field :innovate_prob,  :type => String  # 在产业共性技术研发基地建设、运行和技术扩散服务方面，存在的主要问题及建议
-  field :cooperate_type, :type => Array   # 企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式
+  field :cooperate_type, :type => Array   # 贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式
   field :cooperate_prob, :type => String  # 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议
-  field :service_support,:type => Boolean # 企业是否享受过技术创新服务平台或科技中介服务机构提供的服务
-  field :no_supp_reason, :type => Array   # 企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因
-  field :service_content,:type => Array   # 面向企业技术创新需求，建议平台加强的服务内容
-  field :adv_person,     :type => Boolean # 是否引进海外高级人才
-  field :adv_p_support,  :type => Boolean # 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持
+  field :service_support,:type => String  # 贵企业是否享受过技术创新服务平台或科技中介服务机构提供的服务
+  field :no_supp_reason, :type => Array   # 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是
+  field :service_content,:type => Array   # 面向企业技术创新需求，建议平台加强的服务内容为
+  field :adv_person,     :type => String  # 贵企业是否曾引进海外高层次人才
+  field :adv_p_support,  :type => String  # 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持
   
   field :no_adv_reason,  :type => String  # 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是
   field :adv_reward,     :type => String  # 贵企业为吸引和凝聚创新人才，是否实施了股权或分红激励措施 
-  field :no_rew_reason,  :type => String  # 未实施了股权或分红激励措施原因
   field :reward_reason,  :type => String  # 实施股权或分红激励的主要原
-  field :use_school,     :type => Boolean # 企业是否曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源
+  field :use_school,     :type => String # 企业是否曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源
   field :no_use_school,  :type => String   # 企业不曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源的主要原因
-  field :sent_out,       :type => Boolean # 企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是否曾使用过
+  field :sent_out,       :type => String # 企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是否曾使用过
   field :no_sent_out_res,:type => String  # 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是不曾使用过的主要原因
   field :pub_tech_prob,  :type => String  # 目前公共科技资源开放共享方面存在的问题及建议
-  field :innovate_world, :type => Boolean # 企业是否开展国际创新合作
+  field :innovate_world, :type => String # 企业是否开展国际创新合作
   field :world_type,     :type => Array   # 开展国际创新合作采取了如下哪些形式
 
   field :world_problem,  :type => String  # 开展国际创新合作中，存在的问题和建议
-  field :deduct_prolicy, :type => Boolean # 企业是否享受了企业研发费用加计扣除政策
+  field :deduct_prolicy, :type => String # 企业是否享受了企业研发费用加计扣除政策
   field :deduct_usage,   :type => String  # 该政策对促进贵企业加大研发投入的作用和影响
   field :no_deduct_rea,  :type => Array   # 企业没有享受了企业研发费用加计扣除政策的原因
   field :deduct_suggest, :type => String  # 您对进一步落实和完善企业研发费用加计扣除政策有何建议
-  field :depreciation,   :type => Boolean # 企业是否享受了企业研发仪器设备加速折旧政策
+  field :depreciation,   :type => String # 企业是否享受了企业研发仪器设备加速折旧政策
   field :deprecia_usage, :type => String  # 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用
   field :no_deprecia,    :type => String  # 企业没有享受企业研发仪器设备加速折旧政策的原因
   field :deprec_suggest, :type => String  # 您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议
-  field :adv_company,    :type => Boolean # 贵企业是否为高新技术企业
+  field :adv_company,    :type => String  # 贵企业是否为高新技术企业
 
-
-  field :adv_policy,     :type => Boolean # 企业是否享受了高新技术企业税收优惠
+  field :adv_policy,     :type => String  # 企业是否享受了高新技术企业税收优惠
   field :adv_suggest,    :type => String  # 您对高新技术企业认定工作，以及对改进和完善高企认定管理办法有何建议
   field :state_rate,     :type => String  # 企业对国办发8号文件目前贯彻落实情况的总体评价
   field :innovate_chan,  :type => String  # 您认为当前国有企业开展技术创新活动面临的主要问题和挑战
@@ -89,26 +89,53 @@ class Answ
   field :position,       :type => String  # 您的职务
   field :tel,            :type => String  # 您的电话
   field :email,          :type => String  # 您的邮箱
+
   field :uid,            :type => String  # 回答问题的用户id
   field :status,         :type => Integer,:default => 1 # 标示是否回答完毕
 
-
-  field :know_way_other,         :type => String
+  field :adv_reward_other,       :type => String  # 未实施了股权或分红激励措施原因
+  field :known_way_other,        :type => String
   field :innovate_type_other,    :type => String
   field :support_facet_other,    :type => String
   field :union_support_other,    :type => String
   field :cooperate_type_other,   :type => String
+
   field :no_supp_reason_other,   :type => String
   field :service_content_other,  :type => String
   field :no_adv_reason_other,    :type => String
   field :no_use_school_other,    :type => String
   field :no_sent_out_res_other,  :type => String
-  field :world_type_other,  	 :type => String
+
+  field :world_type_other,  	   :type => String
   field :no_deduct_rea_other,    :type => String
   field :no_deprecia_other,      :type => String
 
+  #before_save :fix_answer
 
-
+  # def fix_answer
+  #   arr = %w(known_way_other innovate_type_other support_facet_other union_support_other cooperate_type_other)
+  #   brr = %w(no_supp_reason_other service_content_other no_adv_reason_other no_use_school_other no_sent_out_res_other)
+  #   crr = %w(world_type_other no_deduct_rea_other no_deprecia_other)
+  #   new_arr = arr + brr + crr
+  #   hash = {}
+  #   new_arr.each do |att|
+  #     if self.attributes["#{att}"].present?
+  #       o_att = att.gsub('_other','')
+  #       if self.attributes["#{o_att}"].class == Array
+  #         #self.attributes["#{o_att}"].last + ":#{self.attributes[att]}"
+  #         self.attributes["#{o_att}"].last = ""
+  #         puts '----------------------------------------------------'
+  #         write_attribute("#{o_att}",self.attributes["#{o_att}"])
+  #         #self.instance_variable_set(o_att, 'dog')
+  #         #self."#{}"o_att = self.attributes["#{o_att}"].last + ":#{self.attributes[att]}"
+  #       else
+  #         #o_att = "其他:#{self.attributes[att]}"
+  #         #self.instance_variable_set(o_att,'cat')
+  #         write_attribute("#{o_att}","其他:#{self.attributes[att]}")
+  #       end
+  #     end
+  #   end
+  # end
 
 
   def self.add_list
@@ -165,19 +192,21 @@ class Answ
     arr << '企业规模'
     arr << '贵企业在收到此问卷之前对国办发8号文件的了解程度'
     arr << '通过哪些途径知晓8号文件'
-    arr << '企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何'
+    arr << '企业认为国办发8号文件的颁布实施对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何'
     arr << '企业是否制定了中长期技术创新发展规划'
     arr << '企业是否设立了专门的技术创新管理部门'
+
     arr << '近三年研发投入是否逐年增加'
     arr << '2013年本企业研发投入占销售收入的大致比例'
     arr << '研发投入强度是否能够满足企业技术创新需求'
     arr << '企业是否曾牵头承担中央或地方财政资助的科技计划项目'
     arr << '企业是否支持科研项目经费后补助政策'
-    arr << '您的企业支持该政策，对于政策实施有什么建议'
-    arr << '您的企业不支持该政策，原因是'
+    arr << '您的企业支持该政策对于政策实施有什么建议'
+    arr << '您的企业不支持该政策原因是'
     arr << '中央或地方科技计划项目的征集或指南编制时是否征求企业有关专家意见'
-    arr << '相关部门考核本企业技术创新的经营业绩时，是否将研发投入视同利润纳入考核'
+    arr << '相关部门考核本企业技术创新的经营业绩时是否将研发投入视同利润纳入考核'
     arr << '对建立健全国有企业技术创新的经营业绩考核制度的建议'
+
     arr << '贵企业在技术创新方面获得国有资本经营预算资金的支持情况'
     arr << '贵企业是否建立了研发机构'
     arr << '贵企业拥有以下哪些国家级或省级的研发机构'
@@ -188,17 +217,18 @@ class Answ
     arr << '贵企业是否牵头或参与本领域相关产业技术创新战略联盟'
     arr << '所在联盟更希望获得政府部门哪些方面的支持'
     arr << '贵企业认为政府部门倡导的以企业为主导发展产业技术创新联盟，其运行中存在的问题及建议'
+
     arr << '贵企业是否为相关产业共性技术研发基地的依托单位'
     arr << '在加强共性技术研发和成果推广扩散方面，得到了政府部门的哪些支持'
     arr << '在产业共性技术研发基地建设、运行和技术扩散服务方面，存在的主要问题及建议'
     arr << '贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式'
     arr << '企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议'
     arr << '贵企业是否享受过技术创新服务平台或科技中介服务机构提供的服务'
-    
     brr << '贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是'
     brr << '面向企业技术创新需求，建议平台加强的服务内容为'
     brr << '贵企业是否曾引进海外高层次人才'
     brr << '企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持'
+
     brr << '企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是'
     brr << '贵企业为吸引和凝聚创新人才，是否实施了股权或分红激励措施'
     brr << '实施股权或分红激励的主要原因是'
@@ -209,6 +239,7 @@ class Answ
     brr << '目前公共科技资源开放共享方面存在的问题及建议'
     brr << '企业是否开展国际创新合作'
     brr << '企业开展国际创新合作采取了如下哪些形式'
+
     brr << '企业在开展国际创新合作中，存在的问题和建议'
     brr << '贵企业是否享受了企业研发费用加计扣除政策'
     brr << '该政策对促进贵企业加大研发投入的作用和影响'
@@ -219,6 +250,7 @@ class Answ
     brr << '贵企业没有享受企业研发仪器设备加速折旧政策的原因是'
     brr << '您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议'
     brr << '贵企业是否为高新技术企业'
+
     brr << '贵企业是否享受了高新技术企业税收优惠（按15%的企业所得税率）政策'
     brr << '您对高新技术企业认定工作，以及对改进和完善高企认定管理办法有何建议'
     brr << '贵企业对国办发8号文件目前贯彻落实情况的总体评价'
@@ -242,33 +274,33 @@ class Answ
     arr << self.company_type
     arr << self.company_size
     arr << self.known_level
-    unless self.known_way.present?
-      arr   <<  ''
-    else
+    if self.known_way.present?
       if self.known_way.include?('其他')
         arr << (self.known_way.join(' ') + ':' +  self.known_way_other.to_s)
       else
         arr << self.known_way.join('')
       end
+    else
+      arr   <<  ''
     end
-
     arr << self.sense
-    arr << (self.plan? ? '是' : '否')
-    arr << (self.innovate? ? '是' : '否')
+    arr << self.plan
+    arr << self.innovate
 
-    arr << (self.devotion? ? '是' : '否')
+    arr << self.devotion
     arr << (self.percent.to_s + '%')
-    arr << (self.satisfy? ? '是' : '否')
-    arr << (self.lead? ? '是' : '否')
-    arr << (self.support? ? '是' : '否')
+    arr << self.satisfy
+    arr << self.lead
+    arr << self.support
     arr << self.suggest
     arr << self.reason
-    arr << (self.seek? ? '是' : '否')
-    arr << (self.appraise? ? '是' : '否')
+    arr << self.seek
+    arr << self.appraise
     arr << self.appra_suggest
 
+
     arr << self.cash_support
-    arr << (self.have_innovate? ? '是' : '否')
+    arr << self.have_innovate
     if self.innovate_type.present?
       if self.innovate_type.include?('其他')
         arr << (self.innovate_type.join(' ') + ':' + self.innovate_type_other.to_s)
@@ -278,22 +310,19 @@ class Answ
     else
       arr << ''
     end
-
     arr << self.prefer_policy
     arr << self.policy_problem
     arr << self.support_action
     if self.support_facet.present?
       if self.support_facet.include?('其他')
-        arr << (self.support_facet.join('') + ':' + self.support_facet_other.to_s)
+        arr << (self.support_facet.join(' ') + ':' + self.support_facet_other.to_s)
       else
-        arr << self.support_facet.join('')
+        arr << self.support_facet.join(' ')
       end
     else
       arr << ''
     end
-
-
-    arr << (self.innovate_union? ? '是' : '否')
+    arr << self.innovate_union
     if self.union_support == '其他'
       arr << (self.union_support  + ':' + self.union_support_other.to_s)
     else
@@ -302,22 +331,22 @@ class Answ
     arr << self.gov_union_prob
 
 
-    arr << (self.rely_company? ? '是' : '否')
+
+
+    arr << self.rely_company
     arr << self.what_support
     arr << self.innovate_prob
     if self.cooperate_type.present?
       if self.cooperate_type.include?('其他')
         arr << (self.cooperate_type.join(' ') + ':' + self.cooperate_type_other.to_s)
       else
-        arr << self.cooperate_type.join('')
+        arr << self.cooperate_type.join(' ')
       end      
     else
       arr << ''
     end
-
-
     arr << self.cooperate_prob
-    arr << (self.service_support? ? '是' : '否')
+    arr << self.service_support
     if self.no_supp_reason.present?
       if self.no_supp_reason.include?('其他')
         arr << (self.no_supp_reason.join(' ') + ':' + self.no_supp_reason_other.to_s)
@@ -327,7 +356,6 @@ class Answ
     else
       arr << ''
     end
-
     if self.service_content.present?
       if self.service_content.include?('其他')
         arr << (self.service_content.join(' ') + ':' + self.service_content_other.to_s)
@@ -337,10 +365,8 @@ class Answ
     else
       arr << ''
     end
-
-    arr << (self.adv_person? ? '是' : '否')
-    arr << (self.adv_p_support? ? '是' : '否')
-
+    arr << self.adv_person
+    arr << self.adv_p_support
 
 
 
@@ -349,36 +375,31 @@ class Answ
     else
       arr << self.no_adv_reason
     end
-
-    if self.adv_reward == 'true'
-      arr << '是'
+    if self.adv_reward == '否'
+      arr << ('否(原因:' + self.adv_reward_other + ')')
     else
-      arr << '否:' + self.no_rew_reason
+      arr << '是'
     end
-
     arr << self.reward_reason
-    arr << (self.use_school? ? '是' : '否')
+    arr << self.use_school
     if self.no_use_school == '其他'
-      arr << (self.no_use_school + ':' + self.no_use_school_other.to_s)
+      arr << (self.no_use_school + '(:' + self.no_use_school_other.to_s + ')')
     else
       arr << self.no_use_school
     end
-
-    arr << (self.sent_out? ? '是' : '否')
+    arr << self.sent_out
     if self.no_sent_out_res == '其他'
-      arr << (self.no_sent_out_res + ':' + self.no_sent_out_res_other.to_s)
+      arr << (self.no_sent_out_res + '(:' + self.no_sent_out_res_other.to_s + ')')
     else
       arr << self.no_sent_out_res
     end
-
     arr << self.pub_tech_prob
-    arr << (self.innovate_world? ? '是' : '否')
-
+    arr << self.innovate_world
     if self.world_type.present?
       if self.world_type.include?('其他')
-        arr << (self.world_type.join('') + ':' + self.world_type_other.to_s)
+        arr << (self.world_type.join(' ') + ':' + self.world_type_other.to_s)
       else
-        arr << self.world_type.join('')
+        arr << self.world_type.join(' ')
       end      
     else
       arr << ''
@@ -387,7 +408,7 @@ class Answ
     
 
     arr << self.world_problem
-    arr << (self.deduct_prolicy? ? '是' : '否')
+    arr << self.deduct_prolicy
     arr << self.deduct_usage
     if self.no_deduct_rea.present?
       if self.no_deduct_rea.include?('其他')
@@ -398,19 +419,19 @@ class Answ
     else
       arr << ''
     end
-
     arr << self.deduct_suggest
-
-    arr << (self.depreciation? ? '是' : '否')
+    arr << self.depreciation
+    arr << self.deprecia_usage
     if self.no_deprecia == '其他'
-      arr << (self.no_deprecia + ':' + self.no_deprecia_other.to_s)
+      arr << (self.no_deprecia + '(:' + self.no_deprecia_other.to_s + ')')
     else
       arr << self.no_deprecia
     end
     arr << self.deprec_suggest
-    arr << (self.adv_company? ? '是' : '否')
+    arr << self.adv_company
 
-    arr << (self.adv_policy? ? '是' : '否')
+
+    arr << self.adv_policy
     arr << self.adv_suggest
     arr << self.state_rate
     arr << self.innovate_chan
@@ -421,17 +442,27 @@ class Answ
     arr << self.tel
     arr << self.email
 
-
   end
 
   def self.to_csv(options = {})
+    # str = self.col.join(',') + '\n'
+    # all.each do |product|
+    #   str += product.ad.join(',') + '\n'
+    # end
+
+    # return str
+
     CSV.generate(options) do |csv|
       csv << self.col
       all.each do |product|
         csv << product.ad
       end
     end
-  end  
+  end
+
+
+
+
 
 
 end

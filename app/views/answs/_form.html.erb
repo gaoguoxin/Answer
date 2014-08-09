@@ -309,15 +309,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%#= check_box("answ", "known_way", {:multiple => true,:checked => true}, "政府宣传",nil) %>
-                      <%= check_box("answ", "known_way", {:multiple => true,:checked => selected?(@answ.known_way,'政府宣传')}, "政府宣传",nil) %>
+                      <%= check_box("answ", "known_way", {:multiple => true}, "政府宣传",nil) %>
                       <span>&nbsp;</span>
                       <p>政府宣传</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true,:checked => selected?(@answ.known_way,'网络')}, "网络",nil) %>
+                      <%= check_box("answ", "known_way", {:multiple => true}, "网络",nil) %>
                       <span>&nbsp;</span>
                       <p>网络</p>
                     </label>
@@ -326,14 +325,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true,:checked => selected?(@answ.known_way,'报纸')}, "报纸",nil) %>
+                      <%= check_box("answ", "known_way", {:multiple => true}, "报纸",nil) %>
                       <span>&nbsp;</span>
                       <p>报纸</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true,:checked => selected?(@answ.known_way,'中介机构')}, "中介机构",nil) %>
+                      <%= check_box("answ", "known_way", {:multiple => true}, "中介机构",nil) %>
                       <span>&nbsp;</span>
                       <p>中介机构</p>
                     </label>
@@ -342,9 +341,9 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true,:checked => selected?(@answ.known_way,'其他')}, "其他",nil) %>
+                      <%= check_box("answ", "known_way", {:multiple => true}, "其他",nil) %>
                       <span>&nbsp;</span>
-                      <p>其他（请具体说明）：<%= f.text_field "know_way_other"%></p>
+                      <p>其他（请具体说明）：<%= f.text_field "known_way_other"%></p>
                     </label>
                   </td>
                   <td>                    
@@ -434,14 +433,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :plan,true  %>
+                      <%= f.radio_button :plan,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :plan,false  %>
+                      <%= f.radio_button :plan,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -466,14 +465,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :innovate,true  %>
+                      <%= f.radio_button :innovate,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :innovate,false  %>
+                      <%= f.radio_button :innovate,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -500,14 +499,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :devotion,true  %>
+                      <%= f.radio_button :devotion,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :devotion,false  %>
+                      <%= f.radio_button :devotion,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -549,14 +548,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :satisfy,true  %>
+                      <%= f.radio_button :satisfy,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :satisfy,false  %>
+                      <%= f.radio_button :satisfy,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -582,14 +581,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :lead,true  %>
+                      <%= f.radio_button :lead,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :lead,false  %>
+                      <%= f.radio_button :lead,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -615,14 +614,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :support,true  %>
+                      <%= f.radio_button :support,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :support,false  %>
+                      <%= f.radio_button :support,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -678,14 +677,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :seek,true  %>
+                      <%= f.radio_button :seek,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :seek,false  %>
+                      <%= f.radio_button :seek,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -712,14 +711,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :appraise,true  %>
+                      <%= f.radio_button :appraise,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :appraise,false  %>
+                      <%= f.radio_button :appraise,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -827,14 +826,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :have_innovate,true  %>
+                      <%= f.radio_button :have_innovate,'是'  %>
                       <span>&nbsp;</span>
                       <p>是</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= f.radio_button :have_innovate,false  %>
+                      <%= f.radio_button :have_innovate,'否'  %>
                       <span>&nbsp;</span>
                       <p>否</p>
                     </label>
@@ -860,14 +859,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true,:checked => selected?(@answ.innovate_type,'企业技术中心')}, "企业技术中心",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true}, "企业技术中心",nil) %>
                       <span>&nbsp;</span>
                       <p>企业技术中心</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true,:checked => selected?(@answ.innovate_type,'工程（技术）研究中心')}, "工程（技术）研究中心",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true}, "工程（技术）研究中心",nil) %>
                       <span>&nbsp;</span>
                       <p>工程（技术）研究中心</p>
                     </label>
@@ -876,30 +875,30 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true,:checked => selected?(@answ.innovate_type,'企业重点实验室')}, "企业重点实验室",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true}, "企业重点实验室",nil) %>
                       <span>&nbsp;</span>
                       <p>企业重点实验室</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true,:checked => selected?(@answ.innovate_type,'工程实验室')}, "工程实验室",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true}, "工程实验室",nil) %>
                       <span>&nbsp;</span>
                       <p>工程实验室</p>
                     </label>
                   </td>
                 </tr>
                 <tr>
-                  <td>
+ <!--                  <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true,:checked => selected?(@answ.innovate_type,'上述都没有')}, "上述都没有",nil) %>
+                      <%#= check_box("answ", "innovate_type", {:multiple => true}, "上述都没有",nil) %>
                       <span>&nbsp;</span>
                       <p>上述都没有</p>
                     </label>
-                  </td>
+                  </td> -->
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true,:checked => selected?(@answ.innovate_type,'其他')}, "其他",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true}, "其他",nil) %>
                       <span>&nbsp;</span>
                       <p>其他（请具体说明）：<%= f.text_field "innovate_type_other" %></p>
                     </label>
@@ -1050,14 +1049,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'政策引导')}, "政策引导",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true}, "政策引导",nil) %>
                       <span>&nbsp;</span>
                       <p>政策引导</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'财政资金支持')}, "财政资金支持",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true}, "财政资金支持",nil) %>
                       <span>&nbsp;</span>
                       <p>财政资金支持</p>
                     </label>
@@ -1066,14 +1065,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'鼓励社会资本投入')}, "鼓励社会资本投入",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true}, "鼓励社会资本投入",nil) %>
                       <span>&nbsp;</span>
                       <p>鼓励社会资本投入</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'政府采购')}, "政府采购",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true}, "政府采购",nil) %>
                       <span>&nbsp;</span>
                       <p>政府采购</p>
                     </label>
@@ -1082,14 +1081,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'组织实施用户示范工程')}, "组织实施用户示范工程",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true}, "组织实施用户示范工程",nil) %>
                       <span>&nbsp;</span>
                       <p>组织实施用户示范工程</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'完善技术转移和产业化服务体系')}, "完善技术转移和产业化服务体系",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true}, "完善技术转移和产业化服务体系",nil) %>
                       <span>&nbsp;</span>
                       <p>完善技术转移和产业化服务体系</p>
                     </label>
@@ -1098,7 +1097,7 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "support_facet", {:multiple => true,:checked => selected?(@answ.support_facet,'其他') }, "其他",nil) %>
+                      <%= check_box("answ", "support_facet", {:multiple => true }, "其他",nil) %>
                       <span>&nbsp;</span>
                       <p>其他（请具体说明）：<%= f.text_field "support_facet_other" %></p>
                     </label>
@@ -1132,11 +1131,11 @@
           </div>
           <div class="q-note" style="display: none;">说明：</div>
           <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-            <%= f.radio_button :innovate_union,true  %>
+            <%= f.radio_button :innovate_union,'是'  %>
             <span>&nbsp;</span>
             <p>是</p>
           </label></td><td><label class="cust-option">
-          <%= f.radio_button :innovate_union,false  %>
+          <%= f.radio_button :innovate_union,'否'  %>
           <span>&nbsp;</span>
           <p>否</p>
         </label></td></tr></tbody></table></div>
@@ -1206,11 +1205,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :rely_company, true %>
+  <%= f.radio_button :rely_company, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :rely_company, false %>
+  <%= f.radio_button :rely_company, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1319,11 +1318,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :service_support, true %>
+  <%= f.radio_button :service_support, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :service_support, false %>
+  <%= f.radio_button :service_support, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1436,11 +1435,11 @@
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
   
-  <%= f.radio_button :adv_person, true %>
+  <%= f.radio_button :adv_person, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :adv_person, false %>
+  <%= f.radio_button :adv_person, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1457,11 +1456,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :adv_p_support, true %>
+  <%= f.radio_button :adv_p_support, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :adv_p_support, false %>
+  <%= f.radio_button :adv_p_support, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1512,13 +1511,13 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :adv_reward, true %>
+  <%= f.radio_button :adv_reward, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :adv_reward, false %>
+  <%= f.radio_button :adv_reward, '否' %>
   <span>&nbsp;</span>
-  <p>否（请说明原因）：<%= f.text_field "no_rew_reason" %></p>
+  <p>否（请说明原因）：<%= f.text_field "adv_reward_other" %></p>
 </label></td></tr></tbody></table></div>
 </div>
 
@@ -1569,11 +1568,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :use_school, true %>
+  <%= f.radio_button :use_school, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :use_school, false %>
+  <%= f.radio_button :use_school, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1626,11 +1625,11 @@
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
   
-  <%= f.radio_button :sent_out, true %>
+  <%= f.radio_button :sent_out, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :sent_out, false %>
+  <%= f.radio_button :sent_out, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1707,11 +1706,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :innovate_world, true %>
+  <%= f.radio_button :innovate_world, '是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :innovate_world, false %>
+  <%= f.radio_button :innovate_world, '否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1800,11 +1799,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :deduct_prolicy,true%>
+  <%= f.radio_button :deduct_prolicy,'是'%>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :deduct_prolicy,false%>
+  <%= f.radio_button :deduct_prolicy,'否'%>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -1911,11 +1910,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :depreciation,true %>
+  <%= f.radio_button :depreciation,'是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :depreciation,false %>
+  <%= f.radio_button :depreciation,'否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -2016,11 +2015,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :adv_company,true %>
+  <%= f.radio_button :adv_company,'是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :adv_company,false %>
+  <%= f.radio_button :adv_company,'否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -2036,11 +2035,11 @@
   </div>
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :adv_policy,true %>
+  <%= f.radio_button :adv_policy,'是' %>
   <span>&nbsp;</span>
   <p>是</p>
 </label></td><td><label class="cust-option">
-  <%= f.radio_button :adv_policy,false %>
+  <%= f.radio_button :adv_policy,'否' %>
   <span>&nbsp;</span>
   <p>否</p>
 </label></td></tr></tbody></table></div>
@@ -2183,7 +2182,7 @@
   <span class="q-idx" style="display: none;">69</span>
   <div class="q-title">
     <span class="q-title-content">您的联系电话：</span>
-    <span class="q-info">（请输入电话号码）</span>
+    <span class="q-info">（请输入手机号码）</span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
   </div>

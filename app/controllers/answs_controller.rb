@@ -85,7 +85,7 @@ class AnswsController < ApplicationController
 
   def down
     @answs = Answ.all
-    res = @answs.to_csv
+    res = @answs.to_csv(col_sep: "\t")
     send_data(res.encode("GBK"),:type => 'text/csv;header=present', :filename => "data.csv")
   end
 
