@@ -2,12 +2,6 @@
 class AnswsController < ApplicationController
   before_action :set_answ, only: [:show, :edit, :update, :destroy]
 
-  # GET /answs
-  # GET /answs.json
-  def index
-    @answs = Answ.all
-  end
-
   # GET /answs/1
   # GET /answs/1.json
   def show
