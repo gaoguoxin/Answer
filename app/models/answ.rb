@@ -445,13 +445,6 @@ class Answ
   end
 
   def self.to_csv(options = {})
-    # str = self.col.join(',') + '\n'
-    # all.each do |product|
-    #   str += product.ad.join(',') + '\n'
-    # end
-
-    # return str
-
     CSV.generate(options) do |csv|
       csv << self.col
       all.each do |product|
