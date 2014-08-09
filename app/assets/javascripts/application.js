@@ -14,3 +14,63 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  send_post_ajax = function(){
+    $.ajax({
+        data: $('form').serialize(),
+        url: $('form').attr('action'),
+        method: "POST",
+        success: function(ret){
+      console.log('post success')
+        },
+        error: function(){
+          console.log('post failed')
+        }       
+    })
+  
+  }
+
+
+  send_upd_ajax = function(){
+    $.ajax(
+      {
+          data: $('form').serialize(),
+          url: $('form').attr('action'),
+          method: "PUT",
+          success: function(ret){
+        console.log('upd success')
+          },
+          error: function(){
+            console.log('upd failed')
+          }       
+      }
+    )
+
+  
+  }
+
+
+
+  $('.new_answ input[type="text"]').keyup(function(){
+    send_post_ajax()
+    return false
+  })
+
+  $('.new_answ input[type="radio"],.new_answ input[type="checkbox"],.new_answ select').change(function(){
+    send_post_ajax()
+    return false
+  })    
+
+  $('.edit_answ input[type="text"]').keyup(function(){
+    send_upd_ajax()
+    return false
+  })
+
+  $('.edit_answ input[type="radio"],.edit_answ input[type="checkbox"],.edit_answ select').change(function(){
+    send_upd_ajax()
+    return false
+  })
+
+
+})
