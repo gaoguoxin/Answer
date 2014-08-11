@@ -110,75 +110,48 @@ class Answ
   field :no_deduct_rea_other,    :type => String
   field :no_deprecia_other,      :type => String
 
-  #before_save :fix_answer
-
-  # def fix_answer
-  #   arr = %w(known_way_other innovate_type_other support_facet_other union_support_other cooperate_type_other)
-  #   brr = %w(no_supp_reason_other service_content_other no_adv_reason_other no_use_school_other no_sent_out_res_other)
-  #   crr = %w(world_type_other no_deduct_rea_other no_deprecia_other)
-  #   new_arr = arr + brr + crr
-  #   hash = {}
-  #   new_arr.each do |att|
-  #     if self.attributes["#{att}"].present?
-  #       o_att = att.gsub('_other','')
-  #       if self.attributes["#{o_att}"].class == Array
-  #         #self.attributes["#{o_att}"].last + ":#{self.attributes[att]}"
-  #         self.attributes["#{o_att}"].last = ""
-  #         puts '----------------------------------------------------'
-  #         write_attribute("#{o_att}",self.attributes["#{o_att}"])
-  #         #self.instance_variable_set(o_att, 'dog')
-  #         #self."#{}"o_att = self.attributes["#{o_att}"].last + ":#{self.attributes[att]}"
-  #       else
-  #         #o_att = "其他:#{self.attributes[att]}"
-  #         #self.instance_variable_set(o_att,'cat')
-  #         write_attribute("#{o_att}","其他:#{self.attributes[att]}")
-  #       end
-  #     end
-  #   end
-  # end
-
 
   def self.add_list
   	arr = []
   	arr << ['请选择',-1]
-	arr << ['北京市','北京市']
-	arr << ['天津市','天津市']
-	arr << ['河北省','河北省']  	
-	arr << ['山西省','山西省']  	
-	arr << ['内蒙古自治区','内蒙古自治区']  	
-	arr << ['辽宁省','辽宁省']  	
-	arr << ['吉林省','吉林省']  	
-	arr << ['黑龙江','黑龙江']  	
-	arr << ['上海市','上海市']  
-	arr << ['江苏省','江苏省']  	
-	arr << ['浙江省','浙江省']  	
-	arr << ['安徽省','安徽省']  		
-	arr << ['福建省','福建省']  	
-	arr << ['江西省','江西省']  	
-	arr << ['山东省','山东省']  
-	arr << ['河南省','河南省']  	
-	arr << ['湖北省','湖北省']  		
-	arr << ['湖南省','湖南省']  	
-	arr << ['广东省','广东省']  	
-	arr << ['广西自治区','广西自治区']  	
-	arr << ['海南省','海南省']  	
-	arr << ['重庆市','重庆市']  	
-	arr << ['四川省','四川省']  	
-	arr << ['贵州省','贵州省']  	
-	arr << ['云南省','云南省']  	
-	arr << ['西藏自治区','西藏自治区']  	
-	arr << ['陕西省','陕西省'] 
-	arr << ['甘肃省','甘肃省'] 
-	arr << ['宁夏自治区','宁夏自治区'] 
-	arr << ['青海省','青海省']  
-	arr << ['新疆自治区','新疆自治区'] 
-	arr << ['新疆生产建设兵团','新疆生产建设兵团'] 
-	arr << ['大连市','大连市'] 
-	arr << ['宁波市','宁波市'] 
-	arr << ['厦门市','厦门市'] 
-	arr << ['青岛市','青岛市'] 
-	arr << ['深圳市','深圳市']
-	return arr
+    arr << ['北京市','北京市']
+    arr << ['天津市','天津市']
+    arr << ['河北省','河北省']  	
+    arr << ['山西省','山西省']  	
+    arr << ['内蒙古自治区','内蒙古自治区']  	
+    arr << ['辽宁省','辽宁省']  	
+    arr << ['吉林省','吉林省']  	
+    arr << ['黑龙江','黑龙江']  	
+    arr << ['上海市','上海市']  
+    arr << ['江苏省','江苏省']  	
+    arr << ['浙江省','浙江省']  	
+    arr << ['安徽省','安徽省']  		
+    arr << ['福建省','福建省']  	
+    arr << ['江西省','江西省']  	
+    arr << ['山东省','山东省']  
+    arr << ['河南省','河南省']  	
+    arr << ['湖北省','湖北省']  		
+    arr << ['湖南省','湖南省']  	
+    arr << ['广东省','广东省']  	
+    arr << ['广西自治区','广西自治区']  	
+    arr << ['海南省','海南省']  	
+    arr << ['重庆市','重庆市']  	
+    arr << ['四川省','四川省']  	
+    arr << ['贵州省','贵州省']  	
+    arr << ['云南省','云南省']  	
+    arr << ['西藏自治区','西藏自治区']  	
+    arr << ['陕西省','陕西省'] 
+    arr << ['甘肃省','甘肃省'] 
+    arr << ['宁夏自治区','宁夏自治区'] 
+    arr << ['青海省','青海省']  
+    arr << ['新疆自治区','新疆自治区'] 
+    arr << ['新疆生产建设兵团','新疆生产建设兵团'] 
+    arr << ['大连市','大连市'] 
+    arr << ['宁波市','宁波市'] 
+    arr << ['厦门市','厦门市'] 
+    arr << ['青岛市','青岛市'] 
+    arr << ['深圳市','深圳市']
+    return arr
   end
 
 
