@@ -68,9 +68,9 @@ $(function(){
       case 'answ[service_support]':
         quota = $('input[name="answ[no_supp_reason][]"]');
         if(val == '是'){
-          if_required(quota,true);
-        }else{
           if_required(quota,false);
+        }else{
+          if_required(quota,true);
         }      
         break;
       case 'answ[adv_person]': 
