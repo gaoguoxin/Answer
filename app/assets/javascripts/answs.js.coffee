@@ -61,6 +61,7 @@ $ ->
 						q_title.parent('.q-filler').addClass('empty')
 						roll_back('该题为必答题,请认真填写答案!')
 						return false
+
 		)
 
 		other_input = $('input[id$="_other"]')

@@ -859,14 +859,14 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true}, "企业技术中心",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true,:class =>'innovate_type'}, "企业技术中心",nil) %>
                       <span>&nbsp;</span>
                       <p>企业技术中心</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true}, "工程（技术）研究中心",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true,:class =>'innovate_type'}, "工程（技术）研究中心",nil) %>
                       <span>&nbsp;</span>
                       <p>工程（技术）研究中心</p>
                     </label>
@@ -875,32 +875,32 @@
                 <tr>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true}, "企业重点实验室",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true,:class =>'innovate_type'}, "企业重点实验室",nil) %>
                       <span>&nbsp;</span>
                       <p>企业重点实验室</p>
                     </label>
                   </td>
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true}, "工程实验室",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true,:class =>'innovate_type'}, "工程实验室",nil) %>
                       <span>&nbsp;</span>
                       <p>工程实验室</p>
                     </label>
                   </td>
                 </tr>
                 <tr>
- <!--                  <td>
-                    <label class="cust-option">
-                      <%#= check_box("answ", "innovate_type", {:multiple => true}, "上述都没有",nil) %>
-                      <span>&nbsp;</span>
-                      <p>上述都没有</p>
-                    </label>
-                  </td> -->
                   <td>
                     <label class="cust-option">
-                      <%= check_box("answ", "innovate_type", {:multiple => true}, "其他",nil) %>
+                      <%= check_box("answ", "innovate_type", {:multiple => true,:class =>'innovate_type'}, "其他",nil) %>
                       <span>&nbsp;</span>
                       <p>其他（请具体说明）：<%= f.text_field "innovate_type_other" %></p>
+                    </label>
+                  </td>
+                  <td>
+                    <label class="cust-option">
+                      <%= check_box("answ", "innovate_type", {:multiple => true,:class => 'last'}, "上述都没有",nil) %>
+                      <span>&nbsp;</span>
+                      <p>上述都没有</p>
                     </label>
                   </td>
                 </tr>

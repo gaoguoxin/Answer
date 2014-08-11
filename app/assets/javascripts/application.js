@@ -204,6 +204,15 @@ $(function(){
   })
 
   $('.new_answ input[type="radio"],.new_answ input[type="checkbox"],.new_answ select').change(function(){
+    if($(this).attr('name') == 'answ[innovate_type][]'){
+      if($(this).hasClass('last')){
+        if($(this).is(':checked')){
+          $('input.innovate_type').attr('checked',false)
+        }
+      }else{
+        $('input[name="answ[innovate_type][]"]:last').attr('checked',false)
+      }
+    }  
     send_post_ajax($(this))
     return false
   })    
@@ -214,6 +223,15 @@ $(function(){
   })
 
   $('.edit_answ input[type="radio"],.edit_answ input[type="checkbox"],.edit_answ select').change(function(){
+    if($(this).attr('name') == 'answ[innovate_type][]'){
+      if($(this).hasClass('last')){
+        if($(this).is(':checked')){
+          $('input.innovate_type').attr('checked',false)
+        }
+      }else{
+        $('input[name="answ[innovate_type][]"]:last').attr('checked',false)
+      }
+    }  
     send_upd_ajax($(this))
     return false
   })
