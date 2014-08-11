@@ -419,8 +419,13 @@ body{
 			}
 		}
 	}
+	.q-required{
+		color:red;
+	}
 	&.empty{
-		background:red;
+		.q-error{
+			color:red;
+		}
 	}
 }
 

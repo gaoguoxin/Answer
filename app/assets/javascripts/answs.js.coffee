@@ -1,9 +1,13 @@
 #=require jquery.fancybox.pack
 $ ->
-
-	roll_back = ->
+	$("input#answ_percent").numeric()
+	roll_back =(msg)->
+		$('.q-filler.empty .q-error').text(msg)
 		top = $('.q-filler.empty').offset().top
 		$("html, body").animate({ scrollTop: top }, 500)
+
+
+
   
 	check_required = ->
 		$('.q-filler').removeClass('empty')
@@ -16,19 +20,24 @@ $ ->
 				if ipt.attr('id') == 'answ_percent'
 					if isNaN( parseInt(ipt.val()) )
 						q_title.parent('.q-filler').addClass('empty')
-						roll_back()
+						roll_back('该题为必答题,请认真填写答案!')
 						return false
+					else
+						if(parseInt( ipt.val() ) < 0 or parseInt( ipt.val() ) > 100)
+							q_title.parent('.q-filler').addClass('empty')
+							roll_back('您填写的值有误,请认真填写!')
+							return false
 				else
 					if $.trim(ipt.val()).length == 0
 						q_title.parent('.q-filler').addClass('empty')
-						roll_back()
+						roll_back('该题为必答题,请认真填写答案!')
 						return false
 
 			address = q_content.children('select')
 			if address.length > 0
 				if address.val() == '-1'
 					q_title.parent('.q-filler').addClass('empty')
-					roll_back()
+					roll_back('该题为必答题,请认真填写答案!')
 					return false
 
 			radio  = q_content.find('input[type="radio"]')
@@ -36,7 +45,7 @@ $ ->
 				check_radio = q_content.find('input[type="radio"]:checked')
 				if check_radio.length < 1
 					q_title.parent('.q-filler').addClass('empty')
-					roll_back()
+					roll_back('该题为必答题,请认真填写答案!')
 					return false
 
 			checkbox = q_content.find('input[type="checkbox"]')
@@ -44,7 +53,7 @@ $ ->
 				checked = q_content.find('input[type="checkbox"]:checked')
 				if checked.length < 1
 					q_title.parent('.q-filler').addClass('empty')
-					roll_back()
+					roll_back('该题为必答题,请认真填写答案!')
 					return false
 		)
 
@@ -55,26 +64,29 @@ $ ->
 			other_ipt = $(@).parent().siblings('input:checked')
 			if $.trim($(@).val()).length < 1
 				if other_ipt.length > 0
-					current_input.parents('.q-filler').addClass('empty')
-					roll_back()
-					return false
+					if $('.q-filler.empty').length < 1
+						current_input.parents('.q-filler').addClass('empty')
+						roll_back('请填写其他选项!')
+						return false
 			else
 				if other_ipt.length <= 0
-					current_input.parents('.q-filler').addClass('empty')
-					roll_back()
-					return false
+					if $('.q-filler.empty').length < 1
+						current_input.parents('.q-filler').addClass('empty')
+						roll_back('请勾选其他选项!')
+						return false
 		)
 
 		tel = $('#answ_tel').val()
 		if tel.length > 0
 			unless ( /^(13[0-9]|15[012356789]|18[0-9]|14[57]|170)[0-9]{8}$/.test(tel) )
 				$('#answ_tel').parents('.q-filler').addClass('empty')
+				roll_back('请认真填写手机号!')
 
 		mail = $('#answ_email').val()
 		if mail.length > 0
 			unless (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail) )
 				$('#answ_email').parents('.q-filler').addClass('empty')
-
+				roll_back('请认真填写邮箱!')
 
 	alert_notice = ->
 		if $('.q-filler.empty').length < 1
