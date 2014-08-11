@@ -434,7 +434,6 @@ class Answ
     sheet1.name = '数据导出报告'  
     sheet1.insert_row 0, self.col
     all.each_with_index do |ans,idx|
-      ans.ad
       sheet1.insert_row idx+1, ans.ad
     end
     path = Rails.root.to_s + "/public/export_data.xls"
