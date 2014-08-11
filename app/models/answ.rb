@@ -417,13 +417,29 @@ class Answ
 
   end
 
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << self.col
-      all.each do |product|
-        csv << product.ad
-      end
+  # def self.to_csv(options = {})
+  #   CSV.generate(options) do |csv|
+  #     csv << self.col
+  #     all.each do |product|
+  #       csv << product.ad
+  #     end
+  #   end
+  # end
+
+
+  def self.to_csv
+    file = Spreadsheet::Workbook.new
+    Spreadsheet.client_encoding = 'UTF-8'
+    sheet1 = file.create_worksheet
+    sheet1.name = '数据导出报告'  
+    sheet1.insert_row 0, self.col
+    all.each_with_index do |ans,idx|
+      ans.ad
+      sheet1.insert_row idx+1, ans.ad
     end
+    path = Rails.root.to_s + "/public/export_data.xls"
+    file.write path
+    return path
   end
 
 

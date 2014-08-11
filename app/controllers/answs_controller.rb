@@ -74,15 +74,22 @@ class AnswsController < ApplicationController
   end
 
   def report
-
+    path = Rails.root.to_s + "/public/export_data.xls"
+    File.delete("#{path}") if File.exist?(path)
+    Answ.to_csv
   end
+
+  # def down
+  #   @answs = Answ.all
+  #   #res = @answs.to_csv(col_sep: "\t")
+  #   res = @answs.to_csv
+  #   send_data(res.encode("GBK"),:type => 'text/csv;header=present', :filename => "data.csv")
+  # end
 
   def down
-    @answs = Answ.all
-    res = @answs.to_csv(col_sep: "\t")
-    send_data(res.encode("GBK"),:type => 'text/csv;header=present', :filename => "data.csv")
+    path = Rails.root.to_s + "/public/export_data.xls"
+    send_file "#{path}", :type => "application/vnd.ms-excel", :filename => "export_data.xls", :stream => false
   end
-
 
 
   private
