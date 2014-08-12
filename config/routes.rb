@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/review' => 'answs#review'
   get '/report' => 'answs#report'
   get '/down' => 'answs#down'
+  get '/upd_stat/:id' => 'answs#upd_stat'
   resources :answs
 
   # The priority is based upon order of creation: first created -> highest priority.

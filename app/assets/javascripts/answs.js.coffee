@@ -150,21 +150,6 @@ $ ->
 				console.log('upd faailed')	
 		}
 
-
-
-	#window.onbeforeprint = beforePrint
-	#window.onafterprint = afterPrint
-
-	# if window.matchMedia
-	# 	mediaQueryList = window.matchMedia('print')
-	# 	mediaQueryList.addListener((mql)->
-	# 		if mql.matches
-	# 			beforePrint()
-	# 		else
-	# 			afterPrint()
-	# 	)
-
-
 	$('#next_btn').click((e)->
 		e.preventDefault()
 		check_required()
@@ -183,8 +168,17 @@ $ ->
 	)
 
 	$('button.print').click(->
-		window.print()
-		return false
+		a_id = window.location.href.split('answs/')[1]
+		$.ajax {
+			type: "GET"
+			url: "/upd_stat/#{a_id}"
+			data: {}
+			success: (ret)->
+				window.print()
+				return false
+		}		
+		
+		
 	)
 
 	$('button.report').click(->
