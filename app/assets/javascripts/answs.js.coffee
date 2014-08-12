@@ -1,6 +1,13 @@
 #=require jquery.fancybox.pack
 $ ->
 	$("input#answ_percent").numeric()
+
+	beforePrint = -> 
+		console.log('Functionality to run before printing.')
+	afterPrint = -> 
+		console.log('Functionality to run after printing')
+    
+
 	roll_back =(msg)->
 		$('.q-filler.empty .q-error').text(msg)
 		top = $('.q-filler.empty').offset().top
@@ -142,6 +149,21 @@ $ ->
 			error: ->
 				console.log('upd faailed')	
 		}
+
+
+
+	#window.onbeforeprint = beforePrint
+	#window.onafterprint = afterPrint
+
+	# if window.matchMedia
+	# 	mediaQueryList = window.matchMedia('print')
+	# 	mediaQueryList.addListener((mql)->
+	# 		if mql.matches
+	# 			beforePrint()
+	# 		else
+	# 			afterPrint()
+	# 	)
+
 
 	$('#next_btn').click((e)->
 		e.preventDefault()

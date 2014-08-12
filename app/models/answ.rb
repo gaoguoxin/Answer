@@ -8,6 +8,7 @@ class Answ
 
   EDIT   = 1
   FINISH = 2
+  PRINT  = 3
 
 
 
@@ -432,7 +433,7 @@ class Answ
     sheet1 = file.create_worksheet
     sheet1.name = '数据导出报告'  
     sheet1.insert_row 0, self.col
-    all.each_with_index do |ans,idx|
+    self.where(status:FINISH).each_with_index do |ans,idx|
       sheet1.insert_row idx+1, ans.ad
     end
     path = Rails.root.to_s + "/public/export_data.xls"
