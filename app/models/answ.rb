@@ -110,10 +110,9 @@ class Answ
   field :no_deduct_rea_other,    :type => String
   field :no_deprecia_other,      :type => String
 
-
   def self.add_list
   	arr = []
-  	arr << ['请选择',-1]
+  	arr << ['请选择','']
     arr << ['北京市','北京市']
     arr << ['天津市','天津市']
     arr << ['河北省','河北省']  	

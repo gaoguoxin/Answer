@@ -38,7 +38,7 @@ $ ->
 
 			address = q_content.children('select')
 			if address.length > 0
-				if address.val() == '-1'
+				if address.val() == ''
 					if $('.q-filler.empty').length < 1
 						q_title.parent('.q-filler').addClass('empty')
 						roll_back('该题为必答题,请认真填写答案!')

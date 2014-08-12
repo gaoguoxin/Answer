@@ -13,6 +13,7 @@ $popoverArrowOuterWidth:  $popoverArrowWidth;
 @import "compass/css3/inline-block";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
+@import "answer/*.png";
 
 
 $yellow: #f5c000;
@@ -423,6 +424,8 @@ body{
 		color:red;
 	}
 	&.empty{
+		background: image-url("answer/error.png") no-repeat 860px 15px;
+		background-color:  lighten(#FFC800, 40%);
 		.q-error{
 			color:red;
 		}
