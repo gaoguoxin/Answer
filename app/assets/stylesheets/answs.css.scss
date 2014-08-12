@@ -101,7 +101,7 @@ body{
 
 	/* preview */
 	#pv_bar {
-		@include one-line(32px);
+		@include one-line(50px);
 		border-bottom: 3px solid #656c76;
 		background: #737982;
 		text-align: center;
@@ -116,15 +116,17 @@ body{
 			vertical-align: middle;
 		}
 		>button {
+			width:100px;
+			height:50px;
 			display: none;
 			@include border-radius(2px);
-			background: #5f6671;
+			background: #5691f0;
 			border: none;
 			color: #eee;
 			padding: 5px 15px;
 			cursor: pointer;
-			&:hover { background: #89909B; }
-			&:active { background: #555c66; }
+			&:hover { background: #6fa0f0; }
+			&:active { background: #6fa0f0; }
 		}
 	}
 
