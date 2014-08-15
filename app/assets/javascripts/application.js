@@ -20,8 +20,13 @@ $(function(){
   if_required  = function(quota,show){
     if(show){
       quota.parents('.q-filler').find('.q-required').css('display','inline');
+      quota.parents('.q-content').find('input').prop('disabled', false);
     }else{
       quota.parents('.q-filler').find('.q-required').css('display','none');
+      d_ipt = quota.parents('.q-content').find('input')
+      d_ipt.prop('checked',false);
+      d_ipt.prop('disabled', true);
+      d_ipt.val('')
     }
   }
 
@@ -57,6 +62,22 @@ $(function(){
           if_required(quota,false);
         }      
         break;
+      case 'answ[innovate_type][]':
+      	quota = $('input[name="answ[prefer_policy]"]');
+      	if(val == '上述都没有'){
+      		if_required(quota,false);
+      	}else{
+      		if_required(quota,true);
+      	}
+      	break;
+      case 'answ[prefer_policy]':
+      	quota = $('input[name="answ[policy_problem]"]');
+      	if(val == '从未申请过'){
+      		if_required(quota,false);
+      	}else{
+      		if_required(quota,true);
+      	}
+      	break;
       case 'answ[innovate_union]':
         quota = $('input[name="answ[union_support]"]');
         if(val == '是'){
@@ -197,6 +218,10 @@ $(function(){
   $('input[type="radio"]:checked').each(function(){
     set_required($(this));
   })
+
+  $('input[type="checkbox"]:checked').each(function(){
+    set_required($(this));
+  })  
 
   $('.new_answ input[type="text"]').keyup(function(){
     send_post_ajax($(this))
