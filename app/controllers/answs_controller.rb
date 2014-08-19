@@ -58,6 +58,7 @@ class AnswsController < ApplicationController
   # PATCH/PUT /answs/1
   # PATCH/PUT /answs/1.json
   def update
+    set_col
     if @answ.update(answ_params)
       render json: @answ, success: true
     else
@@ -115,4 +116,13 @@ class AnswsController < ApplicationController
     def answ_params
       params.require(:answ).permit!
     end
+
+    def set_col
+      (Answ.fields.keys - ['_id','updated_at','created_at','uid','status'] - answ_params.keys).each do |k|
+        answ_params["#{k}"] = nil
+      end
+      
+    end
+
+
 end

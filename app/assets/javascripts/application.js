@@ -17,22 +17,47 @@
 
 $(function(){
 
-  if_required  = function(quota,show){
+  // $('input').attrchange({
+  //   trackValues: true, 
+  //   callback: function (event) { 
+  //     console.log('attr_name:' + event.attributeName)
+  //     console.log('old_value:' + event.oldValue)
+  //     console.log('new_value:' + event.newValue)
+  //   }        
+  // });
+  
+
+  if_required  = function(quota,show,chain){
     if(show){
       quota.parents('.q-filler').find('.q-required').css('display','inline');
       quota.parents('.q-content').find('input').prop('disabled', false);
+      if(chain){
+        chain.parents('.q-content').find('input').prop('disabled', false);
+        chain.prop('disabled', false);
+      }
     }else{
       quota.parents('.q-filler').find('.q-required').css('display','none');
-      d_ipt = quota.parents('.q-content').find('input')
+      d_ipt = quota.parents('.q-content').find('input');
+      ipt_text = quota.parents('.q-content').find('input[type="text"]');
       d_ipt.prop('checked',false);
       d_ipt.prop('disabled', true);
-      d_ipt.val('')
+      ipt_text.val('')
+      if(chain){
+        chain.prop('checked',false);
+        chain.prop('disabled', true);
+        chain.parents('.q-content').find('input').prop('disabled', true).val('');
+      }      
     }
   }
 
   set_required = function(obj){
     var name  = obj.attr('name');
-    var val   = obj.val();
+    var val   = obj.attr('value');
+    if (!val){
+      val = obj.val();
+    }
+      
+    
     var quota = null;
     switch(name) {
       case 'answ[known_level]':
@@ -56,10 +81,14 @@ $(function(){
         break;
       case 'answ[have_innovate]':
         quota = $('input[name="answ[innovate_type][]"]');
+        var quota1 = $('input[name="answ[prefer_policy]"]');
+        var quota2 = $('input[name="answ[policy_problem]"]');
         if(val == '是'){
           if_required(quota,true);
         }else{
           if_required(quota,false);
+          if_required(quota1,false);
+          if_required(quota2,false);
         }      
         break;
       case 'answ[innovate_type][]':
@@ -71,13 +100,20 @@ $(function(){
       	}
       	break;
       case 'answ[prefer_policy]':
+        var obj_disabled = obj.prop('disabled')
       	quota = $('input[name="answ[policy_problem]"]');
-      	if(val == '从未申请过'){
-      		if_required(quota,false);
-      	}else{
-      		if_required(quota,true);
-      	}
-      	break;
+
+        if(obj_disabled){
+          if_required(quota,false);
+        }else{
+         if(val == '从未申请过'){
+          if_required(quota,false);
+         }else{
+          if_required(quota,true);
+         }
+         
+        }   
+        break;
       case 'answ[innovate_union]':
         quota = $('input[name="answ[union_support]"]');
         if(val == '是'){
@@ -97,18 +133,24 @@ $(function(){
       case 'answ[adv_person]': 
         quota = $('input[name="answ[adv_p_support]"]');
         if(val == '是'){
-          if_required(quota,true);
+          if_required(quota,true,$('input[name="answ[no_adv_reason]"]'));
         }else{
-          if_required(quota,false);
+          if_required(quota,false,$('input[name="answ[no_adv_reason]"]'));
         }          
         break;
       case 'answ[adv_p_support]':
         quota = $('input[name="answ[no_adv_reason]"]');
-        if(val == '否'){
-          if_required(quota,true);
-        }else{
+        var obj_disabled = obj.prop('disabled');
+
+        if(obj_disabled){
           if_required(quota,false);
-        }          
+        }else{
+          if(val == '否'){
+            if_required(quota,true);
+          }else{
+            if_required(quota,false);
+          }   
+        }
         break;
       case 'answ[adv_reward]':
         quota = $('input[name="answ[reward_reason]"]');
