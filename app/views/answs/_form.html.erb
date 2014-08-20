@@ -2,421 +2,455 @@
   <div class="sf_banner_span is_preview">&nbsp;</div>
 
   <div id="f_body"><div>
+    <div id="sf_title">国有企业贯彻落实“国办发8号文件”情况调查问卷</div>
+    <div id="sf_desc">
+      <p>各有关企业：</p>
+      <p class='p_content'>
+        为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办发〔2013〕8号，简称“国办发8号文件”）及相应政策措施在企业的落实情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本问卷。请结合本企业实际情况认真、如实填写，于8月15日前登陆国家科技评估中心主页（http://www.ncste.org）在线提交。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。<span>(衷心感谢您的支持与配合！---------国家科技评估中心  2014年7月18日)</span>
+      </p>
+      <p class='p_contact'>
+        <span>联 系 人：李睆玲</span>
+        <span>联系电话：010-62169570</span>
+        <span>传真号码：010-88232615</span>
+        <span>通讯地址：北京市海淀区皂君庙乙7号（邮编：100081）</span>
+      </p>      
+
+
+
+
+
+  
+                                             
+
+    </div>
     <div id="sf_main" class="sf_main_padding">
       <%= form_for(@answ) do |f| %>
-      <div class="header"></div>
-      <div class="s-title">国有企业贯彻落实“国办发8号文件”情况调查问卷</div>
+      <!-- <div class="header"></div> -->
+      <!-- <div class="s-title">国有企业贯彻落实“国办发8号文件”情况调查问卷</div> -->
       <div id="questions_con">
-        <div class="q-filler q-paragraph">
-          <div class="q-title">
-            <span class="q-title-content"><span style="font-weight: bold;">一、基本信息</span></span>
+          <div class="q-filler q-paragraph paragraph_1">
+            <div class="q-title">
+              <span class="q-title-content"><span style="font-weight: bold;">一、基本信息</span></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content"></div>
           </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content"></div>
-        </div>
-        <div class="q-filler q-textblank">
-          <span class="q-idx" style="display: none;">01</span>
-          <div class="q-title">
-            <span class="q-title-content">1.企业名称（输入 2 到 30 个字）：</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
+          <div class="q-filler q-textblank">
+            <span class="q-idx" style="display: none;">01</span>
+            <div class="q-title">
+              <span class="q-title-content">1.企业名称（输入 2 到 30 个字）：</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+            <%= f.text_field :company%>
+            </div>
           </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-          <%= f.text_field :company%>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">02</span>
+            <div class="q-title">
+              <span class="q-title-content">2.您企业所在的地区是（单选题）：</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <%= select("answ", "address", Answ.add_list, { include_blank: false}) %>
+            </div>
           </div>
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">02</span>
-          <div class="q-title">
-            <span class="q-title-content">2.您企业所在的地区是（单选题）：</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">03</span>
+            <div class="q-title">
+              <span class="q-title-content">3.企业所属技术领域（单选题）：</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "电子信息"  %> 
+                        <span>&nbsp;</span>
+                        <p>电子信息</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "生物医药技术（含农业、轻工）"  %> 
+                        <span>&nbsp;</span>
+                        <p>生物医药技术（含农业、轻工）</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "新材料"  %> 
+                        <span>&nbsp;</span>
+                        <p>新材料</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "光机电一体化"  %> 
+                        <span>&nbsp;</span>
+                        <p>光机电一体化</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "新能源、高效能源"  %> 
+                        <span>&nbsp;</span>
+                        <p>新能源、高效能源</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "环境保护"  %> 
+                        <span>&nbsp;</span>
+                        <p>环境保护</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "航空航天"  %> 
+                        <span>&nbsp;</span>
+                        <p>航空航天</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "地球、空间、海洋工程"  %>
+                        <span>&nbsp;</span>
+                        <p>地球、空间、海洋工程</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "核应用技术"  %>
+                        <span>&nbsp;</span>
+                        <p>核应用技术</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "其他高技术"  %>
+                        <span>&nbsp;</span>
+                        <p>其他高技术</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "高技术研发业"  %>
+                        <span>&nbsp;</span>
+                        <p>高技术研发业</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "高技术服务业"  %>
+                        <span>&nbsp;</span>
+                        <p>高技术服务业</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "创意产业"  %>
+                        <span>&nbsp;</span>
+                        <p>创意产业</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :tech_domain, "非高技术"  %>
+                        <span>&nbsp;</span>
+                        <p>非高技术</p>
+                      </label>
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <%= select("answ", "address", Answ.add_list, { include_blank: false}) %>
-            
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">04</span>
+            <div class="q-title">
+              <span class="q-title-content">4.企业类型（单选题）：</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :company_type, "中央企业"  %>
+                        <span>&nbsp;</span>
+                        <p>中央企业</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :company_type, "地方国有企业"  %>
+                        <span>&nbsp;</span>
+                        <p>地方国有企业</p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> 
+          </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">05</span>
+            <div class="q-title">
+              <span class="q-title-content">5.企业规模（单选题）：</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :company_size, "大型（从业人数≧1000人；年营业收入≧40000万元）"  %>
+                        <span>&nbsp;</span>
+                        <p>大型（从业人数≧1000人；年营业收入≧40000万元）</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        
+                        <%= f.radio_button :company_size, "中型（300≦从业人数<1000人；2000万元≦年营业收入<40000万元）"  %>
+                        <span>&nbsp;</span>
+                        <p>中型（300≦从业人数&lt;1000人；2000万元≦年营业收入&lt;40000万元）</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        
+                        <%= f.radio_button :company_size, "小型（20≦从业人数<300人；300万元≦年营业收入<2000万元）"  %>
+                        <span>&nbsp;</span>
+                        <p>小型（20≦从业人数&lt;300人；300万元≦年营业收入&lt;2000万元）</p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">06</span>
+            <div class="q-title">
+              <span class="q-title-content">6.贵企业在收到此问卷之前对国办发8号文件的了解程度（单选题）：</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :known_level, "比较了解，仔细阅读过"  %>
+                        <span>&nbsp;</span>
+                        <p>比较了解，仔细阅读过</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :known_level, "了解，曾经翻阅过"  %>
+                        <span>&nbsp;</span>
+                        <p>了解，曾经翻阅过</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :known_level, "听说过，但没翻阅过"  %>
+                        <span>&nbsp;</span>
+                        <p>听说过，但没翻阅过</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :known_level, "没听说过"  %>
+                        <span>&nbsp;</span>
+                        <p>没听说过</p>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">07</span>
+            <div class="q-title">
+              <span class="q-title-content">
+                6.1 通过哪些途径知晓8号文件（可多选）:【<span style="color: #f00">
+                <span style="font-weight: bold;">上一题选择“了解或听说过该文件”请回答,选择“不了解”不用回答</span></span>】
+              </span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: none;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= check_box("answ", "known_way", {:multiple => true}, "政府宣传",nil) %>
+                        <span>&nbsp;</span>
+                        <p>政府宣传</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= check_box("answ", "known_way", {:multiple => true}, "网络",nil) %>
+                        <span>&nbsp;</span>
+                        <p>网络</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= check_box("answ", "known_way", {:multiple => true}, "报纸",nil) %>
+                        <span>&nbsp;</span>
+                        <p>报纸</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= check_box("answ", "known_way", {:multiple => true}, "中介机构",nil) %>
+                        <span>&nbsp;</span>
+                        <p>中介机构</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= check_box("answ", "known_way", {:multiple => true}, "其他",nil) %>
+                        <span>&nbsp;</span>
+                        <p>其他（请具体说明）：<%= f.text_field "known_way_other"%></p>
+                      </label>
+                    </td>
+                    <td>                    
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="q-filler q-choice">
+            <span class="q-idx" style="display: none;">08</span>
+            <div class="q-title">
+              <span class="q-title-content">
+                7.贵企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何？（单选题）:</span>
+              <span class="q-info"></span>
+              <span class="q-required" style="display: inline;">*</span>
+              <span class="q-error"></span>
+            </div>
+            <div class="q-note" style="display: none;">说明：</div>
+            <div class="q-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :sense, "很大"  %>
+                        <span>&nbsp;</span>
+                        <p>很大</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :sense, "较大"  %>
+                        <span>&nbsp;</span>
+                        <p>较大</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :sense, "一般"  %>
+                        <span>&nbsp;</span>
+                        <p>一般</p>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :sense, "较小"  %>
+                        <span>&nbsp;</span>
+                        <p>较小</p>
+                      </label>
+                    </td>
+                    <td>
+                      <label class="cust-option">
+                        <%= f.radio_button :sense, "很小"  %>
+                        <span>&nbsp;</span>
+                        <p>很小</p>
+                      </label>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-          </div>
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">03</span>
-          <div class="q-title">
-            <span class="q-title-content">3.企业所属技术领域（单选题）：</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
-          </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
 
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "电子信息"  %> 
-                      <span>&nbsp;</span>
-                      <p>电子信息</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "生物医药技术（含农业、轻工）"  %> 
-                      <span>&nbsp;</span>
-                      <p>生物医药技术（含农业、轻工）</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "新材料"  %> 
-                      <span>&nbsp;</span>
-                      <p>新材料</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "光机电一体化"  %> 
-                      <span>&nbsp;</span>
-                      <p>光机电一体化</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "新能源、高效能源"  %> 
-                      <span>&nbsp;</span>
-                      <p>新能源、高效能源</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "环境保护"  %> 
-                      <span>&nbsp;</span>
-                      <p>环境保护</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "航空航天"  %> 
-                      <span>&nbsp;</span>
-                      <p>航空航天</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "地球、空间、海洋工程"  %>
-                      <span>&nbsp;</span>
-                      <p>地球、空间、海洋工程</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "核应用技术"  %>
-                      <span>&nbsp;</span>
-                      <p>核应用技术</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "其他高技术"  %>
-                      <span>&nbsp;</span>
-                      <p>其他高技术</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "高技术研发业"  %>
-                      <span>&nbsp;</span>
-                      <p>高技术研发业</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "高技术服务业"  %>
-                      <span>&nbsp;</span>
-                      <p>高技术服务业</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "创意产业"  %>
-                      <span>&nbsp;</span>
-                      <p>创意产业</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :tech_domain, "非高技术"  %>
-                      <span>&nbsp;</span>
-                      <p>非高技术</p>
-                    </label>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">04</span>
-          <div class="q-title">
-            <span class="q-title-content">4.企业类型（单选题）：</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
-          </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :company_type, "中央企业"  %>
-                      <span>&nbsp;</span>
-                      <p>中央企业</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :company_type, "地方国有企业"  %>
-                      <span>&nbsp;</span>
-                      <p>地方国有企业</p>
-                    </label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> 
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">05</span>
-          <div class="q-title">
-            <span class="q-title-content">5.企业规模（单选题）：</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
-          </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :company_size, "大型（从业人数≧1000人；年营业收入≧40000万元）"  %>
-                      <span>&nbsp;</span>
-                      <p>大型（从业人数≧1000人；年营业收入≧40000万元）</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      
-                      <%= f.radio_button :company_size, "中型（300≦从业人数<1000人；2000万元≦年营业收入<40000万元）"  %>
-                      <span>&nbsp;</span>
-                      <p>中型（300≦从业人数&lt;1000人；2000万元≦年营业收入&lt;40000万元）</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      
-                      <%= f.radio_button :company_size, "小型（20≦从业人数<300人；300万元≦年营业收入<2000万元）"  %>
-                      <span>&nbsp;</span>
-                      <p>小型（20≦从业人数&lt;300人；300万元≦年营业收入&lt;2000万元）</p>
-                    </label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">06</span>
-          <div class="q-title">
-            <span class="q-title-content">6.贵企业在收到此问卷之前对国办发8号文件的了解程度（单选题）：</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
-          </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :known_level, "比较了解，仔细阅读过"  %>
-                      <span>&nbsp;</span>
-                      <p>比较了解，仔细阅读过</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :known_level, "了解，曾经翻阅过"  %>
-                      <span>&nbsp;</span>
-                      <p>了解，曾经翻阅过</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :known_level, "听说过，但没翻阅过"  %>
-                      <span>&nbsp;</span>
-                      <p>听说过，但没翻阅过</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :known_level, "没听说过"  %>
-                      <span>&nbsp;</span>
-                      <p>没听说过</p>
-                    </label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">07</span>
-          <div class="q-title">
-            <span class="q-title-content">6.1 通过哪些途径知晓8号文件【<span style="color: #f00"><span style="font-weight: bold;">如了解或听说过该文件,请回答此题，不了解不用作答此题</span></span>】</span>
-            <span class="q-info">（可多选）:</span>
-            <span class="q-required" style="display: none;">*</span>
-            <span class="q-error"></span>
-          </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true}, "政府宣传",nil) %>
-                      <span>&nbsp;</span>
-                      <p>政府宣传</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true}, "网络",nil) %>
-                      <span>&nbsp;</span>
-                      <p>网络</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true}, "报纸",nil) %>
-                      <span>&nbsp;</span>
-                      <p>报纸</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true}, "中介机构",nil) %>
-                      <span>&nbsp;</span>
-                      <p>中介机构</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= check_box("answ", "known_way", {:multiple => true}, "其他",nil) %>
-                      <span>&nbsp;</span>
-                      <p>其他（请具体说明）：<%= f.text_field "known_way_other"%></p>
-                    </label>
-                  </td>
-                  <td>                    
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="q-filler q-choice">
-          <span class="q-idx" style="display: none;">08</span>
-          <div class="q-title">
-            <span class="q-title-content">7.贵企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何？（单选题）:</span>
-            <span class="q-info"></span>
-            <span class="q-required" style="display: inline;">*</span>
-            <span class="q-error"></span>
-          </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :sense, "很大"  %>
-                      <span>&nbsp;</span>
-                      <p>很大</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :sense, "较大"  %>
-                      <span>&nbsp;</span>
-                      <p>较大</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :sense, "一般"  %>
-                      <span>&nbsp;</span>
-                      <p>一般</p>
-                    </label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :sense, "较小"  %>
-                      <span>&nbsp;</span>
-                      <p>较小</p>
-                    </label>
-                  </td>
-                  <td>
-                    <label class="cust-option">
-                      <%= f.radio_button :sense, "很小"  %>
-                      <span>&nbsp;</span>
-                      <p>很小</p>
-                    </label>
-                  </td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="q-filler q-paragraph">
+
+
+
+        <div class="q-filler q-paragraph paragraph_2">
           <div class="q-title">
             <span class="q-title-content">
-              <span style="font-weight: bold;">二、国办发8号文件相关政策措施落实情况：<br>（一）进一步完善引导企业加大技术创新投入的机制</span><br>
+              <span style="font-weight: bold;">二、国办发8号文件相关政策措施落实情况：</span><br>
             </span>
           </div>
           <div class="q-note" style="display: none;">说明：</div>
           <div class="q-content"></div>
+        </div>
+        <div class="q-filler">
+          <div class="q-title">
+            <span class="q-title-content">
+              <span style="font-weight: bold;">（一）进一步完善引导企业加大技术创新投入的机制</span><br>
+            </span>
+          </div>          
         </div>
         <div class="q-filler q-choice">
           <span class="q-idx" style="display: none;">09</span>
@@ -636,8 +670,8 @@
         <div class="q-filler q-textblank">
           <span class="q-idx" style="display: none;">16</span>
           <div class="q-title">
-            <span class="q-title-content">5.1 您的企业支持该政策，对于政策实施有什么建议：【<span style="color: #f00"><span style="font-weight: bold;">如果支持该政策,回答此题，不支持不回答此题</span></span>】</span>
-            <span class="q-info">（不少于 1 个字）:</span>
+            <span class="q-title-content">5.1 您的企业支持该政策，对于政策实施有什么建议：【<span style="color: #f00"><span style="font-weight: bold;">如果支持该政策,回答，不支持不回答</span></span>】</span>
+            <span class="q-info"></span>
             <span class="q-required" style="display: none;">*</span>
             <span class="q-error"></span>
           </div>
@@ -652,8 +686,8 @@
         <div class="q-filler q-textblank">
           <span class="q-idx" style="display: none;">17</span>
           <div class="q-title">
-            <span class="q-title-content">5.2您的企业不支持该政策，原因是：【<span style="color: #f00"><span style="font-weight: bold;">如果不支持该政策,回答此题，支持不回答此题</span></span>】</span>
-            <span class="q-info">（不少于 1 个字）:</span>
+            <span class="q-title-content">5.2您的企业不支持该政策，原因是：【<span style="color: #f00"><span style="font-weight: bold;">如果不支持该政策,回答，支持不回答</span></span>】</span>
+            <span class="q-info"></span>
             <span class="q-required" style="display: none;">*</span>
             <span class="q-error"></span>
           </div>
@@ -733,7 +767,7 @@
           <span class="q-idx" style="display: none;">20</span>
           <div class="q-title">
             <span class="q-title-content"> 7.1对建立健全国有企业技术创新的经营业绩考核制度的建议：</span>
-            <span class="q-info">（不少于 1 个字）:</span>
+            <span class="q-info"></span>
             <span class="q-required" style="display: inline;">*</span>
             <span class="q-error"></span>
           </div>
@@ -802,12 +836,10 @@
           </div>
         </div>
 
-        <div class="q-filler q-paragraph">
+        <div class="q-filler">
           <div class="q-title">
             <span class="q-title-content"><span style="font-weight: bold;">（二）支持企业建立研发机构</span></span>
           </div>
-          <div class="q-note" style="display: none;">说明：</div>
-          <div class="q-content"></div>
         </div>
 
 
@@ -847,7 +879,7 @@
         <div class="q-filler q-choice">
           <span class="q-idx" style="display: none;">23</span>
           <div class="q-title">
-            <span class="q-title-content">9.1 贵企业拥有以下哪些国家级或省级的研发机构（可多选）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答此题，选择“否”不用回答</span></span>】</span>
+            <span class="q-title-content">9.1 贵企业拥有以下哪些国家级或省级的研发机构（可多选）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答，选择“否”不用回答</span></span>】</span>
             <span class="q-info"></span>
             <span class="q-required" style="display: none;">*</span>
             <span class="q-error"></span>
@@ -916,7 +948,7 @@
         <div class="q-filler q-choice">
           <span class="q-idx" style="display: none;">24</span>
           <div class="q-title">
-            <span class="q-title-content">9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术中心，是否享受了进口科技开发用品税收优惠政策（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">如未拥有上述研发机构，不用作答</span></span>】</span>
+            <span class="q-title-content">9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术中心，是否享受了进口科技开发用品税收优惠政策（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">如未拥有上述研发机构，不用回答</span></span>】</span>
             <span class="q-info"></span>
             <span class="q-required" style="display: none;">*</span>
             <span class="q-error"></span>
@@ -957,7 +989,7 @@
         <div class="q-filler q-textblank">
           <span class="q-idx" style="display: none;">25</span>
           <div class="q-title">
-            <span class="q-title-content">9.3  在申请和享受该项税收优惠政策过程中，存在的主要问题及建议（不少于 1 个字）：【<span style="color: #f00"><span style="font-weight: bold;">如上题选择“从未申请过”，不用作答</span></span>】</span>
+            <span class="q-title-content">9.3  在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：【<span style="color: #f00"><span style="font-weight: bold;">如上题选择“从未申请过”，不用回答</span></span>】</span>
             <span class="q-info"></span>
             <span class="q-required" style="display: inline;">*</span>
             <span class="q-error"></span>
@@ -966,7 +998,7 @@
           <div class="q-content"><%= f.text_field "policy_problem" %></div>
         </div>
 
-        <div class="q-filler q-paragraph">
+        <div class="q-filler q-paragraph paragraph_3">
           <div class="q-title">
             <span class="q-title-content"><span style="font-weight: bold;">（三）支持企业推进重大科技成果产业化</span></span>
           </div>
@@ -1110,7 +1142,7 @@
           </div>
         </div>
 
-        <div class="q-filler q-paragraph">
+        <div class="q-filler q-paragraph paragraph_4">
           
           <div class="q-title">
             <span class="q-title-content"><span style="font-weight: bold;">（四）以企业为主导发展产业技术创新战略联盟</span></span>
@@ -1145,8 +1177,8 @@
       <div class="q-filler q-choice">
         <span class="q-idx" style="display: none;">29</span>
         <div class="q-title">
-          <span class="q-title-content">12.1 所在联盟更希望获得政府部门哪些方面的支持：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答此题，选择“否”不用回答此题</span></span>】</span>
-          <span class="q-info">（单选题）</span>
+          <span class="q-title-content">12.1 所在联盟更希望获得政府部门哪些方面的支持（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答，选择“否”不用回答</span></span>】</span>
+          <span class="q-info"></span>
           <span class="q-required" style="display: none;">*</span>
           <span class="q-error"></span>
         </div>
@@ -1174,7 +1206,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">30</span>
   <div class="q-title">
-    <span class="q-title-content">12.2 贵企业认为政府部门倡导的以企业为主导发展产业技术创新联盟，其运行中存在的问题及建议（不少于 1 个字）:</span>
+    <span class="q-title-content">12.2 贵企业认为政府部门倡导的以企业为主导发展产业技术创新联盟，其运行中存在的问题及建议:</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1183,7 +1215,7 @@
   <div class="q-content"><%= f.text_field "gov_union_prob" %></div>
 </div>
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_5">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（五）依托转制院所和行业领军企业构建产业共性技术研发基地</span></span>
@@ -1218,7 +1250,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">32</span>
   <div class="q-title">
-    <span class="q-title-content">13.1 在加强共性技术研发和成果推广扩散方面，得到了政府部门的哪些支持（不少于 1 个字）：</span>
+    <span class="q-title-content">13.1 在加强共性技术研发和成果推广扩散方面，得到了政府部门的哪些支持：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1231,7 +1263,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">33</span>
   <div class="q-title">
-    <span class="q-title-content">13.2 在产业共性技术研发基地建设、运行和技术扩散服务方面，存在的主要问题及建议（不少于 1 个字）：</span>
+    <span class="q-title-content">13.2 在产业共性技术研发基地建设、运行和技术扩散服务方面，存在的主要问题及建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1240,7 +1272,7 @@
   <div class="q-content"><%= f.text_field "innovate_prob" %></div>
 </div>
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_6">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（六）强化科研院所和高等学校对企业技术创新的源头支持</span></span>
@@ -1256,7 +1288,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">34</span>
   <div class="q-title">
-    <span class="q-title-content">14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式（请选择 1 到 5 项）：</span>
+    <span class="q-title-content">14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式(可多选)：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1290,7 +1322,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">35</span>
   <div class="q-title">
-    <span class="q-title-content">14.1 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议（不少于 1 个字）：</span>
+    <span class="q-title-content">14.1 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1299,7 +1331,7 @@
   <div class="q-content"><%= f.text_field "cooperate_prob"%></div>
 </div>
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_7">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（七）完善面向企业的技术创新服务平台</span></span>
@@ -1332,7 +1364,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">37</span>
   <div class="q-title">
-    <span class="q-title-content">15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“否”回答此题，选择“是”不用回答此题</span></span>】</span>
+    <span class="q-title-content">15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“否”回答，选择“是”不用回答</span></span>】</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1415,7 +1447,7 @@
 </div>
 
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_8">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（八）加强企业创新人才队伍建设</span></span>
@@ -1449,8 +1481,8 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">40</span>
   <div class="q-title">
-    <span class="q-title-content">17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持：【<span style="color: #f00"><span style="font-weight: bold;">17题选择“是”回答此题，选择“否”不用回答此题</span></span>】</span>
-    <span class="q-info">（单选题）</span>
+    <span class="q-title-content">17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">17题选择“是”回答，选择“否”不用回答</span></span>】</span>
+    <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
   </div>
@@ -1470,8 +1502,8 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">41</span>
   <div class="q-title">
-    <span class="q-title-content">17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是： 【<span style="color: #f00"><span style="font-weight: bold;">17.1 题选择“否”回答此题，选择“是”不用回答此题</span></span>】</span>
-    <span class="q-info">（单选题）</span>
+    <span class="q-title-content">17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是（单选题）： 【<span style="color: #f00"><span style="font-weight: bold;">17.1 题选择“否”回答，选择“是”不用回答</span></span>】</span>
+    <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
   </div>
@@ -1524,8 +1556,8 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">43</span>
   <div class="q-title">
-    <span class="q-title-content">18.1 实施股权或分红激励的主要原因是：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答此题，选择“否”不用回答此题</span></span>】</span>
-    <span class="q-info">（单选题）</span>
+    <span class="q-title-content">18.1 实施股权或分红激励的主要原因是（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答，选择“否”不用回答</span></span>】</span>
+    <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
   </div>
@@ -1541,7 +1573,7 @@
 </label></td></tr></tbody></table></div>
 </div>
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_9">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（九）推动科技资源开放共享</span></span>
@@ -1581,7 +1613,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">45</span>
   <div class="q-title">
-    <span class="q-title-content">19.1 本企业不曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源的主要原因是（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“否”回答此题，选择“是”不用回答此题</span></span>】</span>
+    <span class="q-title-content">19.1 本企业不曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源的主要原因是（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“否”回答，选择“是”不用回答</span></span>】</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1638,7 +1670,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">47</span>
   <div class="q-title">
-    <span class="q-title-content">20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位不曾使用过的主要原因是（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“否”回答此题，选择“是”不用回答此题</span></span>】</span>
+    <span class="q-title-content">20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位不曾使用过的主要原因是（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“否”回答，选择“是”不用回答</span></span>】</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1675,7 +1707,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">48</span>
   <div class="q-title">
-    <span class="q-title-content">20.2 目前公共科技资源开放共享方面存在的问题及建议（不少于 1 个字）： </span>
+    <span class="q-title-content">20.2 目前公共科技资源开放共享方面存在的问题及建议： </span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1686,7 +1718,7 @@
 
 
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_10">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（十）提升企业技术创新开放合作水平</span></span>
@@ -1719,7 +1751,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">50</span>
   <div class="q-title">
-    <span class="q-title-content">21.1 企业开展国际创新合作采取了如下哪些形式：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答此题，选择“否”不用回答此题</span></span>】</span>
+    <span class="q-title-content">21.1 企业开展国际创新合作采取了如下哪些形式(可多选)：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择“是”回答，选择“否”不用回答:</span></span>】</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1769,7 +1801,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">51</span>
   <div class="q-title">
-    <span class="q-title-content">21.2 企业在开展国际创新合作中，存在的问题和建议（不少于 1 个字）：</span>
+    <span class="q-title-content">21.2 企业在开展国际创新合作中，存在的问题和建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1779,7 +1811,7 @@
 </div>
 
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_11">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（十一）完善支持企业技术创新的财税金融等政策</span></span>
@@ -1813,7 +1845,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">53</span>
   <div class="q-title">
-    <span class="q-title-content">22.1 该政策对促进贵企业加大研发投入的作用和影响（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">22题选择“是”回答此题，选择“否”不用回答此题</span></span>】</span>
+    <span class="q-title-content">22.1 该政策对促进贵企业加大研发投入的作用和影响（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">22题选择“是”回答，选择“否”不用回答</span></span>】</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1848,7 +1880,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">54</span>
   <div class="q-title">
-    <span class="q-title-content">22.2 贵企业没有享受企业研发费用加计扣除政策的原因是：<span style="color: #f00"><span style="font-weight: bold;">22题选择“否”回答此题，选择“是”不用回答此题</span></span></span>
+    <span class="q-title-content">22.2 贵企业没有享受企业研发费用加计扣除政策的原因是(可多选)：<span style="color: #f00"><span style="font-weight: bold;">22题选择“否”回答，选择“是”不用回答</span></span></span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1856,31 +1888,31 @@
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><table><tbody><tr><td><label class="cust-option">
   
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "不知道该政策",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'first'}, "不知道该政策",nil) %>
   <span>&nbsp;</span>
   <p>不知道该政策</p>
 </label></td><td><label class="cust-option">
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "不符合政策条件",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'no_deduct_rea'}, "不符合政策条件",nil) %>
   <span>&nbsp;</span>
   <p>不符合政策条件</p>
 </label></td></tr><tr><td><label class="cust-option">
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "政策申请手续繁琐，申请成本高",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'no_deduct_rea'}, "政策申请手续繁琐，申请成本高",nil) %>
   <span>&nbsp;</span>
   <p>政策申请手续繁琐，申请成本高</p>
 </label></td><td><label class="cust-option">
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "认定部门（税务部门等）不认可企业研发费用",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'no_deduct_rea'}, "认定部门（税务部门等）不认可企业研发费用",nil) %>
   <span>&nbsp;</span>
   <p>认定部门（税务部门等）不认可企业研发费用</p>
 </label></td></tr><tr><td><label class="cust-option">
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "对该政策没有需求或需求不强烈而未申请",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'no_deduct_rea'}, "对该政策没有需求或需求不强烈而未申请",nil) %>
   <span>&nbsp;</span>
   <p>对该政策没有需求或需求不强烈而未申请</p>
 </label></td><td><label class="cust-option">
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "出于企业经营策略考虑（如经营业绩、保密需要等）而放弃申请",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'no_deduct_rea'}, "出于企业经营策略考虑（如经营业绩、保密需要等）而放弃申请",nil) %>
   <span>&nbsp;</span>
   <p>出于企业经营策略考虑（如经营业绩、保密需要等）而放弃申请</p>
 </label></td></tr><tr><td><label class="cust-option">
-  <%= check_box("answ", "no_deduct_rea", {:multiple => true}, "其他",nil) %>
+  <%= check_box("answ", "no_deduct_rea", {:multiple => true,:class =>'no_deduct_rea'}, "其他",nil) %>
   <span>&nbsp;</span>
   <p>其他（请具体指出）：<%= f.text_field "no_deduct_rea_other"%></p>
 </label></td><td></td></tr></tbody></table></div>
@@ -1890,7 +1922,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">55</span>
   <div class="q-title">
-    <span class="q-title-content"> 22.3 您对进一步落实和完善企业研发费用加计扣除政策有何建议（不少于 1 个字）：</span>
+    <span class="q-title-content"> 22.3 您对进一步落实和完善企业研发费用加计扣除政策有何建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -1923,7 +1955,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">57</span>
   <div class="q-title">
-    <span class="q-title-content">23.1 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用（单选题）：<span style="color: #f00"><span style="font-weight: bold;">23题选择“是”回答此题，选择“否”不用回答此题</span></span></span>
+    <span class="q-title-content">23.1 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用（单选题）：<span style="color: #f00"><span style="font-weight: bold;">23题选择“是”回答，选择“否”不用回答</span></span></span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -1957,44 +1989,81 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">58</span>
   <div class="q-title">
-    <span class="q-title-content">23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是（单选题）：<span style="color: #f00"><span style="font-weight: bold;">23题选择“否”回答此题，选择“是”不用回答此题</span></span></span>
+    <span class="q-title-content">23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是（可多选）：<span style="color: #f00"><span style="font-weight: bold;">23题选择“否”回答，选择“是”不用回答</span></span></span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
   </div>
   <div class="q-note" style="display: none;">说明：</div>
-  <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :no_deprecia,'不知道该政策' %>
-  <span>&nbsp;</span>
-  <p>不知道该政策</p>
-</label></td><td><label class="cust-option">
-  <%= f.radio_button :no_deprecia,'不符合政策条件' %>
-  <span>&nbsp;</span>
-  <p>不符合政策条件</p>
-</label></td></tr><tr><td><label class="cust-option">
-  <%= f.radio_button :no_deprecia,'政策申请手续繁琐，申请成本高' %>
-  <span>&nbsp;</span>
-  <p>政策申请手续繁琐，申请成本高</p>
-</label></td><td><label class="cust-option">
-  <%= f.radio_button :no_deprecia,'对该政策没有需求或需求不强烈' %>
-  <span>&nbsp;</span>
-  <p>对该政策没有需求或需求不强烈</p>
-</label></td></tr><tr><td><label class="cust-option">
-  <%= f.radio_button :no_deprecia,'出于企业经营策略考虑（如国有资产保值增值、上市公司利润）而放弃申请' %>
-  <span>&nbsp;</span>
-  <p>出于企业经营策略考虑<br />（如国有资产保值增值、上市公司利润）而放弃申请</p>
-</label></td><td><label class="cust-option">
-  <%= f.radio_button :no_deprecia,'其他' %>
-  <span>&nbsp;</span>
-  <p>其他（请具体指出）：<%= f.text_field "no_deprecia_other"%></p>
-</label></td></tr></tbody></table></div>
+  <div class="q-content">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <label class="cust-option">
+              <%= check_box("answ", "no_deprecia", {:multiple => true,:class => 'first'}, "不知道该政策",nil) %>
+              <%#= f.radio_button :no_deprecia,'不知道该政策' %>
+              <span>&nbsp;</span>
+              <p>不知道该政策</p>
+            </label>
+          </td>
+          <td>
+            <label class="cust-option">
+              <%= check_box("answ", "no_deprecia", {:multiple => true,:class => 'no_deprecia'}, "不符合政策条件",nil) %>
+              <%#= f.radio_button :no_deprecia,'不符合政策条件' %>
+              <span>&nbsp;</span>
+              <p>不符合政策条件</p>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="cust-option">
+              <%= check_box("answ", "no_deprecia", {:multiple => true,:class => 'no_deprecia'}, "政策申请手续繁琐，申请成本高",nil) %>
+              <%#= f.radio_button :no_deprecia,'政策申请手续繁琐，申请成本高' %>
+              <span>&nbsp;</span>
+              <p>政策申请手续繁琐，申请成本高</p>
+            </label>
+          </td>
+          <td>
+            <label class="cust-option">
+              <%= check_box("answ", "no_deprecia", {:multiple => true,:class => 'no_deprecia'}, "对该政策没有需求或需求不强烈",nil) %>
+              <%#= f.radio_button :no_deprecia,'对该政策没有需求或需求不强烈' %>
+              <span>&nbsp;</span>
+              <p>对该政策没有需求或需求不强烈</p>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="cust-option">
+              <%= check_box("answ", "no_deprecia", {:multiple => true,:class => 'no_deprecia'}, "出于企业经营策略考虑（如国有资产保值增值、上市公司利润）而放弃申请",nil) %>
+              <%#= f.radio_button :no_deprecia,'出于企业经营策略考虑（如国有资产保值增值、上市公司利润）而放弃申请' %>
+              <span>&nbsp;</span>
+              <p>出于企业经营策略考虑（如国有资产保值增值、上市公司利润）而放弃申请</p>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="cust-option">
+              <%= check_box("answ", "no_deprecia", {:multiple => true,:class => 'no_deprecia'}, "其他",nil) %>
+              <%#= f.radio_button :no_deprecia,'其他' %>
+              <span>&nbsp;</span>
+              <p>其他（请具体指出）：<%= f.text_field "no_deprecia_other"%></p>
+            </label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">59</span>
   <div class="q-title">
-    <span class="q-title-content">23.3 您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议（不少于 1 个字）：</span>
+    <span class="q-title-content">23.3 您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -2028,7 +2097,7 @@
 <div class="q-filler q-choice">
   <span class="q-idx" style="display: none;">61</span>
   <div class="q-title">
-    <span class="q-title-content">24.1 贵企业是否享受了高新技术企业税收优惠（按15%的企业所得税率）政策（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择”是“回答此题，选择”否“不用回答此题</span></span>】</span>
+    <span class="q-title-content">24.1 贵企业是否享受了高新技术企业税收优惠（按15%的企业所得税率）政策（单选题）：【<span style="color: #f00"><span style="font-weight: bold;">上一道题选择”是“回答，选择”否“不用回答</span></span>】</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: none;">*</span>
     <span class="q-error"></span>
@@ -2049,7 +2118,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">62</span>
   <div class="q-title">
-    <span class="q-title-content">24.2 您对高新技术企业认定工作，以及对改进和完善高企认定管理办法有何建议（不少于 1 个字）：</span>
+    <span class="q-title-content">24.2 您对高新技术企业认定工作，以及对改进和完善高企认定管理办法有何建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -2057,7 +2126,7 @@
   <div class="q-note" style="display: none;">说明：</div>
   <div class="q-content"><%= f.text_field "adv_suggest" %></div>
 </div>
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_12">
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">（十二）总体评价和建议</span></span>
   </div>
@@ -2107,7 +2176,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">64</span>
   <div class="q-title">
-    <span class="q-title-content">26.您认为当前国有企业开展技术创新活动面临的主要问题和挑战（不少于 1 个字）：</span>
+    <span class="q-title-content">26.您认为当前国有企业开展技术创新活动面临的主要问题和挑战：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -2119,7 +2188,7 @@
 <div class="q-filler q-textblank">
   <span class="q-idx" style="display: none;">65</span>
   <div class="q-title">
-    <span class="q-title-content">27.贯彻落实国办发8号文件存在的主要问题及有关建议（不少于 1 个字）：</span>
+    <span class="q-title-content">27.贯彻落实国办发8号文件存在的主要问题及有关建议：</span>
     <span class="q-info"></span>
     <span class="q-required" style="display: inline;">*</span>
     <span class="q-error"></span>
@@ -2129,7 +2198,7 @@
 </div>
 
 
-<div class="q-filler q-paragraph">
+<div class="q-filler q-paragraph paragraph_13">
   
   <div class="q-title">
     <span class="q-title-content"><span style="font-weight: bold;">如方便请留下问卷填写人的联络信息，以便我们与您联系。</span></span>
@@ -2222,10 +2291,12 @@
 
 
 <div id="alert_notice">
+  <div class='review_answer_detail'> 
+    <%#= render :partial  => "sf_main", :locals => { :answ => @answ } %>  
+  </div>
   <div class='fancy-wra'>
     <div class='desc'>提交答案后将不能重修改答案,是否提交?</div>
     <button class='cancel'>取消</button>
     <button class='sub-btn'>提交</button>  
   </div>
-  
 </div>

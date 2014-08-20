@@ -252,8 +252,40 @@ $(function(){
           }       
       }
     )
+  }
 
-  
+  except = function(obj){
+    if(obj.attr('name') == 'answ[innovate_type][]'){
+      if(obj.hasClass('last')){
+        if(obj.is(':checked')){
+          $('input.innovate_type').attr('checked',false)
+        }
+      }else{
+        $('input[name="answ[innovate_type][]"]:last').attr('checked',false)
+      }
+    }
+
+    if(obj.attr('name') == 'answ[no_deduct_rea][]'){
+
+      if(obj.hasClass('first')){
+        if(obj.is(':checked')){
+          $('input.no_deduct_rea').attr('checked',false)
+        }
+      }else{
+        $('input[name="answ[no_deduct_rea][]"]:first').attr('checked',false)
+      }
+    }
+
+
+    if(obj.attr('name') == 'answ[no_deprecia][]'){
+      if(obj.hasClass('first')){
+        if(obj.is(':checked')){
+          $('input.no_deprecia').attr('checked',false)
+        }
+      }else{
+        $('input[name="answ[no_deprecia][]"]:first').attr('checked',false)
+      }
+    }    
   }
 
 
@@ -271,15 +303,7 @@ $(function(){
   })
 
   $('.new_answ input[type="radio"],.new_answ input[type="checkbox"],.new_answ select').change(function(){
-    if($(this).attr('name') == 'answ[innovate_type][]'){
-      if($(this).hasClass('last')){
-        if($(this).is(':checked')){
-          $('input.innovate_type').attr('checked',false)
-        }
-      }else{
-        $('input[name="answ[innovate_type][]"]:last').attr('checked',false)
-      }
-    }  
+    except($(this))
     send_post_ajax($(this))
     return false
   })    
@@ -290,15 +314,7 @@ $(function(){
   })
 
   $('.edit_answ input[type="radio"],.edit_answ input[type="checkbox"],.edit_answ select').change(function(){
-    if($(this).attr('name') == 'answ[innovate_type][]'){
-      if($(this).hasClass('last')){
-        if($(this).is(':checked')){
-          $('input.innovate_type').attr('checked',false)
-        }
-      }else{
-        $('input[name="answ[innovate_type][]"]:last').attr('checked',false)
-      }
-    }  
+    except($(this)) 
     send_upd_ajax($(this))
     return false
   })

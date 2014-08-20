@@ -108,32 +108,39 @@ $ ->
 
 	alert_notice = ->
 		if $('.q-filler.empty').length < 1
-  			$.fancybox.open($('#alert_notice'),{
-  			  padding:0,
-  			  autoSize:true,
-  			  scrolling:no,
-  			  openEffect:'none',
-  			  closeEffect:'none',        
-  			  helpers : {
-  			    overlay : {
-  			      locked: false,
-  			      closeClick: false,
-  			      css : {
-  			        'background' : 'rgba(51, 51, 51, 0.2)'
-  			      }
-  			    }
-  			  },
-  			  afterShow:->
-  			  	$('.fancy-wra button.cancel').bind('click',->
-  			  		$.fancybox.close()
-  			  	)
-  			  	$('.fancy-wra button.sub-btn').bind('click',->
-  			  		$('<input id="answ_company" name="answ[status]" type="hidden" value="2">').appendTo($('form'))
-  			  		finish()
-  			  	)
-  			  afterClose:-> 
-  			  	$('#alert_notice').hide()
-  			})	
+			$.ajax {
+				type:'GET'
+				url:'/preview'
+				success:(data)->
+					$.fancybox.open($('#alert_notice'),{
+						padding:0,
+						autoSize:true,
+						# scrolling:no,
+						minWidth:'1100'
+						openEffect:'none',
+						closeEffect:'none',        
+						helpers : {
+							overlay : {
+								locked: false,
+								closeClick: false,
+								css:{
+									'background' : 'rgba(51, 51, 51, 0.2)'
+								}
+							}
+						},
+						afterShow:->
+							$('.fancy-wra button.cancel').bind('click',->
+								$.fancybox.close()
+							)
+							$('.fancy-wra button.sub-btn').bind('click',->
+								$('<input id="answ_company" name="answ[status]" type="hidden" value="2">').appendTo($('form'))
+								finish()
+							)
+						afterClose:-> 
+							$('#alert_notice').hide()
+					})
+			}
+	
 
 	finish = ->
 		if $('form').attr('action') == '/answs'
@@ -145,7 +152,7 @@ $ ->
 			url: $('form').attr('action')
 			data: $('form').serialize()
 			success: ->
-			 	window.location.href = '/'
+				window.location.href = '/'
 			error: ->
 				console.log('upd faailed')	
 		}

@@ -5,6 +5,7 @@ class AnswsController < ApplicationController
   # GET /answs/1
   # GET /answs/1.json
   def show
+    @class = 'show_print'
     @answ = Answ.where(uid:cookies[:ukey]).first  if @answ.uid != cookies[:ukey]
   end
 
@@ -73,6 +74,15 @@ class AnswsController < ApplicationController
     end
     render json: answ, success: false
   end
+
+  def preview
+    @answ = nil
+    if cookies[:ukey].present?
+      @answ = Answ.where(uid:cookies[:ukey]).first
+    end
+    #render json: @answ
+  end
+
 
   def report
     path = Rails.root.to_s + "/public/export_data.xls"

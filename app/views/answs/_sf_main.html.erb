@@ -1,61 +1,38 @@
-<div id="sf">
-  <div id="sf_banner">
-    <div id="pv_bar">
-      <button style="display: inline-block;" class='print'>打印</button>
-    </div>
-  </div>
-  <div class="sf_banner_span is_preview">&nbsp;</div>
-
-  <div id="f_body">
-    <div id="sf_title">国有企业贯彻落实“国办发8号文件”情况调查问卷</div>
-    <div id="sf_desc">
-      <p>各有关企业：</p>
-      <p class='p_content'>
-        为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办发〔2013〕8号，简称“国办发8号文件”）及相应政策措施在企业的落实情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本问卷。请结合本企业实际情况认真、如实填写，于8月15日前登陆国家科技评估中心主页（http://www.ncste.org）在线提交。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。<span>(衷心感谢您的支持与配合！---------国家科技评估中心  2014年7月18日)</span>
-      </p>
-      <p class='p_contact'>
-        <span>联 系 人：李睆玲</span>
-        <span>联系电话：010-62169570</span>
-        <span>传真号码：010-88232615</span>
-        <span>通讯地址：北京市海淀区皂君庙乙7号（邮编：100081）</span>
-      </p>
-    </div> 
-    <div>      
-      <div id="sf_main" class="sf_main_padding">
-        <div id="questions_con">
-          <div class="q-filler q-paragraph">
-            <div class="q-title">
-              <span class="q-title-content"><span style="font-weight: bold;">一、基本信息</span></span>
-            </div>
-            <div class="q-content"></div>
-          </div>
-          <div class="q-filler q-textblank">
-            <span class="q-idx" style="display: none;">01</span>
-            <div class="q-title">
-              <span class="q-title-content">1.企业名称：</span>
-              <span class="q-error"></span>
-            </div>
-            <div class="q-content">
+    	<div id="sf_main" class="sf_main_padding">
+      	<div id="questions_con">
+      	  <div class="q-filler q-paragraph">
+      	    <div class="q-title">
+      	      <span class="q-title-content"><span style="font-weight: bold;">一、基本信息</span></span>
+      	    </div>
+      	    <div class="q-content"></div>
+      	  </div>
+      	  <div class="q-filler q-textblank">
+      	    <span class="q-idx" style="display: none;">01</span>
+      	    <div class="q-title">
+      	      <span class="q-title-content">1.企业名称：</span>
+      	      <span class="q-error"></span>
+      	    </div>
+      	    <div class="q-content">
               <table>
                 <tbody>
                   <tr>
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.company%></p>
+                        <p><%= answ.company%></p>
                       </label>
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
-          <div class="q-filler q-choice">
-            <span class="q-idx" style="display: none;">02</span>
-            <div class="q-title">
-              <span class="q-title-content">2.您企业所在的地区是：</span>
-              <span class="q-error"></span>
-            </div>
+      	    </div>
+      	  </div>
+      	  <div class="q-filler q-choice">
+      	    <span class="q-idx" style="display: none;">02</span>
+      	    <div class="q-title">
+      	      <span class="q-title-content">2.您企业所在的地区是：</span>
+      	      <span class="q-error"></span>
+      	    </div>
 
             <div class="q-content">
               <table>
@@ -64,14 +41,14 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.address %></p>
+                        <p><%= answ.address %></p>
                       </label>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div> 
-          </div>
+      	  </div>
           <div class="q-filler q-choice">
             <span class="q-idx" style="display: none;">03</span>
             <div class="q-title">
@@ -85,7 +62,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.tech_domain%></p>
+                        <p><%= answ.tech_domain%></p>
                       </label>
                     </td>
                   </tr>
@@ -106,7 +83,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.company_type%></p>
+                        <p><%= answ.company_type%></p>
                       </label>
                     </td>
                   </tr>
@@ -127,7 +104,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.company_size%></p>
+                        <p><%= answ.company_size%></p>
                       </label>
                     </td>
                   </tr>
@@ -148,7 +125,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.known_level%></p>
+                        <p><%= answ.known_level%></p>
                       </label>
                     </td>
                   </tr>
@@ -156,7 +133,7 @@
               </table>
             </div>
           </div>
-          <% if @answ.known_way.present? %>
+          <% if answ.known_way.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">6.1通过哪些途径知晓8号文件：</span>
@@ -165,12 +142,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <%@answ.known_way.each do |way|%>
+                      <%answ.known_way.each do |way|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if way == '其他'%>
-                              <p><%= way %>:<%= @answ.known_way_other%></p>
+                              <p><%= way %>:<%= answ.known_way_other%></p>
                             <% else %>
                               <p><%= way %></p>
                             <% end %>
@@ -196,7 +173,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.sense %></p>
+                        <p><%= answ.sense %></p>
                       </label>
                     </td>
                   </tr>
@@ -229,7 +206,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.plan %></p>
+                        <p><%= answ.plan %></p>
                       </label>
                     </td>
                   </tr>
@@ -248,7 +225,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.innovate %></p>
+                        <p><%= answ.innovate %></p>
                       </label>
                     </td>
                   </tr>
@@ -270,7 +247,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.devotion %></p>
+                        <p><%= answ.devotion %></p>
                       </label>
                     </td>
                   </tr>
@@ -290,7 +267,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.percent %>%</p>
+                        <p><%= answ.percent %>%</p>
                       </label>
                     </td>
                   </tr>
@@ -311,7 +288,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.satisfy %></p>
+                        <p><%= answ.satisfy %></p>
                       </label>
                     </td>
                   </tr>
@@ -331,7 +308,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.lead %></p>
+                        <p><%= answ.lead %></p>
                       </label>
                     </td>
                   </tr>
@@ -352,7 +329,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.support %></p>
+                        <p><%= answ.support %></p>
                       </label>
                     </td>
                   </tr>
@@ -362,7 +339,7 @@
           </div>
 
 
-          <% if @answ.suggest.present? %>
+          <% if answ.suggest.present? %>
             <div class="q-filler q-textblank">
               <div class="q-title">
                 <span class="q-title-content">5.1 您的企业支持该政策，对于政策实施有什么建议：</span>
@@ -374,7 +351,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <p><%= @answ.suggest %></p>
+                          <p><%= answ.suggest %></p>
                         </label>
                       </td>
                     </tr>
@@ -385,7 +362,7 @@
           <% end %>
 
 
-          <% if @answ.reason.present? %>
+          <% if answ.reason.present? %>
             <div class="q-filler q-textblank">
               <div class="q-title">
                 <span class="q-title-content">5.2您的企业不支持该政策，原因是：</span>
@@ -397,7 +374,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <p><%= @answ.reason %></p>
+                          <p><%= answ.reason %></p>
                         </label>
                       </td>
                     </tr>
@@ -421,7 +398,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.seek %></p>
+                        <p><%= answ.seek %></p>
                       </label>
                     </td>
                   </tr>
@@ -442,7 +419,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.appraise %></p>
+                        <p><%= answ.appraise %></p>
                       </label>
                     </td>
                   </tr>
@@ -462,7 +439,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.appra_suggest %></p>
+                        <p><%= answ.appra_suggest %></p>
                       </label>
                     </td>
                   </tr>
@@ -485,7 +462,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%=@answ.cash_support%></p>
+                        <p><%=answ.cash_support%></p>
                       </label>
                     </td>
                   </tr>
@@ -513,7 +490,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.have_innovate %></p>
+                        <p><%= answ.have_innovate %></p>
                       </label>
                     </td>
                   </tr>
@@ -523,7 +500,7 @@
           </div>
 
 
-          <% if @answ.innovate_type.present? %>
+          <% if answ.innovate_type.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">贵企业拥有以下哪些国家级或省级的研发机构：</span>
@@ -532,12 +509,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <% @answ.innovate_type.each do |t|%>
+                      <% answ.innovate_type.each do |t|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if t == '其他' %>
-                              <p><%= t %>:<%= @answ.innovate_type_other %></p>
+                              <p><%= t %>:<%= answ.innovate_type_other %></p>
                             <% else %>
                               <p><%= t %></p>
                             <% end %> 
@@ -564,7 +541,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.prefer_policy%></p>
+                        <p><%= answ.prefer_policy%></p>
                       </label>
                     </td>
                   </tr>
@@ -585,7 +562,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.policy_problem%></p>
+                        <p><%= answ.policy_problem%></p>
                       </label>
                     </td>
                   </tr>
@@ -611,7 +588,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.support_action %></p>
+                        <p><%= answ.support_action %></p>
                       </label>
                     </td>
                   </tr>
@@ -630,13 +607,13 @@
               <table>
                 <tbody>
                   <tr>
-                  <% if @answ.support_facet.present?%>
-                    <% @answ.support_facet.each do |s| %>
+                  <% if answ.support_facet.present?%>
+                    <% answ.support_facet.each do |s| %>
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
                           <% if s == '其他' %>
-                            <p><%= s %>:<%= @answ.support_facet_other %></p>
+                            <p><%= s %>:<%= answ.support_facet_other %></p>
                           <% else %>
                             <p><%= s %></p>
                           <% end %> 
@@ -671,7 +648,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.innovate_union %></p>
+                        <p><%= answ.innovate_union %></p>
                       </label>
                     </td>
                   </tr>
@@ -681,7 +658,7 @@
           </div>
 
 
-          <% if @answ.union_support.present? %>
+          <% if answ.union_support.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">12.1 所在联盟更希望获得政府部门哪些方面的支持：</span>
@@ -693,7 +670,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <p><%= @answ.union_support %></p>
+                          <p><%= answ.union_support %></p>
                         </label>
                       </td>
                     </tr>
@@ -715,7 +692,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.gov_union_prob %></p>
+                        <p><%= answ.gov_union_prob %></p>
                       </label>
                     </td>
                   </tr>
@@ -741,7 +718,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.rely_company %></p>
+                        <p><%= answ.rely_company %></p>
                       </label>
                     </td>
                   </tr>
@@ -761,7 +738,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.what_support %></p>
+                        <p><%= answ.what_support %></p>
                       </label>
                     </td>
                   </tr>
@@ -782,7 +759,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.innovate_prob %></p>
+                        <p><%= answ.innovate_prob %></p>
                       </label>
                     </td>
                   </tr>
@@ -798,7 +775,7 @@
           </div>
 
 
-          <% if @answ.cooperate_type.present?%>
+          <% if answ.cooperate_type.present?%>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式：</span>
@@ -807,12 +784,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <%@answ.cooperate_type.each do |t|%>
+                      <%answ.cooperate_type.each do |t|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if t == '其他' %>
-                              <p><%= t %>:<%= @answ.cooperate_type_other%></p>
+                              <p><%= t %>:<%= answ.cooperate_type_other%></p>
                             <% else %>
                               <p><%= t %></p>
                             <% end %>
@@ -838,7 +815,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                          <p><%= @answ.cooperate_prob %></p>
+                          <p><%= answ.cooperate_prob %></p>
                       </label>
                     </td>
                   </tr>
@@ -864,7 +841,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.service_support %></p>
+                        <p><%= answ.service_support %></p>
                       </label>
                     </td>
                   </tr>
@@ -875,7 +852,7 @@
 
 
 
-          <% if @answ.no_supp_reason.present? %>
+          <% if answ.no_supp_reason.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是：</span>
@@ -884,12 +861,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <%@answ.no_supp_reason.each do |t|%>
+                      <%answ.no_supp_reason.each do |t|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if t == '其他'%>
-                              <p><%= t %>:<%= @answ.no_supp_reason_other%></p>
+                              <p><%= t %>:<%= answ.no_supp_reason_other%></p>
                             <% else %>
                               <p><%= t %></p>
                             <% end %>
@@ -904,7 +881,7 @@
           <% end %>
 
 
-          <% if @answ.service_content.present?%>
+          <% if answ.service_content.present?%>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">16.面向企业技术创新需求，建议平台加强的服务内容为：</span>
@@ -913,12 +890,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <%@answ.service_content.each do |t|%>
+                      <%answ.service_content.each do |t|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if t == '其他'%>
-                              <p><%= t %>:<%= @answ.service_content_other%></p>
+                              <p><%= t %>:<%= answ.service_content_other%></p>
                             <% else %>
                               <p><%= t %></p>
                             <% end %>
@@ -953,7 +930,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.adv_person %></p>
+                        <p><%= answ.adv_person %></p>
                       </label>
                     </td>
                   </tr>
@@ -964,7 +941,7 @@
 
 
 
-          <% if @answ.adv_p_support.present? %>
+          <% if answ.adv_p_support.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持：</span>
@@ -976,7 +953,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <p><%= @answ.adv_p_support %></p>
+                          <p><%= answ.adv_p_support %></p>
                         </label>
                       </td>
                     </tr>
@@ -985,7 +962,7 @@
               </div>
             </div>
           <% end %>
-          <% if @answ.no_adv_reason.present?%>
+          <% if answ.no_adv_reason.present?%>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是： </span>
@@ -997,10 +974,10 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <% if @answ.adv_reward == '否'%>
-                            <p><%= @answ.adv_reward %>(其他原因:<%= @answ.adv_reward_other%>)</p>
+                          <% if answ.adv_reward == '否'%>
+                            <p><%= answ.adv_reward %>(其他原因:<%= answ.adv_reward_other%>)</p>
                           <% else %>
-                            <p><%= @answ.no_adv_reason %></p>
+                            <p><%= answ.no_adv_reason %></p>
                           <% end %>
                         </label>
                       </td>
@@ -1026,10 +1003,10 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <% if @answ.adv_reward?%>
+                        <% if answ.adv_reward?%>
                           <p>是</p>
                         <% else %>
-                          <p>否(原因:<%= @answ.adv_reward_other %>)</p>
+                          <p>否(原因:<%= answ.adv_reward_other %>)</p>
                         <% end %>
                       </label>
                     </td>
@@ -1051,7 +1028,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.reward_reason%>
+                        <%= answ.reward_reason%>
                       </label>
                     </td>
                   </tr>
@@ -1077,7 +1054,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.use_school %></p>
+                        <p><%= answ.use_school %></p>
                       </label>
                     </td>
                   </tr>
@@ -1085,7 +1062,7 @@
               </table>
             </div>
           </div>
-          <% if @answ.no_use_school.present? %>
+          <% if answ.no_use_school.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">19.1 本企业不曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源的主要原因是：</span>
@@ -1097,10 +1074,10 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <% if @answ.no_use_school == '其他' %>
-                            <p>其他(原因:<%= @answ.no_use_school_other%>)</p>
+                          <% if answ.no_use_school == '其他' %>
+                            <p>其他(原因:<%= answ.no_use_school_other%>)</p>
                           <% else %>
-                            <p><%= @answ.no_use_school %></p>
+                            <p><%= answ.no_use_school %></p>
                           <% end %>
                         </label>
                       </td>
@@ -1122,7 +1099,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.sent_out %></p>
+                        <p><%= answ.sent_out %></p>
                       </label>
                     </td>
                   </tr>
@@ -1131,7 +1108,7 @@
             </div>
           </div>
           
-          <% if @answ.no_sent_out_res.present? %>
+          <% if answ.no_sent_out_res.present? %>
           <div class="q-filler q-choice">
             <div class="q-title">
               <span class="q-title-content">20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是不曾使用过的主要原因是：</span>
@@ -1143,10 +1120,10 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <% if @answ.no_sent_out_res == '其他' %>
-                          <p>其他(原因:<%= @answ.no_sent_out_res_other%>)</p>
+                        <% if answ.no_sent_out_res == '其他' %>
+                          <p>其他(原因:<%= answ.no_sent_out_res_other%>)</p>
                         <% else %>
-                          <p><%= @answ.no_sent_out_res %></p>
+                          <p><%= answ.no_sent_out_res %></p>
                         <% end %>
                       </label>
                     </td>
@@ -1169,7 +1146,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.pub_tech_prob %>
+                        <%= answ.pub_tech_prob %>
                       </label>
                     </td>
                   </tr>
@@ -1198,7 +1175,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.innovate_world %></p>
+                        <p><%= answ.innovate_world %></p>
                       </label>
                     </td>
                   </tr>
@@ -1207,7 +1184,7 @@
             </div>
           </div>
 
-          <% if @answ.world_type.present? %>
+          <% if answ.world_type.present? %>
             <div class="q-filler q-choice">
               <span class="q-idx" style="display: none;">50</span>
               <div class="q-title">
@@ -1217,12 +1194,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <%@answ.world_type.each do |t|%>
+                      <%answ.world_type.each do |t|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if t == '其他'%>
-                              <p><%= t %>:<%= @answ.world_type_other%></p>
+                              <p><%= t %>:<%= answ.world_type_other%></p>
                             <% else %>
                               <p><%= t %></p>
                             <% end %>
@@ -1249,7 +1226,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.world_problem%>
+                        <%= answ.world_problem%>
                     </td>
                   </tr>
                 </tbody>
@@ -1276,7 +1253,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= @answ.deduct_prolicy %></p>
+                        <p><%= answ.deduct_prolicy %></p>
                       </label>
                     </td>
                   </tr>
@@ -1285,7 +1262,7 @@
             </div>
           </div>
 
-          <% if @answ.deduct_usage.present? %>
+          <% if answ.deduct_usage.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">22.1 该政策对促进贵企业加大研发投入的作用和影响：</span>
@@ -1297,7 +1274,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.deduct_usage%>
+                          <%= answ.deduct_usage%>
                         </label>
                       </td>
                     </tr>
@@ -1307,7 +1284,7 @@
             </div>
           <% end %>
 
-          <% if @answ.no_deduct_rea.present? %>
+          <% if answ.no_deduct_rea.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">22.2 贵企业没有享受了企业研发费用加计扣除政策的原因是：</span>
@@ -1316,12 +1293,12 @@
                 <table>
                   <tbody>
                     <tr>
-                      <% @answ.no_deduct_rea.each do |way|%>
+                      <% answ.no_deduct_rea.each do |way|%>
                         <td>
                           <label class="cust-option">
                             <span>&nbsp;</span>
                             <% if way == '其他'%>
-                              <p><%= way %>:<%= @answ.no_deduct_rea_other%></p>
+                              <p><%= way %>:<%= answ.no_deduct_rea_other%></p>
                             <% else %>
                               <p><%= way %></p>
                             <% end %>
@@ -1347,7 +1324,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.deduct_suggest%>
+                        <%= answ.deduct_suggest%>
                       </label>
                     </td>
                   </tr>
@@ -1369,7 +1346,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.depreciation %>
+                        <%= answ.depreciation %>
                       </label>
                     </td>
                   </tr>
@@ -1378,7 +1355,7 @@
             </div>
           </div>
 
-          <% if @answ.deprecia_usage.present? %>
+          <% if answ.deprecia_usage.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">23.1 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用：</span>
@@ -1390,7 +1367,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.deprecia_usage %>
+                          <%= answ.deprecia_usage %>
                         </label>
                       </td>
                     </tr>
@@ -1400,7 +1377,7 @@
             </div>
           <% end %>
 
-          <% if @answ.no_deprecia.present? %>
+          <% if answ.no_deprecia.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
                 <span class="q-title-content">23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是：</span>
@@ -1412,10 +1389,10 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <% if @answ.no_deprecia == '其他' %>
-                            <p>其他(原因:<%= @answ.no_deprecia_other%>)</p>
+                          <% if answ.no_deprecia == '其他' %>
+                            <p>其他(原因:<%= answ.no_deprecia_other%>)</p>
                           <% else %>
-                            <p><%= @answ.no_deprecia %></p>
+                            <p><%= answ.no_deprecia %></p>
                           <% end %>
                         </label>
                       </td>
@@ -1436,7 +1413,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.deprec_suggest%>
+                        <%= answ.deprec_suggest%>
                       </label>
                     </td>
                   </tr>
@@ -1455,7 +1432,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.adv_company %>
+                        <%= answ.adv_company %>
                       </label>
                     </td>
                   </tr>
@@ -1465,7 +1442,7 @@
           </div>
 
 
-          <% if @answ.adv_policy.present? %>
+          <% if answ.adv_policy.present? %>
             <div class="q-filler q-choice">
               <span class="q-idx" style="display: none;">61</span>
               <div class="q-title">
@@ -1478,7 +1455,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.adv_policy %>
+                          <%= answ.adv_policy %>
                         </label>
                       </td>
                     </tr>
@@ -1499,7 +1476,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.adv_suggest %>
+                        <%= answ.adv_suggest %>
                       </label>
                     </td>
                   </tr>
@@ -1525,7 +1502,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.state_rate %>
+                        <%= answ.state_rate %>
                       </label>
                     </td>
                   </tr>
@@ -1547,7 +1524,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.innovate_chan %>
+                        <%= answ.innovate_chan %>
                       </label>
                     </td>
                   </tr>
@@ -1570,7 +1547,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <%= @answ.eight_suggest %>
+                        <%= answ.eight_suggest %>
                       </label>
                     </td>
                   </tr>
@@ -1579,7 +1556,7 @@
             </div>
           </div>
 
-          <% if @answ.uname.present? %>
+          <% if answ.uname.present? %>
             <div class="q-filler q-textblank">
               <div class="q-title">
                 <span class="q-title-content">您的姓名：</span>
@@ -1591,7 +1568,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.uname %>
+                          <%= answ.uname %>
                         </label>
                       </td>
                     </tr>
@@ -1601,7 +1578,7 @@
             </div>
           <% end %>
 
-          <% if @answ.u_company.present? %>
+          <% if answ.u_company.present? %>
             <div class="q-filler q-textblank">
               <div class="q-title">
                 <span class="q-title-content">您所在的单位名称：</span>
@@ -1613,7 +1590,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.u_company %>
+                          <%= answ.u_company %>
                         </label>
                       </td>
                     </tr>
@@ -1624,7 +1601,7 @@
           <% end %>
 
 
-          <% if @answ.position.present? %>
+          <% if answ.position.present? %>
             <div class="q-filler q-textblank">
               <div class="q-title">
                 <span class="q-title-content">您的职务：</span>
@@ -1636,7 +1613,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.position %>
+                          <%= answ.position %>
                         </label>
                       </td>
                     </tr>
@@ -1646,7 +1623,7 @@
             </div>
           <% end %>
 
-          <% if @answ.tel.present? %>
+          <% if answ.tel.present? %>
             <div class="q-filler q-phoneblank">
               <div class="q-title">
                 <span class="q-title-content">您的联系电话：</span>
@@ -1658,7 +1635,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.tel %>
+                          <%= answ.tel %>
                         </label>
                       </td>
                     </tr>
@@ -1668,7 +1645,7 @@
             </div>
           <% end %>
 
-          <% if @answ.email.present? %>
+          <% if answ.email.present? %>
             <div class="q-filler q-emailblank bottom">
               <div class="q-title">
                 <span class="q-title-content">您的常用的电子信箱：</span>
@@ -1680,7 +1657,7 @@
                       <td>
                         <label class="cust-option">
                           <span>&nbsp;</span>
-                          <%= @answ.email %>
+                          <%= answ.email %>
                         </label>
                       </td>
                     </tr>
@@ -1689,11 +1666,9 @@
               </div>
             </div>
           <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          
 
 
 
+				</div>
+    	</div>

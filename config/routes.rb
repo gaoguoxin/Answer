@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root 'answs#new'
   get '/review' => 'answs#review'
+  get '/preview' => 'answs#preview'
   get '/report' => 'answs#report'
   get '/down' => 'answs#down'
   get '/upd_stat/:id' => 'answs#upd_stat'

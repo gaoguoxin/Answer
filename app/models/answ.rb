@@ -76,7 +76,7 @@ class Answ
   field :deduct_suggest, :type => String  # 您对进一步落实和完善企业研发费用加计扣除政策有何建议
   field :depreciation,   :type => String # 企业是否享受了企业研发仪器设备加速折旧政策
   field :deprecia_usage, :type => String  # 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用
-  field :no_deprecia,    :type => String  # 企业没有享受企业研发仪器设备加速折旧政策的原因
+  field :no_deprecia,    :type => Array  # 企业没有享受企业研发仪器设备加速折旧政策的原因
   field :deprec_suggest, :type => String  # 您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议
   field :adv_company,    :type => String  # 贵企业是否为高新技术企业
 
@@ -395,11 +395,24 @@ class Answ
     arr << self.deduct_suggest
     arr << self.depreciation
     arr << self.deprecia_usage
-    if self.no_deprecia == '其他'
-      arr << (self.no_deprecia + '(:' + self.no_deprecia_other.to_s + ')')
+
+
+    if self.no_deprecia.present?
+      if self.no_deprecia.include?('其他')
+        arr << (self.no_deprecia.join(' ') + ':' + self.no_deprecia_other.to_s)
+      else
+        arr << self.no_deprecia.join(' ')
+      end      
     else
-      arr << self.no_deprecia
+      arr << ''
     end
+
+    # if self.no_deprecia == '其他'
+    #   arr << (self.no_deprecia + '(:' + self.no_deprecia_other.to_s + ')')
+    # else
+    #   arr << self.no_deprecia
+    # end
+
     arr << self.deprec_suggest
     arr << self.adv_company
 
