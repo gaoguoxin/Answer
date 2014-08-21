@@ -197,7 +197,7 @@ $(function(){
         break;
       case 'answ[depreciation]':
         var quota1 = $('input[name="answ[deprecia_usage]"]');
-        var quota2 = $('input[name="answ[no_deprecia]"]');
+        var quota2 = $('input[name="answ[no_deprecia][]"]');
         if(val == '是'){
           if_required(quota1,true);
           if_required(quota2,false);
