@@ -43,7 +43,7 @@ class Answ
   field :support_action, :type => String  # 贵企业在科技成果推广应用和产业化方面，获得国家或本地区相关政策支持情况
   field :support_facet,  :type => Array   # 贵企业更希望获得政府部门哪些方面的支持
   field :innovate_union, :type => String  # 贵企业是否牵头或参与本领域相关产业技术创新战略联盟
-  field :union_support,  :type => String  # 所在联盟更希望获得政府部门哪些方面的支持
+  field :union_support,  :type => Array  # 所在联盟更希望获得政府部门哪些方面的支持
   field :gov_union_prob, :type => String  # 贵企业认为政府部门倡导的以企业为主导发展产业技术创新联盟，其运行中存在的问题及建议
 
 
@@ -296,12 +296,24 @@ class Answ
       arr << ''
     end
     arr << self.innovate_union
-    if self.union_support == '其他'
-      arr << (self.union_support  + ':' + self.union_support_other.to_s)
+
+
+    if self.union_support.present?
+      if self.union_support.include?('其他')
+        arr << (self.union_support.join(' ') + ':' + self.union_support_other.to_s)
+      else
+        arr << self.union_support.join(' ')
+      end
     else
-      arr << self.union_support
+      arr << ''
     end
-    arr << self.gov_union_prob
+    
+    # if self.union_support == '其他'
+    #   arr << (self.union_support  + ':' + self.union_support_other.to_s)
+    # else
+    #   arr << self.union_support
+    # end
+    # arr << self.gov_union_prob
 
 
 

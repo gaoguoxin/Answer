@@ -11,8 +11,10 @@
     <div id="sf_desc">
       <p>各有关企业：</p>
       <p class='p_content'>
-        为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办发〔2013〕8号，简称“国办发8号文件”）及相应政策措施在企业的落实情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本问卷。请结合本企业实际情况认真、如实填写，于8月15日前登陆国家科技评估中心主页（http://www.ncste.org）在线提交。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。<span>(衷心感谢您的支持与配合！---------国家科技评估中心  2014年7月18日)</span>
+        为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办发〔2013〕8号，简称“国办发8号文件”）及相应政策措施在企业的落实情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本问卷。请结合本企业实际情况认真、如实填写，于8月15日前登陆国家科技评估中心主页（http://www.ncste.org）在线提交。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。
       </p>
+       <br />
+      <span class='thak'>(衷心感谢您的支持与配合！---------国家科技评估中心  2014年7月18日)</span>
       <p class='p_contact'>
         <span>联 系 人：李睆玲</span>
         <span>联系电话：010-62169570</span>
@@ -526,7 +528,7 @@
           <% if @answ.innovate_type.present? %>
             <div class="q-filler q-choice">
               <div class="q-title">
-                <span class="q-title-content">贵企业拥有以下哪些国家级或省级的研发机构：</span>
+                <span class="q-title-content">9.1 贵企业拥有以下哪些国家级或省级的研发机构：</span>
               </div>
               <div class="q-content">
                 <table>
@@ -555,7 +557,7 @@
     
           <div class="q-filler q-choice">
             <div class="q-title">
-              <span class="q-title-content">如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术<br>    中心，是否享受了进口科技开发用品税收优惠政策：</span>
+              <span class="q-title-content">9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术<br>    中心，是否享受了进口科技开发用品税收优惠政策：</span>
             </div>
             <div class="q-content">
               <table>
@@ -576,7 +578,7 @@
   
           <div class="q-filler q-textblank">
             <div class="q-title">
-              <span class="q-title-content">在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
+              <span class="q-title-content">9.3 在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
             </div>
             <div class="q-content">
               <table>
@@ -690,12 +692,18 @@
                 <table>
                   <tbody>
                     <tr>
-                      <td>
-                        <label class="cust-option">
-                          <span>&nbsp;</span>
-                          <p><%= @answ.union_support %></p>
-                        </label>
-                      </td>
+                      <%@answ.union_support.each do |way|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if way == '其他'%>
+                              <p><%= way %>:<%= @answ.union_support_other%></p>
+                            <% else %>
+                              <p><%= way %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
                     </tr>
                   </tbody>
                 </table>

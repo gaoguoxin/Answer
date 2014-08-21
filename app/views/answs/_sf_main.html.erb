@@ -553,7 +553,7 @@
   
           <div class="q-filler q-textblank">
             <div class="q-title">
-              <span class="q-title-content">在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
+              <span class="q-title-content">9.3 在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
             </div>
             <div class="q-content">
               <table>
@@ -667,12 +667,19 @@
                 <table>
                   <tbody>
                     <tr>
-                      <td>
-                        <label class="cust-option">
-                          <span>&nbsp;</span>
-                          <p><%= answ.union_support %></p>
-                        </label>
-                      </td>
+
+                      <%answ.union_support.each do |way|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if way == '其他'%>
+                              <p><%= way %>:<%= answ.union_support_other%></p>
+                            <% else %>
+                              <p><%= way %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
                     </tr>
                   </tbody>
                 </table>
