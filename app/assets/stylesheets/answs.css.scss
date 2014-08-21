@@ -493,6 +493,7 @@ body {
 	line-height: 1.5em;
 	position: relative;
 	background:#fff;
+	@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 2px, 8px);
 	//@include box-shadow(rgba(22, 22, 48, 0.2),0px 0px 8px);
 	//@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 8px);
 	clear: both;
@@ -522,6 +523,12 @@ body {
 	}
 	#answ_suggest,#answ_reason,#answ_appra_suggest,#answ_policy_problem,#answ_gov_union_prob,#answ_what_support,#answ_innovate_prob,#answ_cooperate_prob,#answ_pub_tech_prob,#answ_world_problem,#answ_deduct_suggest,#answ_deprec_suggest,#answ_adv_suggest,#answ_innovate_chan,#answ_eight_suggest{
 		width:600px;
+	}
+	&.q-paragraph{
+		box-shadow: none;
+		+ .q-filler{
+			@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 8px);
+		}
 	}
 }
 
