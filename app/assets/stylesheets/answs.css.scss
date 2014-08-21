@@ -182,9 +182,9 @@ body {
 	#sf_title{
 		position: relative;
 		top: 155px;
-		left: -100px;
+		left: -54px;
 		color: #fff;
-		font-size: 18px;
+		font-size: 22px;
 	}
 	#sf_desc{
 		position:relative;
@@ -504,6 +504,9 @@ body {
 	color: #000;
 	&.top { border-top: none; }
 	&.bottom { border-bottom: none; }
+	.q-title-content{
+		color:#003466;
+	}
 	table{
 		td{
 			p{
