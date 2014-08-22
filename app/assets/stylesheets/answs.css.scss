@@ -5,6 +5,7 @@
 @import "compass/css3";
 @import "compass/utilities/general/min";
 @import "compass/utilities/general/clearfix";
+@import "compass/css3/opacity";
 
 $popoverArrowWidth:       6px;
 $popoverArrowOuterWidth:  $popoverArrowWidth;
@@ -78,7 +79,7 @@ body {
 	margin: 0;
 	color: #000000;
 	text-align: center;
-	background: image-url("/bg_b.jpg") no-repeat top center;
+	background: image-url("answer/bg_b.png") no-repeat top center #9bdd63;
 
 	#sf {
 		position:relative;
@@ -181,20 +182,29 @@ body {
 
 	#sf_title{
 		position: relative;
-		top: 155px;
-		left: -54px;
-		color: #fff;
+		top: 280px;
+		color:#000;
+		// left: -54px;
+		// background:#88abda;
+		// @include opacity(.8);
+		width:600px;
+		margin:0 auto;
+		// color: #fff;
 		font-size: 22px;
+		font-weight:bold;
 	}
 	#sf_desc{
 		position:relative;
+		padding:1em;
 		margin:0 auto;
-		top:280px;
+		top:270px;
 		width:880px;
 		text-align:left;
-		color: #003466;
+		color: #fff;
 		font-size: 14px;
 		line-height: 26px;	
+		// background:#88abda;
+		// @include opacity(.8);		
 		p{
 			margin:0px;
 			&.p_content{
@@ -241,6 +251,7 @@ body {
 		}
 		#sf_desc{
 			top:20px;
+			color:inherit;
 		}
 		#sf_main{
 			margin-top:0px;
@@ -539,6 +550,13 @@ body {
 		+ .q-filler{
 			@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 8px);
 		}
+		.q-title{
+			margin-top: 26px;
+			padding-left: 40px;
+			.q-title-content.fir_l{
+				color:#fff;
+			}
+		}
 	}
 }
 
@@ -567,12 +585,12 @@ body {
 .q-paragraph{
 	width: 100%;
 	height:25px;
-	margin-left: -55px;
+	margin-left: -60px;
 	margin-top:40px;
 	border: none;	
 	font-size:18px;
 	color:#fff;
-	background: image-url("/tit3.png") no-repeat top center;
+	background: image-url("answer/tit3.png") no-repeat top center;
 }
 
 
