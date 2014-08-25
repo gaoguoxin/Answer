@@ -209,27 +209,33 @@ body {
 			margin:0px;
 			&.p_content{
 				text-indent: 2em;
-				span{
-					display: block;
-					float:right
-					// position: relative;
-					// right: -400px;
-				}
+				line-height: 2em;
+				// span{
+				// 	display: block;
+				// 	float:right
+				// 	// position: relative;
+				// 	// right: -400px;
+				// }
 			}
 			&.p_contact{
-				margin-top:30px;
-				width:400px;
-				position:relative;
-				left:530px;
+				// margin-top:30px;
+				// width:400px;
+				text-indent: 2em;
+				// position:relative;
+				// left:530px;
 				span{
 					display:block;
-					margin-right:10px;
+					// margin-right:10px;
 				}
 			}
 		}
-		span.thak{
-			float:right;
-		}
+		.date{
+			>div{
+				text-align: right;			}
+		}		
+		// span.thak{
+		// 	float:right;
+		// }
 	}
 
 #sf_main {
@@ -258,6 +264,18 @@ body {
 			.q-paragraph{
 				background:none;
 				color:inherit;
+			}
+		}
+		.q-filler{
+			padding-bottom:15px;
+			// .q-content{
+			// 	p{
+			// 		margin:0px;
+			// 		padding-left:2em;
+			// 	}
+			// }
+			&.q-paragraph{
+				padding-bottom:35px;
 			}
 		}
 	}
@@ -519,11 +537,18 @@ body {
 	&.top { border-top: none; }
 	&.bottom { border-bottom: none; }
 	.q-title-content{
+		width:800px;
+		display:inline-block;
 		color:#003466;
 		font-family: '楷体';
 		font-size:16px;
 		&.fir_l{
 			font-family: '黑体';
+		}
+		.ipt-desc{
+			font-size: 14px;
+			font-family: '楷体';
+			color: #ec971f;
 		}
 	}
 	table{
@@ -537,9 +562,10 @@ body {
 		color:red;
 	}
 	&.empty{
-		background: image-url("answer/error.png") no-repeat 860px 15px;
+		background: image-url("answer/error.png") no-repeat 846px 35px;
 		background-color:  lighten(#FFC800, 40%);
 		.q-error{
+			display:inline-block;
 			color:red;
 		}
 	}
@@ -563,6 +589,9 @@ body {
 
 @media print{
 	body{
+		#sf_banner{
+			display:none;
+		}
 		#sf_desc{
 			font-size:18px;
 			p.p_contact{

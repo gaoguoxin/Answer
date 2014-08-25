@@ -13,15 +13,20 @@
       <p class='p_content'>
         为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办发〔2013〕8号，简称“国办发8号文件”）及相应政策措施在企业的落实情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本问卷。请结合本企业实际情况认真、如实填写，于8月15日前登陆国家科技评估中心主页（http://www.ncste.org）在线提交。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。
       </p>
-       <br />
-      <span class='thak'>(衷心感谢您的支持与配合！---------国家科技评估中心  2014年7月18日)</span>
       <p class='p_contact'>
         <span>联 系 人：李睆玲</span>
         <span>联系电话：010-62169570</span>
         <span>传真号码：010-88232615</span>
-        <span>通讯地址：北京市海淀区皂君庙乙7号（邮编：100081）</span>
-      </p>
-    </div> 
+        <span>通讯地址：北京市海淀区皂君庙乙7号(邮编:100081)</span>
+        <span>衷心感谢您的支持与配合！</span>
+      </p> 
+      <br />
+      <div class='date'>
+          <div>国家科技评估中心</div>
+          <div>2014年7月18日</div>
+      </div>
+    </div>
+
     <div>      
       <div id="sf_main" class="sf_main_padding">
         <div id="questions_con">
@@ -209,7 +214,7 @@
           <div class="q-filler q-paragraph">
             <div class="q-title">
               <span class="q-title-content">
-                <span style="font-weight: bold;">国办发8号文件相关政策措施落实情况</span>
+                <span style="font-weight: bold;">二、国办发8号文件相关政策措施落实情况</span>
               </span>
             </div>
           </div>
@@ -1417,16 +1422,18 @@
                 <table>
                   <tbody>
                     <tr>
-                      <td>
-                        <label class="cust-option">
-                          <span>&nbsp;</span>
-                          <% if @answ.no_deprecia == '其他' %>
-                            <p>其他(原因:<%= @answ.no_deprecia_other%>)</p>
-                          <% else %>
-                            <p><%= @answ.no_deprecia %></p>
-                          <% end %>
-                        </label>
-                      </td>
+                      <% @answ.no_deprecia.each do |way|%>
+                        <td>
+                          <label class="cust-option">
+                            <span>&nbsp;</span>
+                            <% if way == '其他'%>
+                              <p><%= way %>:<%= @answ.no_deprecia_other%></p>
+                            <% else %>
+                              <p><%= way %></p>
+                            <% end %>
+                          </label>
+                        </td>
+                      <% end %>
                     </tr>
                   </tbody>
                 </table>

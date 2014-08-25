@@ -2,10 +2,6 @@
 $ ->
 	$("input#answ_percent").numeric()
 
-	beforePrint = -> 
-		console.log('Functionality to run before printing.')
-	afterPrint = -> 
-		console.log('Functionality to run after printing')
     
 
 	roll_back =(msg)->
@@ -68,14 +64,14 @@ $ ->
 						q_title.parent('.q-filler').addClass('empty')
 						roll_back('该题为必答题,请认真填写答案!')
 						return false
-
 		)
 
 		other_input = $('input[id$="_other"]')
 
 		other_input.each(->
 			current_input = $(@)
-			other_ipt = $(@).parent().siblings('input:checked')
+			#other_ipt = $(@).parent().siblings('input:checked')
+			other_ipt = $(@).siblings('label').find('input:checked')
 			if $.trim($(@).val()).length < 1
 				if other_ipt.length > 0
 					if $('.q-filler.empty').length < 1
@@ -153,8 +149,6 @@ $ ->
 			data: $('form').serialize()
 			success: ->
 				window.location.href = '/'
-			error: ->
-				console.log('upd faailed')	
 		}
 
 	$('#next_btn').click((e)->

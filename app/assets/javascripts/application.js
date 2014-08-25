@@ -16,15 +16,6 @@
 //= require_tree .
 
 $(function(){
-
-  // $('input').attrchange({
-  //   trackValues: true, 
-  //   callback: function (event) { 
-  //     console.log('attr_name:' + event.attributeName)
-  //     console.log('old_value:' + event.oldValue)
-  //     console.log('new_value:' + event.newValue)
-  //   }        
-  // });
   
 
   if_required  = function(quota,show,chain){
@@ -225,13 +216,7 @@ $(function(){
     $.ajax({
         data: $('form').serialize(),
         url: $('form').attr('action'),
-        method: "POST",
-        success: function(ret){
-          console.log('post success')
-        },
-        error: function(){
-          console.log('post failed')
-        }       
+        method: "POST"     
     })
   
   }
@@ -243,13 +228,7 @@ $(function(){
       {
           data: $('form').serialize(),
           url: $('form').attr('action'),
-          method: "PUT",
-          success: function(ret){
-        console.log('upd success')
-          },
-          error: function(){
-            console.log('upd failed')
-          }       
+          method: "PUT"      
       }
     )
   }
