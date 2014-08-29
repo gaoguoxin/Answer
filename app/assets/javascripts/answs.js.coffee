@@ -86,7 +86,7 @@ $ ->
 		)
 
 		tel = $('#answ_tel').val()
-		if tel.length > 0
+		if tel.length <= 0
 			if $('.q-filler.empty').length < 1
 				$('#answ_tel').parents('.q-filler').addClass('empty')
 				roll_back('请认真填写手机号!')
