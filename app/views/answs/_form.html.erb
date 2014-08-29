@@ -1493,24 +1493,40 @@
     <span class="q-error"></span>
   </div>
   <div class="q-note" style="display: none;">说明：</div>
-  <div class="q-content"><table><tbody><tr><td><label class="cust-option">
-  <%= f.radio_button :no_adv_reason, '不了解相关政策' %>
-  <span>&nbsp;</span>
-  <p>不了解相关政策</p>
-</label></td><td><label class="cust-option">
-  <%= f.radio_button :no_adv_reason, '不符合条件' %>
-  <span>&nbsp;</span>
-  <p>不符合条件</p>
-</label></td></tr><tr><td><label class="cust-option">
-  <%= f.radio_button :no_adv_reason, '办理手续复杂' %>
-  <span>&nbsp;</span>
-  <p>办理手续复杂</p>
-</label></td><td><label class="cust-option">
-  <%= f.radio_button :no_adv_reason, '其他' %>
-  <span>&nbsp;</span>
-  <p>其他（请具体说明）：</p>
-<%= f.text_field "no_adv_reason_other" %>
-</label>
+  <div class="q-content">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <label class="cust-option">
+              <%= f.radio_button :no_adv_reason, '不了解相关政策' %>
+              <span>&nbsp;</span>
+              <p>不了解相关政策</p>
+            </label>
+          </td>
+          <td>
+            <label class="cust-option">
+              <%= f.radio_button :no_adv_reason, '不符合条件' %>
+              <span>&nbsp;</span>
+              <p>不符合条件</p>
+            </label>
+          </td>
+        </tr>
+        <tr>
+        <td>
+          <label class="cust-option">
+            <%= f.radio_button :no_adv_reason, '办理手续复杂' %>
+            <span>&nbsp;</span>
+            <p>办理手续复杂</p>
+          </label>
+        </td>
+        <td>
+          <label class="cust-option">
+            <%= f.radio_button :no_adv_reason, '其他' %>
+            <span>&nbsp;</span>
+            <p>其他（请具体说明）：</p>
+          </label>
+          <%= f.text_field "no_adv_reason_other" %>
 </td></tr></tbody></table></div>
 </div>
 
