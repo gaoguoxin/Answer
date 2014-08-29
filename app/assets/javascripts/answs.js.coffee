@@ -1,7 +1,6 @@
 #=require jquery.fancybox.pack
 $ ->
 	$("input#answ_percent").numeric()
-
     
 
 	roll_back =(msg)->
@@ -88,11 +87,10 @@ $ ->
 
 		tel = $('#answ_tel').val()
 		if tel.length > 0
-			unless ( /^(13[0-9]|15[012356789]|18[0-9]|14[57]|170)[0-9]{8}$/.test(tel) )
-				if $('.q-filler.empty').length < 1
-					$('#answ_tel').parents('.q-filler').addClass('empty')
-					roll_back('请认真填写手机号!')
-					return false
+			if $('.q-filler.empty').length < 1
+				$('#answ_tel').parents('.q-filler').addClass('empty')
+				roll_back('请认真填写手机号!')
+				return false
 
 		mail = $('#answ_email').val()
 		if mail.length > 0

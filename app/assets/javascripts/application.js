@@ -106,7 +106,7 @@ $(function(){
         }   
         break;
       case 'answ[innovate_union]':
-        quota = $('input[name="answ[union_support]"]');
+        quota = $('input[name="answ[union_support][]"]');
         if(val == '是'){
           if_required(quota,true);
         }else{
