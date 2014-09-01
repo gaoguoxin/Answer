@@ -85,12 +85,12 @@ $ ->
 						return false
 		)
 
-		tel = $('#answ_tel').val()
-		if tel.length <= 0
-			if $('.q-filler.empty').length < 1
-				$('#answ_tel').parents('.q-filler').addClass('empty')
-				roll_back('请认真填写手机号!')
-				return false
+		# tel = $('#answ_tel').val()
+		# if tel.length > 0
+		# 	if $('.q-filler.empty').length < 1
+		# 		$('#answ_tel').parents('.q-filler').addClass('empty')
+		# 		roll_back('请认真填写手机号!')
+		# 		return false
 
 		mail = $('#answ_email').val()
 		if mail.length > 0
