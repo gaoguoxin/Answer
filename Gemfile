@@ -1,4 +1,5 @@
-source 'https://ruby.taobao.org'
+#source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'mongoid', github: 'mongoid/mongoid'
 
@@ -31,6 +32,13 @@ gem 'spring',        group: :development
 gem 'compass-rails'
 
 gem 'spreadsheet'
+
+# gem 'wicked_pdf'
+#gem "pdfkit"
+gem 'prawn'
+gem 'prawnto'
+gem 'wkhtmltopdf-binary', '~>0.9.9.3'
+
 
 
 # Use ActiveModel has_secure_password
