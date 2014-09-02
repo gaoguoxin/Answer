@@ -1,5 +1,6 @@
 @answ = Answ.find(params[:id])
 
+
 pdf.font_families.update("MyTrueTypeFamily" => { :normal => "#{Rails.root.to_s}/public/msyh.ttf" })
 
 title = '国有企业贯彻落实“国办发8号文件”情况调查问卷'
@@ -186,7 +187,7 @@ pdf.font("MyTrueTypeFamily") do
     pdf.indent(20) do 
     	pdf.text "#{@answ.support_facet.join(' ') + @answ.support_facet_other}"
     end
-    pdf.text '（四）以企业为主导发展产业技术创新战略联盟'
+    pdf.text '（四）以企业为主导发展产业技术创新战略联盟',:size => 13
 
     pdf.text '12.贵企业是否牵头或参与本领域相关产业技术创新战略联盟：'
     pdf.indent(20) do 
@@ -205,7 +206,7 @@ pdf.font("MyTrueTypeFamily") do
     pdf.indent(20) do
     	pdf.text "#{@answ.gov_union_prob}"
     end
-    pdf.text '（五）依托转制院所和行业领军企业构建产业共性技术研发基地'
+    pdf.text '（五）依托转制院所和行业领军企业构建产业共性技术研发基地',:size => 13
     pdf.text '13.贵企业是否为相关产业共性技术研发基地的依托单位：'
     pdf.indent(20) do
     	pdf.text "#{@answ.rely_company}"
@@ -220,13 +221,259 @@ pdf.font("MyTrueTypeFamily") do
     pdf.indent(20) do
     	pdf.text "#{@answ.innovate_prob}"
     end
+
+    pdf.text '（六）强化科研院所和高等学校对企业技术创新的源头支持',:size => 13
+
+    pdf.text '14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.cooperate_type.join(' ') + @answ.cooperate_type_other}"
+    end
+    pdf.text '14.1 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议'
+    pdf.text "#{@answ.cooperate_prob}"
+    pdf.indent(20) do
+    	pdf.text "#{@answ.cooperate_prob}"
+    end    
+    pdf.text '（七）完善面向企业的技术创新服务平台',:size => 13
+
+    pdf.text '15.贵企业是否享受过技术创新服务平台或科技中介服务机构提供的服务：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.service_support}"
+    end    
+    
+    if @answ.no_supp_reason.present?
+    	pdf.text '15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.no_supp_reason.join(' ') + @answ.no_supp_reason_other}"
+    	end    	
+    	
+    end
+
+    pdf.text '16.面向企业技术创新需求，建议平台加强的服务内容为:'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.service_content.join(' ') + @answ.service_content_other}"
+    end  
+    
+    pdf.text '（八）加强企业创新人才队伍建设',:size => 13
+
+    pdf.text '17.贵企业是否曾引进海外高层次人才：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.adv_person}"
+    end      
+    
+    if @answ.adv_p_support.present?
+    	pdf.text '17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持：' 
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.adv_p_support}"
+    	end       	
+    end
+
+    if @answ.no_adv_reason.present?
+    	pdf.text '17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是：' 
+    	pdf.indent(20) do
+    		if @answ.no_adv_reason == '其他'
+    			@answ.no_adv_reason + ":" + @answ.no_adv_reason_other
+    		else
+
+    		end
+    	end       	
+    end
+
+    pdf.text '18.贵企业为吸引和凝聚创新人才，是否实施了股权或分红激励措施：'
+    pdf.indent(20) do
+    	if @answ.adv_reward == '否'
+    		pdf.text "#{@answ.adv_reward}:#{@answ.adv_reward_other}"
+    	else
+    		pdf.text "#{@answ.adv_reward}"
+    	end
+    	
+    end         
+    
+    	
+    if @answ.reward_reason.present?
+    	pdf.text '18.1 实施股权或分红激励的主要原因是：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.reward_reason}"
+    	end      	
+    end
+    
+    pdf.text '（九）推动科技资源开放共享',:size => 13
+    
+    pdf.text '19.本企业是否曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.use_school}"
+    end       
+    
+    if @answ.no_use_school.present?
+    	pdf.text '19.1 本企业不曾使用科研院所、高校、其他企业的科研设施和仪器设备等科技资源的主要原因是：'
+    	pdf.indent(20) do
+    		if @answ.no_use_school == '其他'
+    			pdf.text "其他:#{@answ.no_use_school_other}"
+    		else
+    			pdf.text "#{@answ.no_use_school}"
+    		end
+    		
+    	end       	
+    end
+
+    pdf.text '20.本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位是否曾使用过：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.sent_out}"
+    end     
+    	
+    if @answ.no_sent_out_res.present?
+    	pdf.text '20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位不曾使用过的主要原因是：'
+    	pdf.indent(20) do
+    		if @answ.no_sent_out_res == '其他'
+    			pdf.text "其他:#{@answ.no_sent_out_res}"
+    		else
+    			pdf.text "#{@answ.no_sent_out_res}"
+    		end
+    		
+    	end      	
+    end
+
+
+    pdf.text '20.2 目前公共科技资源开放共享方面存在的问题及建议：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.pub_tech_prob}"
+    end      
+
+    pdf.text '（十）提升企业技术创新开放合作水平',:size => 13
+
+    pdf.text '21.企业是否开展国际创新合作：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.innovate_world}"
+    end        
+    
+    if @answ.world_type.present?
+    	pdf.text '21.1 企业开展国际创新合作采取了如下哪些形式：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.world_type.join(' ') + @answ.world_type_other}"
+    	end   
+    end
+    
+    pdf.text '21.2 企业在开展国际创新合作中，存在的问题和建议：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.world_problem}"
+    end       
+
+    pdf.text '（十一）完善支持企业技术创新的财税金融等政策',:size => 13
+
+    pdf.text '22.贵企业是否享受了企业研发费用加计扣除政策：'
+
+    if @answ.deduct_usage.present?
+    	pdf.text '22.1 该政策对促进贵企业加大研发投入的作用和影响：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.deduct_usage}"
+    	end       	
+    end
+
+    if @answ.no_deduct_rea.present?
+    	pdf.text '22.2 贵企业没有享受企业研发费用加计扣除政策的原因是：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.no_deduct_rea.join(' ') + @answ.no_deduct_rea_other}"
+    	end       	
+    end
+
+    pdf.text '22.3 您对进一步落实和完善企业研发费用加计扣除政策有何建议：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.deduct_suggest}"
+    end       
+
+    pdf.text '23.贵企业是否享受了企业研发仪器设备加速折旧政策：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.depreciation}"
+    end         
+
+    if @answ.deprecia_usage.present?
+    	pdf.text '23.1 该政策对促进贵企业增加科技开发、加快仪器设备更新换代的作用：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.deprecia_usage}"
+    	end      	
+    end
+
+    if @answ.no_deprecia.present?
+    	pdf.text '23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.no_deprecia.join(' ') + @answ.no_deprecia_other}"
+    	end       	
+    end
+
+    pdf.text '23.3 您对进一步落实和完善企业研发仪器设备加速折旧政策有何建议：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.deprec_suggest}"
+    end      
+    
+    pdf.text '24.贵企业是否为高新技术企业：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.adv_company}"
+    end        
+    
+    if @answ.adv_policy.present?
+    	pdf.text '24.1 贵企业是否享受了高新技术企业税收优惠（按15%的企业所得税率）政策：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.adv_policy}"
+    	end        	
+    end
+
+    pdf.text '24.2 您对高新技术企业认定工作，以及对改进和完善高企认定管理办法有何建议：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.adv_suggest}"
+    end      
     
 
+    pdf.text '（十二）总体评价和建议',:size =>  13
+
+    pdf.text '25.贵企业对国办发8号文件目前贯彻落实情况的总体评价：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.state_rate}"
+    end         
+
+    pdf.text '26.您认为当前国有企业开展技术创新活动面临的主要问题和挑战：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.innovate_chan}"
+    end   
+    pdf.text '27.贯彻落实国办发8号文件存在的主要问题及有关建议：'
+    pdf.indent(20) do
+    	pdf.text "#{@answ.eight_suggest}"
+    end  
+
+    pdf.text '如方便请留下问卷填写人的联络信息，以便我们与您联系',:size => 13
+
+    if @answ.uname.present?
+    	pdf.text '姓名：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.uname}"
+    	end      	
+    end
+
+    if @answ.u_company.present?
+    	pdf.text '所在单位：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.u_company}"
+    	end      	
+    end
+    if @answ.position.present?
+    	pdf.text '职务：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.position}"
+    	end      	
+    end
+    if @answ.tel.present?
+    	pdf.text '联系电话：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.tel}"
+    	end      	
+    end
+
+    if @answ.email.present?
+    	pdf.text '电子信箱：'
+    	pdf.indent(20) do
+    		pdf.text "#{@answ.email}"
+    	end      	
+    end
+
 end
-
-
-
-
 
 
 
