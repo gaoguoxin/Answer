@@ -5,8 +5,22 @@ class AnswsController < ApplicationController
   # GET /answs/1
   # GET /answs/1.json
   def show
+    #WickedPdf.config = { :exe_path => ENV['WKHTMLTOPDF_BIN'] || '/Users/x/.rvm/gems/ruby-2.1.2/bin/wkhtmltopdf' }    
     @class = 'show_print'
     @answ = Answ.where(uid:cookies[:ukey]).first  if @answ.uid != cookies[:ukey]
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@answ.id.to_s}",
+               :wkhtmltopdf => '/Users/x/.rvm/gems/ruby-2.1.2/bin/wkhtmltopdf',
+               :template => "answs/_sf_main.html.erb",
+               :locals => {:answ => @answ},
+               :encoding => 'TEXT',
+               :save_to_file => Rails.root.to_s + '/public/pdfs/' + "#{@answ.id.to_s}.pdf"
+      end
+    end
+    
   end
 
   # GET /answs/new
