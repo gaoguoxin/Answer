@@ -33,8 +33,10 @@ gem 'compass-rails'
 
 gem 'spreadsheet'
 
-gem 'wicked_pdf'
-
+# gem 'wicked_pdf'
+#gem "pdfkit"
+gem 'prawn'
+gem 'prawnto'
 gem 'wkhtmltopdf-binary', '~>0.9.9.3'
 
 

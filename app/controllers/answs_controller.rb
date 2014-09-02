@@ -8,17 +8,25 @@ class AnswsController < ApplicationController
     #WickedPdf.config = { :exe_path => ENV['WKHTMLTOPDF_BIN'] || '/Users/x/.rvm/gems/ruby-2.1.2/bin/wkhtmltopdf' }    
     @class = 'show_print'
     @answ = Answ.where(uid:cookies[:ukey]).first  if @answ.uid != cookies[:ukey]
+    # pdf = WickedPdf.new.pdf_from_html_file('/Users/x/Downloads/tmp.html')
+    # save_path = Rails.root.to_s + '/public/pdfs/' + "#{@answ.id.to_s}.pdf"
+    # File.open(save_path, 'wb') do |file|
+    #   file << pdf
+    # end
+
+
 
     respond_to do |format|
       format.html
-      format.pdf do
-        render :pdf => "#{@answ.id.to_s}",
-               :wkhtmltopdf => '/Users/x/.rvm/gems/ruby-2.1.2/bin/wkhtmltopdf',
-               :template => "answs/_sf_main.html.erb",
-               :locals => {:answ => @answ},
-               :encoding => 'TEXT',
-               :save_to_file => Rails.root.to_s + '/public/pdfs/' + "#{@answ.id.to_s}.pdf"
-      end
+      format.pdf
+      # format.pdf do
+      #   render :pdf => "#{@answ.id.to_s}",
+      #          :wkhtmltopdf => '/Users/x/.rvm/gems/ruby-2.1.2/bin/wkhtmltopdf',
+      #          :template => "answs/show.html.erb",
+      #          :locals => {:@answ => @answ},
+      #          :encoding => 'TEXT',
+      #          :save_to_file => Rails.root.to_s + '/public/pdfs/' + "#{@answ.id.to_s}.pdf"
+      # end
     end
     
   end
