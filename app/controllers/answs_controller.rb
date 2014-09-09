@@ -225,7 +225,7 @@ class AnswsController < ApplicationController
           end     
       
           if @answ.known_way.present?
-            pdf.text '6.1 通过哪些途径知晓8号文件'
+            pdf.text '6.1 通过哪些途径知晓国办8号文件'
             pdf.indent(20) do
               convert_font_msyh(pdf,"#{@answ.known_way.join(' ') + @answ.known_way_other}") 
             end           
