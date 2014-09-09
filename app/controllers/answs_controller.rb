@@ -152,19 +152,20 @@ class AnswsController < ApplicationController
 
 
 
+
       title = '国有企业贯彻落实“国办发8号文件”情况调查问卷'
       describe_0 = '各有关企业：'
       describe_1 = '为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》'
-      describe_2 = '（国办发〔2013〕8号，简称“国办发8号文件”）及相应政策措施在企业的落实情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本问卷。请结合本企业实际情况认真、如实填写，于8月15日前登陆国家科技评估中心主页（http://www.ncste.org）在线提交。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。'
+      describe_2 = '（国办发〔2013〕8号，简称“国办8号文件”）及相应政策措施在企业的实施情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本调查问卷。为提高工作效率，减轻企业负担，问卷采取网上填报的方式。请结合本企业实际情况认真、如实填写，于9月26日前登陆国家科技评估中心（科技部科技评估中心）主页（http://www.ncste.org）完成在线提交。企业提交问卷后，须下载（PDF版）打印纸质件，盖章确认后由各地省级科技主管部门将本地区企业填好的问卷纸质件统一寄送至国家科技评估中心。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。'
       
-      contact = '联 系 人：李睆玲'
-      tel     = '联系电话：010-62169570'
-      fax     = '传真号码：010-88232615'
-      address = '通讯地址：北京市海淀区皂君庙乙7号(邮编:100081)'
+      contact = '联 系 人：姜玲  王再进'
+      tel     = '联系电话：010-62169570  010-62169385'
+      fax     = '传   真：010-88232615'
+      address = '邮寄地址：北京市海淀区皂君庙乙7号（邮编：100081），姜玲（收）'
       thx     = '衷心感谢您的支持与配合！'
       
-      company = '国家科技评估中心'
-      date    = '2014年9月19日'
+      company = '科技部科技评估中心'
+      date    = '2014年9月5日'
       
       basic_info = '一、基本信息'
       
@@ -193,12 +194,12 @@ class AnswsController < ApplicationController
           end 
       
           pdf.text basic_info,:size => 14
-          pdf.text '1.企业名称：'
+          pdf.text '1.企业名称（盖企业公章）：'
           pdf.indent(20) do 
             convert_font_msyh(pdf,"#{@answ.company}")
           end
       
-          pdf.text '2.企业所在的地区是：'
+          pdf.text '2.企业所在地区（省、自治区、直辖市、计划单列市或新建生产建设兵团）：'
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.address}") 
           end    
@@ -208,14 +209,14 @@ class AnswsController < ApplicationController
             convert_font_msyh(pdf,"#{@answ.tech_domain}") 
           end        
       
-          pdf.text '4.企业类型：'
+          pdf.text '4.企业人数：'
           pdf.indent(20) do 
-            convert_font_msyh(pdf,"#{@answ.company_type}") 
+            convert_font_msyh(pdf,"#{@answ.company_person_count}") 
           end 
       
-          pdf.text '5.企业规模：'
+          pdf.text '5.企业年营业收入：'
           pdf.indent(20) do 
-            convert_font_msyh(pdf,"#{@answ.company_size}") 
+            convert_font_msyh(pdf,"#{@answ.company_income}") 
           end 
       
           pdf.text '6.贵企业在收到此问卷之前对国办发8号文件的了解程度：'
@@ -597,7 +598,7 @@ class AnswsController < ApplicationController
           end
       
           if @answ.u_company.present?
-            pdf.text '所在单位：'
+            pdf.text '所在部门：'
             pdf.indent(20) do
               convert_font_msyh(pdf,"#{@answ.u_company}")
             end       

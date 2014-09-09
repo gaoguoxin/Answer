@@ -10,7 +10,7 @@
       	  <div class="q-filler q-textblank">
       	    <span class="q-idx" style="display: none;">01</span>
       	    <div class="q-title">
-      	      <span class="q-title-content">1.企业名称：</span>
+      	      <span class="q-title-content">1.企业名称（盖企业公章）：</span>
       	      <span class="q-error"></span>
       	    </div>
       	    <div class="q-content">
@@ -31,7 +31,7 @@
       	  <div class="q-filler q-choice">
       	    <span class="q-idx" style="display: none;">02</span>
       	    <div class="q-title">
-      	      <span class="q-title-content">2.您企业所在的地区是：</span>
+      	      <span class="q-title-content">2.企业所在地区（省、自治区、直辖市、计划单列市或新建生产建设兵团）：</span>
       	      <span class="q-error"></span>
       	    </div>
 
@@ -74,7 +74,7 @@
           <div class="q-filler q-choice">
             <span class="q-idx" style="display: none;">04</span>
             <div class="q-title">
-              <span class="q-title-content">4.企业类型：</span>
+              <span class="q-title-content">4.企业人数：</span>
               <span class="q-error"></span>
             </div>
             <div class="q-content">
@@ -84,7 +84,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= answ.company_type%></p>
+                        <p><%= answ.company_person_count %></p>
                       </label>
                     </td>
                   </tr>
@@ -95,7 +95,7 @@
           <div class="q-filler q-choice">
             <span class="q-idx" style="display: none;">05</span>
             <div class="q-title">
-              <span class="q-title-content">5.企业规模：</span>
+              <span class="q-title-content">5.企业年营业收入：</span>
               <span class="q-error"></span>
             </div>
             <div class="q-content">
@@ -105,7 +105,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <p><%= answ.company_size%></p>
+                        <p><%= answ.company_income %></p>
                       </label>
                     </td>
                   </tr>
@@ -1591,7 +1591,7 @@
           <% if answ.u_company.present? %>
             <div class="q-filler q-textblank">
               <div class="q-title">
-                <span class="q-title-content">您所在的单位名称：</span>
+                <span class="q-title-content">所在部门：</span>
               </div>
               <div class="q-content">
                 <table>
