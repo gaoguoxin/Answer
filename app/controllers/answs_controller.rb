@@ -199,7 +199,7 @@ class AnswsController < ApplicationController
             convert_font_msyh(pdf,"#{@answ.company}")
           end
       
-          pdf.text '2.企业所在地区（省、自治区、直辖市、计划单列市或新建生产建设兵团）：'
+          pdf.text '2.企业所在地区（省、自治区、直辖市、计划单列市或新疆生产建设兵团）：'
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.address}") 
           end    
