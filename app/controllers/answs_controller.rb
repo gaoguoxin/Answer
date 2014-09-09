@@ -209,7 +209,7 @@ class AnswsController < ApplicationController
             convert_font_msyh(pdf,"#{@answ.tech_domain}") 
           end        
       
-          pdf.text '4.企业人数：'
+          pdf.text '4.企业从业人数：'
           pdf.indent(20) do 
             convert_font_msyh(pdf,"#{@answ.company_person_count}") 
           end 
