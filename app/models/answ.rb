@@ -17,8 +17,8 @@ class Answ
   field :address,    	   :type => String  # 您企业所在的地区是
   field :tech_domain,	   :type => String  # 企业所属技术领域
   #field :company_type,	 :type => String  # 企业类型
-  field :company_person_count,   :type => Array  # 企业人数
-  field :company_income, :type => Array
+  field :company_person_count,   :type => String  # 企业人数
+  field :company_income, :type => String
   # field :company_size,   :type => String  # 企业规模
   field :known_level,    :type => String  # 贵企业在收到此问卷之前对国办发8号文件的了解程度
   field :known_way,      :type => Array   # 通过哪些途径知晓
