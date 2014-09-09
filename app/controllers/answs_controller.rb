@@ -153,7 +153,7 @@ class AnswsController < ApplicationController
 
 
 
-      title = '国有企业贯彻落实“国办发8号文件”情况调查问卷'
+      title = '国有企业贯彻落实“国办8号文件”情况调查问卷'
       describe_0 = '各有关企业：'
       describe_1 = '为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》'
       describe_2 = '（国办发〔2013〕8号，简称“国办8号文件”）及相应政策措施在企业的实施情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本调查问卷。为提高工作效率，减轻企业负担，问卷采取网上填报的方式。请结合本企业实际情况认真、如实填写，于9月26日前登陆国家科技评估中心（科技部科技评估中心）主页（http://www.ncste.org）完成在线提交。企业提交问卷后，须下载（PDF版）打印纸质件，盖章确认后由各地省级科技主管部门将本地区企业填好的问卷纸质件统一寄送至国家科技评估中心。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。'
@@ -169,7 +169,7 @@ class AnswsController < ApplicationController
       
       basic_info = '一、基本信息'
       
-      sec_info   = '二、国办发8号文件相关政策措施落实情况'
+      sec_info   = '二、国办8号文件相关政策措施落实情况'
       
       
       pdf.default_leading = 10
@@ -219,7 +219,7 @@ class AnswsController < ApplicationController
             convert_font_msyh(pdf,"#{@answ.company_income}") 
           end 
       
-          pdf.text '6.贵企业在收到此问卷之前对国办发8号文件的了解程度：'
+          pdf.text '6.贵企业在收到此问卷之前对国办8号文件的了解程度：'
           pdf.indent(20) do 
             convert_font_msyh(pdf,"#{@answ.known_level}") 
           end     
@@ -231,7 +231,7 @@ class AnswsController < ApplicationController
             end           
           end
       
-          pdf.text '7.贵企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何？'
+          pdf.text '7.贵企业认为国办8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何？'
           pdf.indent(20) do 
             convert_font_msyh(pdf,"#{@answ.sense}") 
           end         
@@ -574,7 +574,7 @@ class AnswsController < ApplicationController
       
           pdf.text '（十二）总体评价和建议',:size =>  13
       
-          pdf.text '25.贵企业对国办发8号文件目前贯彻落实情况的总体评价：'
+          pdf.text '25.贵企业对国办8号文件目前贯彻落实情况的总体评价：'
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.state_rate}")
           end         
@@ -583,7 +583,7 @@ class AnswsController < ApplicationController
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.innovate_chan}")
           end   
-          pdf.text '27.贯彻落实国办发8号文件存在的主要问题及有关建议：'
+          pdf.text '27.贯彻落实国办8号文件存在的主要问题及有关建议：'
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.eight_suggest}")
           end  
