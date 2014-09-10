@@ -313,7 +313,8 @@ class AnswsController < ApplicationController
           end
       
           if @answ.prefer_policy.present?
-            pdf.text '9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术中心，是否享受了进口科技开发用品税收优惠政策：'
+            pdf.text '9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术中心，'
+            pdf.text '是否享受了进口科技开发用品税收优惠政策：'
             pdf.indent(20) do
               convert_font_msyh(pdf,"#{@answ.prefer_policy}")    
             end
@@ -345,7 +346,7 @@ class AnswsController < ApplicationController
           end
           
           if @answ.union_support.present?
-            pdf.text '12.1 所在联盟更希望获得政府部门哪些方面的支持'
+            pdf.text '12.1 所在联盟更希望获得政府部门哪些方面的支持（可多选）：'
             pdf.indent(20) do 
               convert_font_msyh(pdf,"#{@answ.union_support.join(' ') + @answ.union_support_other}")
             end
@@ -418,7 +419,8 @@ class AnswsController < ApplicationController
           end
       
           if @answ.no_adv_reason.present?
-            pdf.text '17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持的原因是：' 
+            pdf.text '17.2 企业在引进海外高层次人才时没有得到海外高层次人才引进计划、创新人才推进计划等政策支持'
+            pdf.text '的原因是：' 
             pdf.indent(20) do
               if @answ.no_adv_reason == '其他'
                 convert_font_msyh(pdf,"#{@answ.no_adv_reason}:#{@answ.no_adv_reason_other}")
@@ -471,7 +473,8 @@ class AnswsController < ApplicationController
           end     
             
           if @answ.no_sent_out_res.present?
-            pdf.text '20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位不曾使用过的主要原因是：'
+            pdf.text '20.1 本企业拥有的主要以政府资金投资建设的科研设施和仪器设备等科技资源，外单位不曾使用过的'
+            pdf.text '主要原因是：'
             pdf.indent(20) do
               if @answ.no_sent_out_res == '其他'
                 convert_font_msyh(pdf,"其他:#{@answ.no_sent_out_res_other}")
@@ -502,7 +505,7 @@ class AnswsController < ApplicationController
             end   
           end
           
-          pdf.text '21.2 企业在开展国际创新合作中，存在的问题和建议：'
+          pdf.text '企业在开展国际创新合作中，存在的问题及建议：'
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.world_problem}")
           end       
