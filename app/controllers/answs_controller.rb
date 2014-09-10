@@ -412,7 +412,8 @@ class AnswsController < ApplicationController
           end      
           
           if @answ.adv_p_support.present?
-            pdf.text '17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进计划等政策支持：' 
+            pdf.text '17.1 企业在引进海外高层次人才时是否得到海外高层次人才引进计划、创新人才推进'
+            pdf.text '计划等政策支持：' 
             pdf.indent(20) do
               convert_font_msyh(pdf,"#{@answ.adv_p_support}")
             end         
