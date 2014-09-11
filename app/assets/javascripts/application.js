@@ -284,18 +284,18 @@ $(function(){
   $('.new_answ input[type="radio"],.new_answ input[type="checkbox"],.new_answ select').change(function(){
     except($(this))
     send_post_ajax($(this))
-    return false
+    //return false
   })    
 
   $('.edit_answ input[type="text"]').keyup(function(){
     send_upd_ajax($(this))
-    return false
+    //return false
   })
 
   $('.edit_answ input[type="radio"],.edit_answ input[type="checkbox"],.edit_answ select').change(function(){
     except($(this)) 
     send_upd_ajax($(this))
-    return false
+    //return false
   })
 
 
