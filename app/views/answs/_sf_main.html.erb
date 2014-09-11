@@ -531,48 +531,50 @@
           <% end %>
 
 
-    
-          <div class="q-filler q-choice">
-            <div class="q-title">
-              <span class="q-title-content">9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术<br>    中心，是否享受了进口科技开发用品税收优惠政策：</span>
+          <% if answ.prefer_policy.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">9.2 如果本企业拥有国家重点实验、国家工程（技术）研究中心、国家认定的企业技术<br>      中心，是否享受了进口科技开发用品税收优惠政策：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <p><%= answ.prefer_policy%></p>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="q-content">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <label class="cust-option">
-                        <span>&nbsp;</span>
-                        <p><%= answ.prefer_policy%></p>
-                      </label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <% end %>
+
   
-  
-          <div class="q-filler q-textblank">
-            <div class="q-title">
-              <span class="q-title-content">9.3 在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
+          <% if answ.policy_problem.present? %>
+            <div class="q-filler q-textblank">
+              <div class="q-title">
+                <span class="q-title-content">9.3 在申请和享受该项税收优惠政策过程中，存在的主要问题及建议：</span>
+              </div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <p><%= answ.policy_problem%></p>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>            
+              </div>
             </div>
-            <div class="q-content">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <label class="cust-option">
-                        <span>&nbsp;</span>
-                        <p><%= answ.policy_problem%></p>
-                      </label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>            
-            </div>
-          </div>
-  
+          <% end %>
           <div class="q-filler">
             <div class="q-title">
               <span class="q-title-content"><span style="font-weight: bold;">（三）支持企业推进重大科技成果产业化</span></span>
@@ -1012,7 +1014,7 @@
                     <td>
                       <label class="cust-option">
                         <span>&nbsp;</span>
-                        <% if answ.adv_reward?%>
+                        <% if answ.adv_reward == '是'%>
                           <p>是</p>
                         <% else %>
                           <p>否(原因:<%= answ.adv_reward_other %>)</p>
@@ -1024,28 +1026,28 @@
               </table>
             </div>
           </div>
-          
-          <div class="q-filler q-choice">
-            <div class="q-title">
-              <span class="q-title-content">18.1 实施股权或分红激励的主要原因是：</span>
+          <% if answ.reward_reason.present? %>
+            <div class="q-filler q-choice">
+              <div class="q-title">
+                <span class="q-title-content">18.1 实施股权或分红激励的主要原因是：</span>
+              </div>
+              <div class="q-note" style="display: none;">说明：</div>
+              <div class="q-content">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <label class="cust-option">
+                          <span>&nbsp;</span>
+                          <%= answ.reward_reason %>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="q-note" style="display: none;">说明：</div>
-            <div class="q-content">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <label class="cust-option">
-                        <span>&nbsp;</span>
-                        <%= answ.reward_reason%>
-                      </label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+          <% end %>
           <div class="q-filler">
             <div class="q-title">
               <span class="q-title-content"><span style="font-weight: bold;">（九）推动科技资源开放共享</span></span>

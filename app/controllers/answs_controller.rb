@@ -439,7 +439,6 @@ class AnswsController < ApplicationController
             else
               convert_font_msyh(pdf,"#{@answ.adv_reward}")
             end
-            
           end         
           
             
