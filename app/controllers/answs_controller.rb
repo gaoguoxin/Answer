@@ -227,7 +227,7 @@ class AnswsController < ApplicationController
           if @answ.known_way.present?
             pdf.text '6.1 通过哪些途径知晓国办8号文件'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.known_way.join(' ') + @answ.known_way_other}") 
+              convert_font_msyh(pdf,"#{@answ.known_way.join(' ') + '：' + @answ.known_way_other}") 
             end           
           end
       
@@ -308,7 +308,7 @@ class AnswsController < ApplicationController
           if @answ.innovate_type.present?
             pdf.text '9.1 贵企业拥有以下哪些国家级或省级的研发机构'
             pdf.indent(20) do 
-              convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ') + @answ.innovate_type_other}") 
+              convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ') + '：' + @answ.innovate_type_other}") 
             end
           end
       
@@ -336,7 +336,7 @@ class AnswsController < ApplicationController
           end
           pdf.text '11.贵企业更希望获得政府部门哪些方面的支持：'
           pdf.indent(20) do 
-            convert_font_msyh(pdf,"#{@answ.support_facet.join(' ') + @answ.support_facet_other}") 
+            convert_font_msyh(pdf,"#{@answ.support_facet.join(' ') + '：' + @answ.support_facet_other}") 
           end
           pdf.text '（四）以企业为主导发展产业技术创新战略联盟',:size => 13
       
@@ -348,7 +348,7 @@ class AnswsController < ApplicationController
           if @answ.union_support.present?
             pdf.text '12.1 所在联盟更希望获得政府部门哪些方面的支持（可多选）：'
             pdf.indent(20) do 
-              convert_font_msyh(pdf,"#{@answ.union_support.join(' ') + @answ.union_support_other}")
+              convert_font_msyh(pdf,"#{@answ.union_support.join(' ') + '：' + @answ.union_support_other}")
             end
             
           end
@@ -377,7 +377,7 @@ class AnswsController < ApplicationController
       
           pdf.text '14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式'
           pdf.indent(20) do
-            convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ') + @answ.cooperate_type_other}")
+            convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ') + '：' + @answ.cooperate_type_other}")
           end
           pdf.text '14.1 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议'
           pdf.indent(20) do 
@@ -394,14 +394,14 @@ class AnswsController < ApplicationController
           if @answ.no_supp_reason.present?
             pdf.text '15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ') + @answ.no_supp_reason_other}")
+              convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ') + '：' + @answ.no_supp_reason_other}")
             end     
             
           end
       
           pdf.text '16.面向企业技术创新需求，建议平台加强的服务内容为:'
           pdf.indent(20) do
-            convert_font_msyh(pdf,"#{@answ.service_content.join(' ') + @answ.service_content_other}")
+            convert_font_msyh(pdf,"#{@answ.service_content.join(' ') + '：' + @answ.service_content_other}")
           end  
           
           pdf.text '（八）加强企业创新人才队伍建设',:size => 13
@@ -502,7 +502,7 @@ class AnswsController < ApplicationController
           if @answ.world_type.present?
             pdf.text '21.1 企业开展国际创新合作采取了如下哪些形式：'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.world_type.join(' ') + @answ.world_type_other}")
+              convert_font_msyh(pdf,"#{@answ.world_type.join(' ') + '：' + @answ.world_type_other}")
             end   
           end
           
@@ -527,7 +527,7 @@ class AnswsController < ApplicationController
           if @answ.no_deduct_rea.present?
             pdf.text '22.2 贵企业没有享受企业研发费用加计扣除政策的原因是：'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ') + @answ.no_deduct_rea_other}")
+              convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ') + '：' + @answ.no_deduct_rea_other}")
             end         
           end
       
@@ -551,7 +551,7 @@ class AnswsController < ApplicationController
           if @answ.no_deprecia.present?
             pdf.text '23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是：'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ') + @answ.no_deprecia_other}")
+              convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ') + '：' + @answ.no_deprecia_other}")
             end         
           end
       

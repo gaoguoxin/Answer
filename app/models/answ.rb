@@ -27,7 +27,7 @@ class Answ
   field :innovate,       :type => String  # 企业是否设立了专门的技术创新管理部门
 
   field :devotion,       :type => String  # 近三年研发投入是否逐年增加
-  field :percent,        :type => Integer # 2013年本企业研发投入占销售收入的大致比例 
+  field :percent,        :type => Float # 2013年本企业研发投入占销售收入的大致比例 
   field :satisfy,        :type => String  # 研发投入强度是否能够满足企业技术创新需求
   field :lead,           :type => String  # 企业是否曾牵头承担中央或地方财政资助的科技计划项目
   field :support,        :type => String  # 企业是否支持科研项目经费后补助政策
