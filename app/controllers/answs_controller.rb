@@ -506,7 +506,7 @@ class AnswsController < ApplicationController
             end   
           end
           
-          pdf.text '企业在开展国际创新合作中，存在的问题及建议：'
+          pdf.text '21.2 企业在开展国际创新合作中，存在的问题及建议：'
           pdf.indent(20) do
             convert_font_msyh(pdf,"#{@answ.world_problem}")
           end       
