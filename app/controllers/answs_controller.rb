@@ -253,7 +253,7 @@ class AnswsController < ApplicationController
           end  
           pdf.text '3.1 2013年本企业研发投入占销售收入的大致比例'
           pdf.indent(20) do 
-             convert_font_msyh(pdf,"#{@answ.percent}") 
+             convert_font_msyh(pdf,"#{@answ.percent}%") 
           end  
           pdf.text '3.2 研发投入强度是否能够满足企业技术创新需求：'
           pdf.indent(20) do 
@@ -514,7 +514,9 @@ class AnswsController < ApplicationController
           pdf.text '（十一）完善支持企业技术创新的财税金融等政策',:size => 13
       
           pdf.text '22.贵企业是否享受了企业研发费用加计扣除政策：'
-      
+          pdf.indent(20) do 
+            convert_font_msyh(pdf,"#{@answ.deduct_prolicy}")
+          end
           if @answ.deduct_usage.present?
             pdf.text '22.1 该政策对促进贵企业加大研发投入的作用和影响：'
             pdf.indent(20) do
