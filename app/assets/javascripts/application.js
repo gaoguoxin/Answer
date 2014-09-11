@@ -267,6 +267,14 @@ $(function(){
     }    
   }
 
+  remove_other_text = function(){
+    var other_input = $('input[id$="_other"]');
+    var other_check = other_input.siblings('label').find('input:checked');
+    if (other_check.length < 1){
+      other_input.val('');
+    }
+  }
+
 
   $('input[type="radio"]:checked').each(function(){
     set_required($(this));
@@ -277,12 +285,13 @@ $(function(){
   })  
 
   $('.new_answ input[type="text"]').keyup(function(){
-    send_post_ajax($(this))
-    return false
+    send_post_ajax($(this));
+    //return false
   })
 
   $('.new_answ input[type="radio"],.new_answ input[type="checkbox"],.new_answ select').change(function(){
-    except($(this))
+    remove_other_text();
+    except($(this));
     send_post_ajax($(this))
     //return false
   })    
@@ -293,7 +302,8 @@ $(function(){
   })
 
   $('.edit_answ input[type="radio"],.edit_answ input[type="checkbox"],.edit_answ select').change(function(){
-    except($(this)) 
+    remove_other_text();
+    except($(this));
     send_upd_ajax($(this))
     //return false
   })

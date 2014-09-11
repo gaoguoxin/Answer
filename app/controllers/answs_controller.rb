@@ -134,8 +134,11 @@ class AnswsController < ApplicationController
     end
 
     def set_col
+      Rails.logger.info('=============================================================')
+      Rails.logger.info(answ_params.keys)
+      Rails.logger.info('=============================================================')
       (Answ.fields.keys - ['_id','updated_at','created_at','uid','status'] - answ_params.keys).each do |k|
-        answ_params["#{k}"] = nil
+        answ_params[:"#{k}"] = nil
       end
     end
 
