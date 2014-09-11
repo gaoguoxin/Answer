@@ -620,6 +620,7 @@ body {
 		}
 		.q-filler{
 			font-size:18px;
+			@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 1px);
 			// @include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 0px);
 		}
 	}
