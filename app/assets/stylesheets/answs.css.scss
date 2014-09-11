@@ -538,7 +538,7 @@ body {
 	line-height: 1.5em;
 	position: relative;
 	background:#fff;
-	@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 2px, 8px);
+	@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 1px);
 	//@include box-shadow(rgba(22, 22, 48, 0.2),0px 0px 8px);
 	//@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 8px);
 	clear: both;
@@ -588,7 +588,7 @@ body {
 	&.q-paragraph{
 		box-shadow: none;
 		+ .q-filler{
-			@include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 8px);
+			// @include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 8px);
 		}
 		.q-title{
 			margin-top: 26px;
@@ -620,6 +620,7 @@ body {
 		}
 		.q-filler{
 			font-size:18px;
+			// @include single-box-shadow(rgba(22, 22, 48, 0.2), 0px, 0px, 0px);
 		}
 	}
 
