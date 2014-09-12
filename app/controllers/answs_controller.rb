@@ -420,7 +420,7 @@ class AnswsController < ApplicationController
           if @answ.no_supp_reason.present?
             pdf.text '15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是'
             pdf.indent(20) do
-              if @answ.no_supp_reason_other
+              if @answ.no_supp_reason_other.present?
                 convert_font_msyh(pdf,"#{@answ.no_supp_reason.join('  ') + '：' + @answ.no_supp_reason_other}")
               else
                 convert_font_msyh(pdf,"#{@answ.no_supp_reason.join('  ')}")
