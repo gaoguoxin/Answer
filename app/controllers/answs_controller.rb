@@ -157,7 +157,6 @@ class AnswsController < ApplicationController
       title = '“国办8号文件”落实情况企业调查问卷'
       describe_0 = '各有关企业：'
       describe_1 = '为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办'
-      #describe_1 = '为跟踪了解《国务院办公厅关于强化企业技术创新主体地位全面提升企业创新能力的意见》（国办发〔2013〕8号，简称“国办8号文件”）及相应政策措施在企业的实施情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本调查问卷。为提高工作效率，减轻企业负担，问卷采取网上填报的方式。请结合本企业实际情况认真、如实填写，于9月26日前登陆国家科技评估中心（科技部科技评估中心）主页（http://www.ncste.org）完成在线提交。企业提交问卷后，须下载（PDF版）打印纸质件，盖章确认后由各地省级科技主管部门将本地区企业填好的问卷纸质件统一寄送至国家科技评估中心。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。'
       describe_2 = '发〔2013〕8号，简称“国办8号文件”）及相应政策措施在企业的实施情况，分析政策实施中存在的问题与不足，完善相关政策及操作办法，方便企业更好、更便捷地享受到政策优惠，我们设计了本调查问卷。为提高工作效率，减轻企业负担，问卷采取网上填报的方式。请结合本企业实际情况认真、如实填写，于9月26日前登陆国家科技评估中心（科技部科技评估中心）主页（http://www.ncste.org）完成在线提交。企业提交问卷后，须下载（PDF版）打印纸质件，盖章确认后由各地省级科技主管部门将本地区企业填好的问卷纸质件统一寄送至国家科技评估中心。我们将妥善使用贵企业提供的宝贵信息，并保证不向任何无关机构或个人透漏。为确保问卷质量，建议由贵企业分管技术创新工作的人员填写。选择题部分，除另有说明外，均为单选。'
       
       contact = '联 系 人：姜玲  王再进'
@@ -229,7 +228,12 @@ class AnswsController < ApplicationController
           if @answ.known_way.present?
             pdf.text '6.1 通过哪些途径知晓国办8号文件'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.known_way.join(' ') + '：' + @answ.known_way_other}") 
+              if @answ.known_way_other.present?
+                convert_font_msyh(pdf,"#{@answ.known_way.join(' ') + '：' + @answ.known_way_other}")
+              else
+                convert_font_msyh(pdf,"#{@answ.known_way.join(' ')}")
+              end
+               
             end           
           end
       
@@ -310,7 +314,12 @@ class AnswsController < ApplicationController
           if @answ.innovate_type.present?
             pdf.text '9.1 贵企业拥有以下哪些国家级或省级的研发机构'
             pdf.indent(20) do 
-              convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ') + '：' + @answ.innovate_type_other}") 
+              if @answ.innovate_type_other.present?
+                convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ') + '：' + @answ.innovate_type_other}") 
+              else
+                convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ')}") 
+              end
+              
             end
           end
       
@@ -338,7 +347,12 @@ class AnswsController < ApplicationController
           end
           pdf.text '11.贵企业更希望获得政府部门哪些方面的支持：'
           pdf.indent(20) do 
-            convert_font_msyh(pdf,"#{@answ.support_facet.join(' ') + '：' + @answ.support_facet_other}") 
+            if @answ.support_facet_other.present?
+              convert_font_msyh(pdf,"#{@answ.support_facet.join(' ') + '：' + @answ.support_facet_other}")
+            else
+              convert_font_msyh(pdf,"#{@answ.support_facet.join(' ')}")
+            end
+             
           end
           pdf.text '（四）以企业为主导发展产业技术创新战略联盟',:size => 13
       
@@ -350,7 +364,12 @@ class AnswsController < ApplicationController
           if @answ.union_support.present?
             pdf.text '12.1 所在联盟更希望获得政府部门哪些方面的支持（可多选）：'
             pdf.indent(20) do 
-              convert_font_msyh(pdf,"#{@answ.union_support.join(' ') + '：' + @answ.union_support_other}")
+              if @answ.union_support_other.present?
+                convert_font_msyh(pdf,"#{@answ.union_support.join(' ') + '：' + @answ.union_support_other}")
+              else
+                convert_font_msyh(pdf,"#{@answ.union_support.join(' ')}")
+              end
+              
             end
             
           end
@@ -379,7 +398,12 @@ class AnswsController < ApplicationController
       
           pdf.text '14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式'
           pdf.indent(20) do
-            convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ') + '：' + @answ.cooperate_type_other}")
+            if @answ.cooperate_type_other.present?
+              convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ') + '：' + @answ.cooperate_type_other}")
+            else
+              convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ')}")
+            end
+            
           end
           pdf.text '14.1 企业在与科研院所、高等学校开展技术创新合作方面，存在的主要问题及建议'
           pdf.indent(20) do 
@@ -396,14 +420,24 @@ class AnswsController < ApplicationController
           if @answ.no_supp_reason.present?
             pdf.text '15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ') + '：' + @answ.no_supp_reason_other}")
+              if @answ.no_supp_reason_other
+                convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ') + '：' + @answ.no_supp_reason_other}")
+              else
+                convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ')}")
+              end
+              
             end     
             
           end
       
           pdf.text '16.面向企业技术创新需求，建议平台加强的服务内容为:'
           pdf.indent(20) do
-            convert_font_msyh(pdf,"#{@answ.service_content.join(' ') + '：' + @answ.service_content_other}")
+            if @answ.service_content_other.present?
+              convert_font_msyh(pdf,"#{@answ.service_content.join(' ') + '：' + @answ.service_content_other}")
+            else
+              convert_font_msyh(pdf,"#{@answ.service_content.join(' ')}") 
+            end
+            
           end  
           
           pdf.text '（八）加强企业创新人才队伍建设',:size => 13
@@ -503,7 +537,12 @@ class AnswsController < ApplicationController
           if @answ.world_type.present?
             pdf.text '21.1 企业开展国际创新合作采取了如下哪些形式：'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.world_type.join(' ') + '：' + @answ.world_type_other}")
+              if @answ.world_type_other.present?
+                convert_font_msyh(pdf,"#{@answ.world_type.join(' ') + '：' + @answ.world_type_other}")
+              else
+                convert_font_msyh(pdf,"#{@answ.world_type.join(' ')}")
+              end
+              
             end   
           end
           
@@ -528,7 +567,12 @@ class AnswsController < ApplicationController
           if @answ.no_deduct_rea.present?
             pdf.text '22.2 贵企业没有享受企业研发费用加计扣除政策的原因是：'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ') + '：' + @answ.no_deduct_rea_other}")
+              if @answ.no_deduct_rea_other.present?
+                convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ') + '：' + @answ.no_deduct_rea_other}")
+              else
+                convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ')}")
+              end
+              
             end         
           end
       
@@ -552,7 +596,12 @@ class AnswsController < ApplicationController
           if @answ.no_deprecia.present?
             pdf.text '23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是：'
             pdf.indent(20) do
-              convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ') + '：' + @answ.no_deprecia_other}")
+              if @answ.no_deprecia_other.present?
+                convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ') + '：' + @answ.no_deprecia_other}")
+              else
+                convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ')}")
+              end
+              
             end         
           end
       
