@@ -229,9 +229,9 @@ class AnswsController < ApplicationController
             pdf.text '6.1 通过哪些途径知晓国办8号文件'
             pdf.indent(20) do
               if @answ.known_way_other.present?
-                convert_font_msyh(pdf,"#{@answ.known_way.join(' ') + '：' + @answ.known_way_other}")
+                convert_font_msyh(pdf,"#{@answ.known_way.join('  ') + '：' + @answ.known_way_other}")
               else
-                convert_font_msyh(pdf,"#{@answ.known_way.join(' ')}")
+                convert_font_msyh(pdf,"#{@answ.known_way.join('  ')}")
               end
                
             end           
@@ -315,9 +315,9 @@ class AnswsController < ApplicationController
             pdf.text '9.1 贵企业拥有以下哪些国家级或省级的研发机构'
             pdf.indent(20) do 
               if @answ.innovate_type_other.present?
-                convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ') + '：' + @answ.innovate_type_other}") 
+                convert_font_msyh(pdf,"#{@answ.innovate_type.join('  ') + '：' + @answ.innovate_type_other}") 
               else
-                convert_font_msyh(pdf,"#{@answ.innovate_type.join(' ')}") 
+                convert_font_msyh(pdf,"#{@answ.innovate_type.join('  ')}") 
               end
               
             end
@@ -348,9 +348,9 @@ class AnswsController < ApplicationController
           pdf.text '11.贵企业更希望获得政府部门哪些方面的支持：'
           pdf.indent(20) do 
             if @answ.support_facet_other.present?
-              convert_font_msyh(pdf,"#{@answ.support_facet.join(' ') + '：' + @answ.support_facet_other}")
+              convert_font_msyh(pdf,"#{@answ.support_facet.join('  ') + '：' + @answ.support_facet_other}")
             else
-              convert_font_msyh(pdf,"#{@answ.support_facet.join(' ')}")
+              convert_font_msyh(pdf,"#{@answ.support_facet.join('  ')}")
             end
              
           end
@@ -365,9 +365,9 @@ class AnswsController < ApplicationController
             pdf.text '12.1 所在联盟更希望获得政府部门哪些方面的支持（可多选）：'
             pdf.indent(20) do 
               if @answ.union_support_other.present?
-                convert_font_msyh(pdf,"#{@answ.union_support.join(' ') + '：' + @answ.union_support_other}")
+                convert_font_msyh(pdf,"#{@answ.union_support.join('  ') + '：' + @answ.union_support_other}")
               else
-                convert_font_msyh(pdf,"#{@answ.union_support.join(' ')}")
+                convert_font_msyh(pdf,"#{@answ.union_support.join('  ')}")
               end
               
             end
@@ -399,9 +399,9 @@ class AnswsController < ApplicationController
           pdf.text '14.贵企业与科研院所、高等学校开展技术创新合作，主要采取了哪些方式'
           pdf.indent(20) do
             if @answ.cooperate_type_other.present?
-              convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ') + '：' + @answ.cooperate_type_other}")
+              convert_font_msyh(pdf,"#{@answ.cooperate_type.join('  ') + '：' + @answ.cooperate_type_other}")
             else
-              convert_font_msyh(pdf,"#{@answ.cooperate_type.join(' ')}")
+              convert_font_msyh(pdf,"#{@answ.cooperate_type.join('  ')}")
             end
             
           end
@@ -421,9 +421,9 @@ class AnswsController < ApplicationController
             pdf.text '15.1 贵企业没有享受过技术创新服务平台或科技中介服务机构提供的服务的原因是'
             pdf.indent(20) do
               if @answ.no_supp_reason_other
-                convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ') + '：' + @answ.no_supp_reason_other}")
+                convert_font_msyh(pdf,"#{@answ.no_supp_reason.join('  ') + '：' + @answ.no_supp_reason_other}")
               else
-                convert_font_msyh(pdf,"#{@answ.no_supp_reason.join(' ')}")
+                convert_font_msyh(pdf,"#{@answ.no_supp_reason.join('  ')}")
               end
               
             end     
@@ -433,9 +433,9 @@ class AnswsController < ApplicationController
           pdf.text '16.面向企业技术创新需求，建议平台加强的服务内容为:'
           pdf.indent(20) do
             if @answ.service_content_other.present?
-              convert_font_msyh(pdf,"#{@answ.service_content.join(' ') + '：' + @answ.service_content_other}")
+              convert_font_msyh(pdf,"#{@answ.service_content.join('  ') + '：' + @answ.service_content_other}")
             else
-              convert_font_msyh(pdf,"#{@answ.service_content.join(' ')}") 
+              convert_font_msyh(pdf,"#{@answ.service_content.join('  ')}") 
             end
             
           end  
@@ -538,9 +538,9 @@ class AnswsController < ApplicationController
             pdf.text '21.1 企业开展国际创新合作采取了如下哪些形式：'
             pdf.indent(20) do
               if @answ.world_type_other.present?
-                convert_font_msyh(pdf,"#{@answ.world_type.join(' ') + '：' + @answ.world_type_other}")
+                convert_font_msyh(pdf,"#{@answ.world_type.join('  ') + '：' + @answ.world_type_other}")
               else
-                convert_font_msyh(pdf,"#{@answ.world_type.join(' ')}")
+                convert_font_msyh(pdf,"#{@answ.world_type.join('  ')}")
               end
               
             end   
@@ -568,9 +568,9 @@ class AnswsController < ApplicationController
             pdf.text '22.2 贵企业没有享受企业研发费用加计扣除政策的原因是：'
             pdf.indent(20) do
               if @answ.no_deduct_rea_other.present?
-                convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ') + '：' + @answ.no_deduct_rea_other}")
+                convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join('  ') + '：' + @answ.no_deduct_rea_other}")
               else
-                convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join(' ')}")
+                convert_font_msyh(pdf,"#{@answ.no_deduct_rea.join('  ')}")
               end
               
             end         
@@ -597,9 +597,9 @@ class AnswsController < ApplicationController
             pdf.text '23.2 贵企业没有享受企业研发仪器设备加速折旧政策的原因是：'
             pdf.indent(20) do
               if @answ.no_deprecia_other.present?
-                convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ') + '：' + @answ.no_deprecia_other}")
+                convert_font_msyh(pdf,"#{@answ.no_deprecia.join('  ') + '：' + @answ.no_deprecia_other}")
               else
-                convert_font_msyh(pdf,"#{@answ.no_deprecia.join(' ')}")
+                convert_font_msyh(pdf,"#{@answ.no_deprecia.join('  ')}")
               end
               
             end         
