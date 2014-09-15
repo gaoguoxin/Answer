@@ -16,10 +16,8 @@ class Answ
   field :company,    	   :type => String  # 企业名称
   field :address,    	   :type => String  # 您企业所在的地区是
   field :tech_domain,	   :type => String  # 企业所属技术领域
-  #field :company_type,	 :type => String  # 企业类型
   field :company_person_count,   :type => String  # 企业人数
   field :company_income, :type => String
-  # field :company_size,   :type => String  # 企业规模
   field :known_level,    :type => String  # 贵企业在收到此问卷之前对国办发8号文件的了解程度
   field :known_way,      :type => Array   # 通过哪些途径知晓
   field :sense,          :type => String  # 贵企业认为国办发8号文件的颁布实施，对强化我国企业技术创新主体地位、全面提升企业创新能力的意义和指导作用如何
@@ -163,9 +161,7 @@ class Answ
     arr << '企业名称'
     arr << '您企业所在的地区'
     arr << '企业所属技术领域'
-    # arr << '企业类型'
     arr << '企业从业人数'
-    # arr << '企业规模'
     arr << '企业年营业收入'
     arr << '贵企业在收到此问卷之前对国办发8号文件的了解程度'
     arr << '通过哪些途径知晓8号文件'
@@ -238,7 +234,7 @@ class Answ
     brr << '您的职务'
     brr << '您的联系电话'
     brr << '您的常用的电子信箱'
-    
+
     arr + brr
 
   end
@@ -248,9 +244,7 @@ class Answ
     arr << self.company
     arr << self.address
     arr << self.tech_domain
-    # arr << self.company_type
     arr << self.company_person_count
-    #arr << self.company_size
     arr << self.company_income
     arr << self.known_level
     if self.known_way.present?
@@ -266,6 +260,9 @@ class Answ
     arr << self.plan
     arr << self.innovate
 
+
+
+
     arr << self.devotion
     arr << (self.percent.to_s + '%')
     arr << self.satisfy
@@ -276,6 +273,9 @@ class Answ
     arr << self.seek
     arr << self.appraise
     arr << self.appra_suggest
+
+
+
 
 
     arr << self.cash_support
@@ -303,7 +303,6 @@ class Answ
     end
     arr << self.innovate_union
 
-
     if self.union_support.present?
       if self.union_support.include?('其他')
         arr << (self.union_support.join(' ') + ':' + self.union_support_other.to_s)
@@ -313,13 +312,10 @@ class Answ
     else
       arr << ''
     end
-    
-    # if self.union_support == '其他'
-    #   arr << (self.union_support  + ':' + self.union_support_other.to_s)
-    # else
-    #   arr << self.union_support
-    # end
-    # arr << self.gov_union_prob
+
+    arr << self.gov_union_prob
+  
+
 
 
 
@@ -396,7 +392,9 @@ class Answ
       arr << ''
     end
 
-    
+ 
+
+
 
     arr << self.world_problem
     arr << self.deduct_prolicy
@@ -425,15 +423,8 @@ class Answ
       arr << ''
     end
 
-    # if self.no_deprecia == '其他'
-    #   arr << (self.no_deprecia + '(:' + self.no_deprecia_other.to_s + ')')
-    # else
-    #   arr << self.no_deprecia
-    # end
-
     arr << self.deprec_suggest
     arr << self.adv_company
-
 
     arr << self.adv_policy
     arr << self.adv_suggest
@@ -445,6 +436,8 @@ class Answ
     arr << self.position
     arr << self.tel
     arr << self.email
+
+
 
   end
 
