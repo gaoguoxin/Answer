@@ -20,6 +20,10 @@ $(function(){
 
   if_required  = function(quota,show,chain){
     if(show){
+      if (quota.parents('.q-filler').hasClass('empty')){
+        quota.parents('.q-filler').find('.q-required').show()
+        quota.parents('.q-filler').find('.q-error').show()
+      }
       quota.parents('.q-filler').find('.q-required').css('display','inline');
       quota.parents('.q-content').find('input').prop('disabled', false);
       if(chain){
@@ -27,7 +31,9 @@ $(function(){
         chain.prop('disabled', false);
       }
     }else{
-      quota.parents('.q-filler').removeClass('empty').find('.q-required').hide().siblings('.q-error').hide()
+      if(quota.parents('.q-filler').hasClass('empty')){
+        quota.parents('.q-filler').removeClass('empty').find('.q-required').hide().siblings('.q-error').hide()
+      }
       quota.parents('.q-filler').find('.q-required').css('display','none');
       d_ipt = quota.parents('.q-content').find('input');
       ipt_text = quota.parents('.q-content').find('input[type="text"]');

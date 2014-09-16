@@ -4,7 +4,7 @@ $ ->
     
 
 	roll_back =(msg)->
-		$('.q-filler.empty .q-error').text(msg)
+		$('.q-filler.empty .q-error').text(msg).css({'display':'inline-block'});
 		top = $('.q-filler.empty').offset().top
 		$("html, body").animate({ scrollTop: top }, 500)
 
