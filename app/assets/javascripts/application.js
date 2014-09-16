@@ -27,6 +27,7 @@ $(function(){
         chain.prop('disabled', false);
       }
     }else{
+      quota.parents('.q-filler').removeClass('empty').find('.q-required').hide().siblings('.q-error').hide()
       quota.parents('.q-filler').find('.q-required').css('display','none');
       d_ipt = quota.parents('.q-content').find('input');
       ipt_text = quota.parents('.q-content').find('input[type="text"]');
@@ -268,7 +269,10 @@ $(function(){
 
     if(obj.attr('name') == 'answ[adv_person]'){
       if(obj.attr('value') == '否'){
-        $('input[name="answ[no_adv_reason]"]').parents('.q-content').siblings('.q-title').find('.q-required').hide();       
+        $('input[name="answ[no_adv_reason]"]').parents('.q-content').siblings('.q-title').find('.q-required').hide().next('.q-error').hide();
+        $('input[name="answ[no_adv_reason]"]').parents('.q-filler').removeClass('empty');
+        $('input[name="answ[adv_p_support]"]').parents('.q-content').siblings('.q-title').find('.q-required').hide().next('.q-error').hide();
+        $('input[name="answ[adv_p_support]"]').parents('.q-filler').removeClass('empty');
       }
     } 
 
