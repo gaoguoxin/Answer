@@ -23,6 +23,7 @@ $ ->
 					if isNaN( parseInt(ipt.val()) )
 						if $('.q-filler.empty').length < 1
 							q_title.parent('.q-filler').addClass('empty')
+							console.log('1')
 							roll_back('该题为必答题,请认真填写答案!')
 							return false
 					else
@@ -35,6 +36,7 @@ $ ->
 					if $.trim(ipt.val()).length == 0
 						if $('.q-filler.empty').length < 1
 							q_title.parent('.q-filler').addClass('empty')
+							console.log('2')
 							roll_back('该题为必答题,请认真填写答案!')
 							return false
 
@@ -43,6 +45,7 @@ $ ->
 				if address.val() == ''
 					if $('.q-filler.empty').length < 1
 						q_title.parent('.q-filler').addClass('empty')
+						console.log('3')
 						roll_back('该题为必答题,请认真填写答案!')
 						return false
 
@@ -52,6 +55,7 @@ $ ->
 				if check_radio.length < 1
 					if $('.q-filler.empty').length < 1
 						q_title.parent('.q-filler').addClass('empty')
+						console.log('4')
 						roll_back('该题为必答题,请认真填写答案!')
 						return false
 
@@ -61,6 +65,7 @@ $ ->
 				if checked.length < 1
 					if $('.q-filler.empty').length < 1
 						q_title.parent('.q-filler').addClass('empty')
+						console.log('5')
 						roll_back('该题为必答题,请认真填写答案!')
 						return false
 		)
