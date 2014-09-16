@@ -264,7 +264,15 @@ $(function(){
       }else{
         $('input[name="answ[no_deprecia][]"]:first').attr('checked',false)
       }
-    }    
+    } 
+
+    if(obj.attr('name') == 'answ[adv_person]'){
+      if(obj.attr('value') == '否'){
+        $('input[name="answ[no_adv_reason]"]').parents('.q-content').siblings('.q-title').find('.q-required').hide();       
+      }
+    } 
+
+
   }
 
   remove_other_text = function(){
