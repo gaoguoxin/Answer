@@ -26,7 +26,7 @@ $ ->
 							roll_back('该题为必答题,请认真填写答案!')
 							return false
 					else
-						if(parseInt( ipt.val() ) < 0 or parseInt( ipt.val() ) > 100)
+						if(parseInt( ipt.val() ) < 0)
 							if $('.q-filler.empty').length < 1
 								q_title.parent('.q-filler').addClass('empty')
 								roll_back('您填写的值有误,请认真填写!')
