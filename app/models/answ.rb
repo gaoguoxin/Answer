@@ -234,7 +234,7 @@ class Answ
     brr << '您的职务'
     brr << '您的联系电话'
     brr << '您的常用的电子信箱'
-
+    brr << '答题日期'
     arr + brr
 
   end
@@ -436,7 +436,7 @@ class Answ
     arr << self.position
     arr << self.tel
     arr << self.email
-
+    arr << self.created_at.strftime('%F')
 
 
   end
