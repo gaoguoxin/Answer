@@ -436,7 +436,7 @@ class Answ
     arr << self.position
     arr << self.tel
     arr << self.email
-    arr << self.created_at.strftime('%F')
+    arr << self.updated_at.strftime('%F %T')
 
 
   end
